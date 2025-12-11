@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Product Showcase</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html,body { height:100%; font-family: "Segoe UI", Roboto, Arial, sans-serif; background: linear-gradient(180deg,#fffdfa 0%, #fff4d6 100%); color:#222; }
+
+  /* NAVBAR - uses requested palette */
+  nav {
+    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+    padding: 16px 36px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-radius:0 0 18px 18px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.18);
+    position:sticky; top:0; z-index:1200;
+  }
+  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
+  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
+  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
+  nav ul li a {
+    display:block;
+    text-decoration:none;
+    color:#E70114;
+    padding:10px 18px;
+    border-radius:12px;
+    background: rgba(255,255,255,0.46);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    font-weight:700;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    border:1px solid rgba(231,1,20,0.06);
+  }
+  nav ul li a:hover, nav ul li a:focus {
+    transform: translateY(-6px) scale(1.03);
+    background:#E70114;
+    color:#FFFF00;
+    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+  }
+
+  /* Page title */
+  .page-title { text-align:center; margin:34px 0; font-size:44px; color:#B00000; text-shadow:0 4px 18px rgba(231,1,20,0.12); font-weight:900; }
+
+  /* Container for all product sections */
+  main { width:92%; max-width:1200px; margin: 0 auto 60px; }
+
+  /* Section base */
+  .section {
+    width:100%;
+    margin:44px auto;
+    display:flex;
+    gap:26px;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
+    min-height:260px;
+    opacity:0;
+    transform: translateY(60px);
+    transition: all .75s cubic-bezier(.2,.9,.2,1);
+    flex-wrap:wrap;
+  }
+  .section.show { opacity:1; transform: translateY(0); }
+
+  /* Alternating order for even sections */
+  .section.even { flex-direction:row-reverse; }
+
+  /* Soft glow behind each section */
+  .glow {
+    position:absolute;
+    inset:0;
+    margin:auto;
+    width:86%;
+    height:86%;
+    border-radius:34px;
+    background: radial-gradient(circle at 40% 40%, rgba(255,220,0,0.18), transparent 30%);
+    filter: blur(54px);
+    z-index:0;
+    opacity:0;
+    transition:opacity 1s ease;
+  }
+  .section.show .glow { opacity:1; }
+
+  /* Video box */
+  .video-box {
+    width:48%;
+    min-width:300px;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    z-index:2;
+    transform: rotate(-4deg);
+    transition: transform .45s ease, box-shadow .45s ease;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+    border:6px solid rgba(255,255,255,0.75);
+    background:#000;
+  }
+  .section.even .video-box { transform: rotate(4deg); }
+  .video-box:hover { transform: rotate(0deg) scale(1.04); box-shadow: 0 28px 70px rgba(231,1,20,0.22); }
+
+  /* Video element */
+  .video-box video {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    vertical-align : middle;
+  }
+
+  /* Play/unmute overlay */
+  .overlay {
+    position:absolute;
+    inset:12px;
+    border-radius:16px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+    pointer-events:none;
+  }
+  .btn-mute {
+    pointer-events:auto;
+    margin:12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+    border: 1px solid rgba(0,0,0,0.06);
+    padding:10px 12px;
+    border-radius:10px;
+    font-weight:700;
+    color:#E70114;
+    box-shadow:0 8px 20px rgba(0,0,0,0.18);
+    cursor:pointer;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-mute:hover { transform: translateY(-4px); box-shadow:0 14px 30px rgba(0,0,0,0.24); }
+
+  /* Card */
+  .card {
+    width:48%;
+    min-width:300px;
+    padding:26px;
+    border-radius:18px;
+    background: linear-gradient(180deg,#ffffff,#fff5d6);
+    box-shadow:0 12px 40px rgba(0,0,0,0.16);
+    z-index:2;
+    border-left:10px solid #E70114;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .card:hover { transform: translateY(-8px); box-shadow:0 28px 70px rgba(0,0,0,0.22); }
+
+  .card h2 { color:#C70000; font-size:28px; margin-bottom:8px; letter-spacing:0.2px; }
+  .card p { color:#333; font-size:15.6px; line-height:1.45; margin-bottom:12px; }
+  .badge { display:inline-block; padding:6px 10px; background:#E70114; color:#FFFF00; font-weight:800; border-radius:8px; font-size:12px; box-shadow:0 8px 20px rgba(231,1,20,0.14); margin-bottom:12px; }
+
+  /* Small actions row */
+  .card .actions { display:flex; gap:12px; margin-top:12px; align-items:center; flex-wrap:wrap; }
+  .btn { padding:10px 14px; border-radius:10px; background: #fff; border:1px solid rgba(0,0,0,0.06); font-weight:700; color:#b30000; cursor:pointer; box-shadow:0 8px 18px rgba(0,0,0,0.12); transition: all .18s ease; }
+  .btn:hover { transform: translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,0.16); }
+
+  /* Footer */
+  footer {
+    margin-top:40px;
+    padding:28px 18px;
+    background:#E70114;
+    color:#fff;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:0.6px;
+    box-shadow:0 -6px 28px rgba(0,0,0,0.16);
+  }
+
+  /* Responsive */
+  @media (max-width:980px) {
+    .video-box, .card { width:100%; min-width:unset; }
+    .section { gap:18px; padding:10px 0; }
+    .video-box { transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="brand" href="index.html">
+    <img class="logo" src="logo.png" alt="LOGO" />
+    AMPOLE Rope
+  </a>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products</a></li>
+  </ul>
+</nav>
+
+<header class="page-title">Our Products</header>
+
+<main id="catalog">
+  <!-- Repeat these .section blocks for 10 products -->
+  <!-- 1 -->
+  <section class="section" data-index="1">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video1.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Top Seller</div>
+      <h2>Product One</h2>
+      <p>High-quality product with excellent performance. Ideal for multiple applications where reliability matters.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="section even" data-index="2">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video2.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Durable</div>
+      <h2>Product Two</h2>
+      <p>Reliable, durable, and designed for efficiency. Manufactured under strict quality checks for consistent performance.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="section" data-index="3">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video3.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Premium</div>
+      <h2>Product Three</h2>
+      <p>Premium product with advanced features that give superior strength and longer service life.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="section even" data-index="4">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video4.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Pro Choice</div>
+      <h2>Product Four</h2>
+      <p>Highly recommended for professionals — engineered for constant heavy-duty use.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="section" data-index="5">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video5.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Best Value</div>
+      <h2>Product Five</h2>
+      <p>Top-selling product with excellent customer reviews — great balance of cost and performance.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="section even" data-index="6">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video6.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Commercial</div>
+      <h2>Product Six</h2>
+      <p>Highly recommended for professionals — consistent quality for commercial-scale projects.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="section" data-index="7">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video7.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Advanced</div>
+      <h2>Product Seven</h2>
+      <p>Premium product with advanced features for demanding environments and applications.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="section even" data-index="8">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video8.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Professional</div>
+      <h2>Product Eight</h2>
+      <p>Premium product with advanced features and consistent production quality.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="section" data-index="9">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video9.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Reliable</div>
+      <h2>Product Nine</h2>
+      <p>High-quality product with excellent performance — consistency guaranteed.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="section even" data-index="10">
+    <div class="glow"></div>
+    <div class="video-box">
+      <video src="video10.mp4" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <button class="btn-mute" aria-label="toggle sound">Unmute ▶</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="badge">Industrial</div>
+      <h2>Product Ten</h2>
+      <p>Reliable, durable, and designed for efficiency — engineered for industrial use.</p>
+      <div class="actions">
+        <button class="btn">View Details</button>
+        <button class="btn">Request Quote</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> AMPOL Rope — All Rights Reserved • Contact: +91-XXXXXXXXXX
+</footer>
+
+<script>
+  // insert current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // reveal on scroll
+  const sections = Array.from(document.querySelectorAll('.section'));
+  function reveal() {
+    const vh = window.innerHeight;
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      if (rect.top < vh - 120) s.classList.add('show');
+    });
+  }
+  window.addEventListener('scroll', reveal, { passive: true });
+  window.addEventListener('resize', reveal);
+  reveal();
+
+  // Video mute/unmute + play-pause on click
+  document.querySelectorAll('.video-box').forEach(box => {
+    const video = box.querySelector('video');
+    const btn = box.querySelector('.btn-mute');
+
+    // Update button text based on mute state
+    function updateBtn() {
+      btn.textContent = video.muted ? 'Unmute ▶' : 'Mute ⏸';
+    }
+    updateBtn();
+
+    // Clicking button toggles mute (and plays if paused)
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (video.paused) video.play();
+      video.muted = !video.muted;
+      updateBtn();
+    });
+
+    // clicking video toggles pause/play
+    box.addEventListener('click', (e) => {
+      // ignore clicks on actual button because pointer-events handled
+      if (video.paused) { video.play(); }
+      else { video.pause(); }
+      updateBtn();
+    });
+
+    // keep looped autoplay videos playing (some browsers pause to save resources)
+    video.addEventListener('ended', () => video.play());
+    video.addEventListener('pause', () => box.classList.add('paused'));
+    video.addEventListener('play', () => box.classList.remove('paused'));
+  });
+</script>
+
+</body>
+</html>
