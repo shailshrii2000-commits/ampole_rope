@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HDPE rope – AMPOLE Rope</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI", Roboto, Arial, sans-serif;}
+body{background:linear-gradient(180deg,#fffdfa 0%,#fff4d6 100%);color:#222;}
+nav{background:linear-gradient(90deg,#FFFF00 0%,#FFEE33 50%,#FFFF00 100%);padding:16px 36px;display:flex;align-items:center;justify-content:space-between;border-radius:0 0 18px 18px;box-shadow:0 6px 30px rgba(0,0,0,0.18);position:sticky;top:0;z-index:1200;}
+nav .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#E70114;font-weight:800;font-size:20px;}
+nav img.logo{height:56px;width:auto;border-radius:8px;background:rgba(255,255,255,0.6);padding:6px;box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+nav ul{list-style:none;display:flex;gap:18px;align-items:center;margin-left:18px;}
+nav ul li a{display:block;text-decoration:none;color:#E70114;padding:10px 18px;border-radius:12px;background: rgba(255,255,255,0.46);backdrop-filter: blur(6px);box-shadow: 0 6px 14px rgba(0,0,0,0.18);font-weight:700;transition:0.25s;border:1px solid rgba(231,1,20,0.06);}
+nav ul li a:hover{transform: translateY(-6px) scale(1.03);background:#E70114;color:#FFFF00;}
+
+h2{font-size:36px;color:#B00000;text-align:center;margin:30px 0;text-shadow:0 4px 18px rgba(231,1,20,0.12);}
+
+.gallery{max-width:1200px;margin:auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
+
+.main-img{
+  flex:1 1 900px;
+  min-width:420px;
+  border-radius:22px;
+  overflow:hidden;
+  border:10px solid rgba(255,255,255,0.95);
+  box-shadow:0 26px 60px rgba(0,0,0,0.32);
+}
+
+.main-img img{
+  width:100%;
+  height:100%;
+  max-height:820px;  /* 🔥 bigger height */
+  object-fit:contain; /* shows full image bigger without cutting */
+  display:block;
+}
+
+
+.thumbs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+  margin-top:20px;
+}
+.thumbs img{
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  border-radius:14px;
+  border:4px solid #E70114;
+  cursor:pointer;
+  transition:transform .25s;
+}
+.thumbs img:hover{
+  transform:scale(1.12);
+}
+
+footer{
+  margin-top:40px;
+  padding:28px 18px;
+  background:#E70114;
+  color:#fff;
+  text-align:center;
+  font-weight:700;
+  letter-spacing:0.6px;
+}
+
+@media(max-width:980px){
+  .main-img{width:100%;flex:1 1 auto;}
+  .thumbs img{width:90px;height:90px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="brand" href="index.html"><img class="logo" src="logo.png" alt="LOGO">AMPOLE Rope</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products</a></li>
+  </ul>
+</nav>
+
+<h2>HDPE rope</h2>
+
+<div class="gallery">
+
+  <div class="main-img">
+    <img id="current" src="main2.jpg" alt="">
+  </div>
+
+  <div class="thumbs">
+    <img src="B1.jpg" onclick="current.src=this.src">
+    <img src="B2.jpg" onclick="current.src=this.src">
+    <img src="B3.jpg" onclick="current.src=this.src">
+    <img src="B4.jpg" onclick="current.src=this.src">
+    <img src="B5.jpg" onclick="current.src=this.src">
+    <img src="B6.jpg" onclick="current.src=this.src">
+    <img src="B7.jpeg" onclick="current.src=this.src">
+  </div>
+
+</div>
+
+<!-- ⭐ 4 Product Videos -->
+<div class="video-section">
+  <video controls><source src="bv1.mp4" type="video/mp4"></video>
+</div>
+
+<div class="other-products">
+  <a href="products.html" class="other-btn">View Other Products</a>
+</div>
+
+<footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
