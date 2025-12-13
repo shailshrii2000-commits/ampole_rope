@@ -1,277 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Phone Video Showcase</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMPOLE Rope – Strength You Can Trust</title>
 
 <style>
-:root{
-  --bg:#fffdfa;
-  --nav-grad-start:#FFFF00;
-  --nav-grad-mid:#FFEE33;
-  --nav-text:#E70114;
-  --phone-border:#ffffff;
-  --accent:#E70114;
-  --muted-btn-bg:rgba(255,255,255,0.85);
-  --shadow:rgba(0,0,0,0.18);
-}
-.dark{
-  --bg:#0f1114;
-  --nav-grad-start:#2c2c2c;
-  --nav-grad-mid:#222;
-  --nav-text:#ffd24d;
-  --phone-border:#0b0b0b;
-  --accent:#ff7b7b;
-  --muted-btn-bg:rgba(20,20,20,0.85);
-  --shadow:rgba(0,0,0,0.6);
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif}
 
-*{margin:0;padding:0;box-sizing:border-box}
+/* ===== BODY ===== */
 body{
-  background:var(--bg);
-  font-family:Segoe UI,Arial,sans-serif;
+  background:#fffdfa;
+  color:#222;
 }
 
 /* ===== NAVBAR ===== */
-nav {
-    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-    padding: 16px 36px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-radius:0 0 18px 18px;
-    box-shadow:0 6px 30px rgba(0,0,0,0.18);
-    position:sticky; top:0; z-index:1200;
-  }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
-
-/* Eye toggle */
-.eye-btn{
-  width:40px;
-  height:40px;
-  border-radius:10px;
-  border:none;
-  cursor:pointer;
-  background:var(--muted-btn-bg);
-  box-shadow:0 6px 18px var(--shadow);
-}
-
-/* ===== PHONE CONTAINER ===== */
-.container{
-  width:100%;
+nav{
+  background:linear-gradient(90deg,#FFFF00,#FFEE33,#FFFF00);
+  padding:16px 36px;
   display:flex;
-  justify-content:center;
-  margin-top:30px;
-  position:relative;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:20px;
+  font-weight:800;
+  color:#E70114;
+  text-decoration:none;
+}
+.brand img{
+  height:56px;
+  background:#fff;
+  padding:6px;
+  border-radius:8px;
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:18px;
+}
+nav ul a{
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  background:rgba(255,255,255,.5);
+  border-radius:12px;
+  font-weight:700;
+}
+nav ul a:hover{
+  background:#E70114;
+  color:#FFFF00;
 }
 
-/* PHONE */
-.phone{
-  width:320px;
-  height:580px;
-  border-radius:32px;
-  border:10px solid var(--phone-border);
-  overflow:hidden;
+/* ===== FULL SCREEN VIDEO ===== */
+.hero{
+  width:100%;
+  height:100vh;
   background:#000;
   position:relative;
-  box-shadow:0 24px 60px rgba(0,0,0,0.35);
 }
-.phone video{
+.hero video{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;   /* 🔥 FULL VIDEO, NO CROP */
+  background:#000;
 }
 
-/* LOADER */
-.loader{
+/* TEXT OVER VIDEO */
+.hero-text{
   position:absolute;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
+  bottom:12%;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  text-shadow:0 6px 30px rgba(0,0,0,.7);
 }
-.loader::after{
-  content:"";
-  width:56px;
-  height:56px;
-  border:6px solid rgba(255,255,255,0.2);
-  border-top-color:var(--accent);
-  border-radius:50%;
-  animation:spin 1s linear infinite;
+.hero-text h1{
+  font-size:52px;
 }
-@keyframes spin{to{transform:rotate(360deg)}}
+.hero-text p{
+  font-size:22px;
+  margin-top:10px;
+}
 
-/* SOUND */
-.sound-btn{
-  position:absolute;
-  right:14px;
-  bottom:14px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:var(--muted-btn-bg);
+/* QUICK PRODUCT ACCESS */
+.quick-products{
   display:flex;
-  align-items:center;
   justify-content:center;
-  cursor:pointer;
+  gap:20px;
+  padding:30px;
+  background:#fff4d6;
+  flex-wrap:wrap;
+}
+.quick-products a{
+  padding:14px 30px;
+  background:#E70114;
+  color:#fff;
+  border-radius:14px;
+  font-weight:700;
+  text-decoration:none;
+}
+.quick-products a:hover{
+  background:#000;
 }
 
-/* PROGRESS */
-.progress-wrap{
-  position:absolute;
-  left:12px;
-  right:12px;
-  bottom:76px;
-  height:8px;
-  background:rgba(255,255,255,0.12);
-  border-radius:999px;
+/* INFO SECTION */
+.info{
+  max-width:1100px;
+  margin:60px auto;
+  padding:0 20px;
+  text-align:center;
 }
-.progress{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,var(--accent),#ffb3b3);
+.info h2{
+  font-size:36px;
+  color:#B00000;
+  margin-bottom:16px;
+}
+.info p{
+  font-size:18px;
+  line-height:1.6;
 }
 
-/* ===== ARROWS NEAR PHONE ===== */
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  background:var(--muted-btn-bg);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:20px;
-  box-shadow:0 8px 20px var(--shadow);
-  z-index:20;
-}
-.arrow.left{ left:6px; }
-.arrow.right{ right:6px; }
-
-/* MOBILE */
-@media(max-width:880px){
-  .arrow{display:none}
-  .nav-links{display:none}
-  .phone{
-    width:86vw;
-    height:86vh;
-    max-width:420px;
-    max-height:800px;
-  }
+/* FOOTER */
+footer{
+  background:#E70114;
+  color:#fff;
+  text-align:center;
+  padding:24px;
+  font-weight:700;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== NAV BAR ===== -->
+<!-- NAV -->
 <nav>
-  <a class="brand" href="#">
-    <img style="width: 120px; height: 60px;" src="logo.png" alt="logo">
-    AMPOLE Rope
+  <a class="brand" href="index.html">
+    <img src="logo.png"> AMPOLE Rope
   </a>
-
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="products.html">Products</a></li>
-    </ul>
-
-  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products</a></li>
+  </ul>
 </nav>
 
-<!-- ===== CONTENT ===== -->
-<div class="container">
+<!-- FULL SCREEN HOME VIDEO -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="video1.mp4" type="video/mp4">
+  </video>
 
-  <div class="arrow left" id="prevBtn">◀</div>
-
-  <div class="phone">
-    <div class="loader" id="loader"></div>
-    <video id="video" autoplay muted playsinline></video>
-    <div class="sound-btn" id="soundBtn">🔇</div>
-    <div class="progress-wrap">
-      <div class="progress" id="progress"></div>
-    </div>
+  <div class="hero-text">
+    <h1>AMPOLE Rope</h1>
+    <p>Premium Quality • Industrial Strength</p>
   </div>
+</section>
 
-  <div class="arrow right" id="nextBtn">▶</div>
+<!-- QUICK PRODUCT LINKS -->
+<section class="quick-products">
+  <a href="hdpe-lachha.html">HDPE Lachha</a>
+  <a href="hdpe-lachhi.html">HDPE Lachhi</a>
+  <a href="hdpe-rope.html">HDPE Rope</a>
+  <a href="pp-rope.html">PP Rope</a>
+</section>
 
-</div>
+<!-- TEXT SECTION -->
+<section class="info">
+  <h2>Why Choose AMPOLE Rope?</h2>
+  <p>
+    We manufacture high-strength ropes using advanced technology.
+    Trusted by industries for durability, safety, and performance.
+  </p>
+</section>
+
+<footer>
+© <span id="year"></span> AMPOLE Rope — All Rights Reserved
+</footer>
 
 <script>
-const videos=["video1.mp4","video2.mp4","video3.mp4"];
-let index=0;
-
-const video=document.getElementById("video");
-const loader=document.getElementById("loader");
-const progress=document.getElementById("progress");
-const soundBtn=document.getElementById("soundBtn");
-
-function loadVideo(){
-  loader.style.display="flex";
-  video.src=videos[index];
-  video.load();
-}
-loadVideo();
-
-video.onloadeddata=()=>{
-  loader.style.display="none";
-  video.play();
-};
-
-video.ontimeupdate=()=>{
-  progress.style.width=(video.currentTime/video.duration)*100+"%";
-};
-
-video.onended=()=>nextVideo();
-
-function nextVideo(){
-  index=(index+1)%videos.length;
-  loadVideo();
-}
-function prevVideo(){
-  index=(index-1+videos.length)%videos.length;
-  loadVideo();
-}
-
-document.getElementById("nextBtn").onclick=nextVideo;
-document.getElementById("prevBtn").onclick=prevVideo;
-
-soundBtn.onclick=()=>{
-  video.muted=!video.muted;
-  soundBtn.textContent=video.muted?"🔇":"🔊";
-};
-
-document.getElementById("themeToggle").onclick=()=>{
-  document.documentElement.classList.toggle("dark");
-};
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>

@@ -1,203 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Showcase</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products – AMPOLE Rope</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #fffde7;
-            color: #E70114;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif;}
+body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
 
-        /* NAVBAR */
-        nav {
-            background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-            padding: 16px 36px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            border-radius:0 0 18px 18px;
-            box-shadow:0 6px 30px rgba(0,0,0,0.18);
-            position:sticky; top:0; z-index:1200;
-        }
-        nav .brand { 
-            display:flex; align-items:center; gap:12px; 
-            text-decoration:none; color:#E70114; 
-            font-weight:800; font-size:20px; 
-        }
-        nav img.logo { 
-            height:56px; width:auto; border-radius:8px; 
-            background:rgba(255,255,255,0.6); padding:6px; 
-            box-shadow:0 6px 18px rgba(0,0,0,0.2); 
-        }
-        nav ul { 
-            list-style:none; display:flex; gap:18px; align-items:center; 
-        }
-        nav ul li a {
-            display:block;
-            text-decoration:none;
-            color:#E70114;
-            padding:10px 18px;
-            border-radius:12px;
-            background: rgba(255,255,255,0.46);
-            backdrop-filter: blur(6px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-            font-weight:700;
-            transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-            border:1px solid rgba(231,1,20,0.06);
-        }
-        nav ul li a:hover {
-            transform: translateY(-6px) scale(1.03);
-            background:#E70114;
-            color:#FFFF00;
-            box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-        }
+/* ===== NAVBAR ===== */
+nav{
+  background:linear-gradient(90deg,#FFFF00,#FFEE33,#FFFF00);
+  padding:16px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,.18);
+  position:sticky;top:0;z-index:1000;
+}
+nav .brand{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:#E70114;
+  font-weight:800;font-size:20px;
+}
+nav img{height:56px;background:#fff;padding:6px;border-radius:8px}
+nav ul{list-style:none;display:flex;gap:18px}
+nav ul li a{
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  background:rgba(255,255,255,.5);
+  border-radius:12px;
+  font-weight:700;
+}
+nav ul li a:hover{background:#E70114;color:#FFFF00}
 
-        /* TITLE */
-        h2 {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 34px;
-            color: #E70114;
-            text-shadow: 0px 0px 10px rgba(231,1,20,0.5);
-        }
+/* ===== TITLE ===== */
+h1{
+  text-align:center;
+  margin:32px 0;
+  font-size:38px;
+  color:#B00000;
+}
 
-        /* PRODUCT GRID */
-        .product-section {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 40px 20px;
-        }
-        .product-name {
-            margin-top: 10px;
-            font-size: 18px;
-            font-weight: 700;
-            color: #E70114;   /* Red theme */
-            text-align: center;
-        }
+/* ===== PRODUCTS GRID ===== */
+.products{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
+  padding:20px;
+}
 
+/* ===== PRODUCT CARD ===== */
+.card{
+  background:#fff;
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+  overflow:hidden;
+  transition:.3s;
+}
+.card:hover{transform:translateY(-10px)}
 
-        /* FULL CARD CLICKABLE */
-        .product {
-            width: 260px;
-            background: #fff;
-            border: 3px solid #E70114;
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-            transition: 0.35s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+.card video{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:block;
+}
 
-        /* 🔥 Glow animation */
-        .product:hover {
-            transform: scale(1.07);
-            box-shadow: 0 0 25px #FFEB3B, 0 0 40px rgba(231,1,20,0.7);
-        }
+.card .content{
+  padding:20px;
+  text-align:center;
+}
 
-        /* Image */
-        .product img {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            border-radius: 10px;
-        }
+.card h3{
+  color:#E70114;
+  margin-bottom:10px;
+  font-size:22px;
+}
 
-        /* VIEW BUTTON */
-        .btn {
-            margin-top: 12px;
-            display: inline-block;
-            width: 80%;
-            padding: 12px 0;
-            background: #E70114;
-            color: #FFFF00;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            border-radius: 30px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-            transition: 0.3s ease;
-        }
+.card p{
+  font-size:14px;
+  opacity:.85;
+  margin-bottom:14px;
+}
 
-        /* Hover effect */
-        .product:hover .btn {
-            background: #FFFF00;
-            color: #E70114;
-            transform: translateY(-4px);
-            box-shadow: 0 0 18px #FFEB3B, 0 0 32px rgba(231,1,20,0.6);
-        }
+.card a{
+  display:inline-block;
+  padding:12px 26px;
+  background:#E70114;
+  color:#FFFF00;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:700;
+}
+.card a:hover{opacity:.9}
 
-        /* 📱 Mobile Responsive */
-        @media (max-width: 600px) {
-            .btn {
-                width: 100%;
-                font-size: 16px;
-                padding: 12px 0;
-            }
-        }
-
-    </style>
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  .card video{height:300px}
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <a class="brand" href="index.html">
-            <img class="logo" src="logo.png" alt="LOGO" />
-            AMPOLE Rope
-        </a>
+<nav>
+  <a class="brand" href="index.html">
+    <img src="logo.png" alt="logo">
+    AMPOLE Rope
+  </a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="products.html">Products</a></li>
+  </ul>
+</nav>
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html">Products</a></li>
-        </ul>
-    </nav>
+<h1>Our Products</h1>
 
-    <h2 id="products">Our Products</h2>
+<section class="products">
 
-    <!-- PRODUCT GRID -->
-<section class="product-section">
+  <!-- HDPE LACHHA -->
+  <div class="card">
+    <video src="av1.mp4" autoplay muted loop playsinline></video>
+    <div class="content">
+      <h3>HDPE Lachha</h3>
+      <p>Strong and durable HDPE Lachha for multiple applications.</p>
+      <a href="hdpe-lachha.html">View Product</a>
+    </div>
+  </div>
 
-    <!-- FULL CARD CLICKABLE -->
-    <a href="hdpe-lachha.html" class="product">
-    <img src="main1.jpg" alt="HDPE Lachha">
-    <div class="product-name">HDPE Lachha</div>
-    <div class="btn">View</div>
-</a>
+  <!-- HDPE LACHHI -->
+  <div class="card">
+    <video src="bv1.mp4" autoplay muted loop playsinline></video>
+    <div class="content">
+      <h3>HDPE Lachhi</h3>
+      <p>Premium quality HDPE Lachhi with long life and strength.</p>
+      <a href="hdpe-lachhi.html">View Product</a>
+    </div>
+  </div>
 
+  <!-- HDPE ROPE -->
+  <div class="card">
+    <video src="cv1.mp4" autoplay muted loop playsinline></video>
+    <div class="content">
+      <h3>HDPE Rope</h3>
+      <p>High strength HDPE ropes for industrial & commercial use.</p>
+      <a href="hdpe-rope.html">View Product</a>
+    </div>
+  </div>
 
-<a href="hdpe-lachhi.html" class="product">
-    <img src="main2.jpg" alt="HDPE Lachhi">
-    <div class="product-name">HDPE Lachhi</div>
-    <div class="btn">View</div>
-</a>
-
-<a href="hdpe-rope.html" class="product">
-    <img src="main3.jpg" alt="HDPE Rope">
-    <div class="product-name">HDPE Rope</div>
-    <div class="btn">View</div>
-</a>
-
-
-
-<a href="pp-rope.html" class="product">
-    <img src="D1.jpg" alt="PP Rope">
-    <div class="product-name">PP Rope</div>
-    <div class="btn">View</div>
-</a>
-
+  <!-- PP ROPE -->
+  <div class="card">
+    <video src="dv1.mp4" autoplay muted loop playsinline></video>
+    <div class="content">
+      <h3>PP Rope</h3>
+      <p>Premium polypropylene ropes with flexibility and durability.</p>
+      <a href="pp-rope.html">View Product</a>
+    </div>
+  </div>
 
 </section>
 

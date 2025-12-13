@@ -67,7 +67,7 @@ h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
   object-fit:contain;
 }
 
-/* IMAGE ARROWS */
+/* ARROWS */
 .img-arrow{
   position:absolute;
   top:50%;
@@ -83,7 +83,6 @@ h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
   font-size:22px;
   font-weight:900;
   box-shadow:0 8px 20px rgba(0,0,0,.3);
-  user-select:none;
 }
 .img-arrow.left{left:14px}
 .img-arrow.right{right:14px}
@@ -107,7 +106,7 @@ h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
 }
 .thumbs img:hover{transform:scale(1.12)}
 
-/* ===== VIDEO SLIDER ===== */
+/* ===== VIDEO ===== */
 .video-section{
   max-width:900px;
   margin:60px auto;
@@ -174,7 +173,6 @@ footer{
 
 <h2>HDPE Lachhi</h2>
 
-<!-- IMAGE SLIDER -->
 <div class="gallery">
   <div class="main-img">
     <div class="img-arrow left" onclick="prevImg()">◀</div>
@@ -183,17 +181,16 @@ footer{
   </div>
 
   <div class="thumbs">
-    <img src="B1.jpg" onclick="setImg(this.src)">
-    <img src="B2.jpg" onclick="setImg(this.src)">
-    <img src="B3.jpg" onclick="setImg(this.src)">
-    <img src="B4.jpg" onclick="setImg(this.src)">
-    <img src="B5.jpg" onclick="setImg(this.src)">
-    <img src="B6.jpg" onclick="setImg(this.src)">
-    <img src="B7.jpeg" onclick="setImg(this.src)">
+    <img src="B1.jpg" onclick="setImg(0)">
+    <img src="B2.jpg" onclick="setImg(1)">
+    <img src="B3.jpg" onclick="setImg(2)">
+    <img src="B4.jpg" onclick="setImg(3)">
+    <img src="B5.jpg" onclick="setImg(4)">
+    <img src="B6.jpg" onclick="setImg(5)">
+    <img src="B7.jpeg" onclick="setImg(6)">
   </div>
 </div>
 
-<!-- VIDEO SLIDER -->
 <div class="video-section">
   <video class="active" controls><source src="bv1.mp4"></video>
   <video controls><source src="bv2.mp4"></video>
@@ -210,11 +207,13 @@ footer{
 /* IMAGE SLIDER */
 const images=["B1.jpg","B2.jpg","B3.jpg","B4.jpg","B5.jpg","B6.jpg","B7.jpeg"];
 let imgIndex=0;
+let autoSlide=setInterval(nextImg,3000);
 const currentImg=document.getElementById("currentImg");
 
-function setImg(src){
-  imgIndex=images.indexOf(src);
-  currentImg.src=src;
+function setImg(i){
+  imgIndex=i;
+  currentImg.src=images[imgIndex];
+  resetAuto();
 }
 function nextImg(){
   imgIndex=(imgIndex+1)%images.length;
@@ -224,9 +223,18 @@ function prevImg(){
   imgIndex=(imgIndex-1+images.length)%images.length;
   currentImg.src=images[imgIndex];
 }
-setInterval(nextImg,3000);
+function resetAuto(){
+  clearInterval(autoSlide);
+  autoSlide=setInterval(nextImg,3000);
+}
 
-/* VIDEO SLIDER */
+/* KEYBOARD ARROWS */
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight") nextImg();
+  if(e.key==="ArrowLeft") prevImg();
+});
+
+/* VIDEO */
 const videos=document.querySelectorAll(".video-section video");
 const dots=document.querySelectorAll(".video-dots span");
 let vIndex=0;
@@ -238,8 +246,7 @@ function showVideo(i){
   dots[i].classList.add("active");
   videos[i].play();
 }
-dots.forEach((d,i)=>d.onclick=()=>{vIndex=i;showVideo(vIndex)});
-setInterval(()=>{vIndex=(vIndex+1)%videos.length;showVideo(vIndex)},6000);
+dots.forEach((d,i)=>d.onclick=()=>showVideo(i));
 
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
