@@ -1,44 +1,114 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PP rope – AMPOLE Rope</title>
+<title>PP Rope – AMPOLE Rope</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI", Roboto, Arial, sans-serif;}
 body{background:linear-gradient(180deg,#fffdfa 0%,#fff4d6 100%);color:#222;}
-nav{background:linear-gradient(90deg,#FFFF00 0%,#FFEE33 50%,#FFFF00 100%);padding:16px 36px;display:flex;align-items:center;justify-content:space-between;border-radius:0 0 18px 18px;box-shadow:0 6px 30px rgba(0,0,0,0.18);position:sticky;top:0;z-index:1200;}
-nav .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#E70114;font-weight:800;font-size:20px;}
-nav img.logo{height:56px;width:auto;border-radius:8px;background:rgba(255,255,255,0.6);padding:6px;box-shadow:0 6px 18px rgba(0,0,0,0.2);}
-nav ul{list-style:none;display:flex;gap:18px;align-items:center;margin-left:18px;}
-nav ul li a{display:block;text-decoration:none;color:#E70114;padding:10px 18px;border-radius:12px;background: rgba(255,255,255,0.46);backdrop-filter: blur(6px);box-shadow: 0 6px 14px rgba(0,0,0,0.18);font-weight:700;transition:0.25s;border:1px solid rgba(231,1,20,0.06);}
-nav ul li a:hover{transform: translateY(-6px) scale(1.03);background:#E70114;color:#FFFF00;}
 
-h2{font-size:36px;color:#B00000;text-align:center;margin:30px 0;text-shadow:0 4px 18px rgba(231,1,20,0.12);}
+/* ===== NAVBAR ===== */
+nav{
+  background:linear-gradient(90deg,#FFFF00 0%,#FFEE33 50%,#FFFF00 100%);
+  padding:16px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,.18);
+  position:sticky;
+  top:0;
+  z-index:1200;
+}
+nav .brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:800;
+  font-size:20px;
+}
+nav img.logo{
+  height:56px;
+  border-radius:8px;
+  background:#fff;
+  padding:6px;
+}
+nav ul{list-style:none;display:flex;gap:18px;}
+nav ul li a{
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background:rgba(255,255,255,.46);
+  font-weight:700;
+  transition:.25s;
+}
+nav ul li a:hover{
+  background:#E70114;
+  color:#FFFF00;
+  transform:translateY(-4px);
+}
 
-.gallery{max-width:1200px;margin:auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
+h2{
+  font-size:36px;
+  color:#B00000;
+  text-align:center;
+  margin:30px 0;
+}
 
+/* ===== GALLERY ===== */
+.gallery{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* MAIN IMAGE */
 .main-img{
+  position:relative;
   flex:1 1 900px;
   min-width:420px;
   border-radius:22px;
   overflow:hidden;
-  border:10px solid rgba(255,255,255,0.95);
-  box-shadow:0 26px 60px rgba(0,0,0,0.32);
+  border:10px solid #fff;
+  box-shadow:0 26px 60px rgba(0,0,0,.32);
 }
-
 .main-img img{
   width:100%;
-  height:100%;
-  max-height:820px;  /* 🔥 bigger height */
-  object-fit:contain; /* shows full image bigger without cutting */
-  display:block;
+  max-height:820px;
+  object-fit:contain;
 }
 
+/* ARROWS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:900;
+  cursor:pointer;
+  user-select:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+.arrow.left{left:10px;}
+.arrow.right{right:10px;}
+.arrow:hover{background:#E70114;color:#fff;}
 
+/* THUMBS */
 .thumbs{
   display:flex;
   flex-wrap:wrap;
@@ -53,24 +123,38 @@ h2{font-size:36px;color:#B00000;text-align:center;margin:30px 0;text-shadow:0 4p
   border-radius:14px;
   border:4px solid #E70114;
   cursor:pointer;
-  transition:transform .25s;
+  transition:.25s;
 }
-.thumbs img:hover{
-  transform:scale(1.12);
+.thumbs img:hover{transform:scale(1.12);}
+
+/* VIDEOS */
+.video-section{
+  max-width:1200px;
+  margin:40px auto;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.video-section video{
+  width:320px;
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
+/* FOOTER */
 footer{
   margin-top:40px;
-  padding:28px 18px;
+  padding:28px;
   background:#E70114;
   color:#fff;
   text-align:center;
   font-weight:700;
-  letter-spacing:0.6px;
 }
 
+/* MOBILE */
 @media(max-width:980px){
-  .main-img{width:100%;flex:1 1 auto;}
+  .main-img{min-width:100%;}
   .thumbs img{width:90px;height:90px;}
 }
 </style>
@@ -79,7 +163,9 @@ footer{
 <body>
 
 <nav>
-  <a class="brand" href="index.html"><img class="logo" src="logo.png" alt="LOGO">AMPOLE Rope</a>
+  <a class="brand" href="index.html">
+    <img class="logo" src="logo.png"> AMPOLE Rope
+  </a>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
@@ -87,69 +173,99 @@ footer{
   </ul>
 </nav>
 
-<h2>PP rope</h2>
+<h2>PP Rope</h2>
 
 <div class="gallery">
 
   <div class="main-img">
-    <img id="current" src="main4.jpg" alt="">
+    <div class="arrow left" onclick="prevImg()">◀</div>
+    <img id="current" src="D1.jpg">
+    <div class="arrow right" onclick="nextImg()">▶</div>
   </div>
 
   <div class="thumbs">
-    <img src="D1.jpg" onclick="current.src=this.src">
-    <img src="D2.jpg" onclick="current.src=this.src">
-    <img src="D3.jpg" onclick="current.src=this.src">
-    <img src="D4.jpg" onclick="current.src=this.src">
-    <img src="D5.jpg" onclick="current.src=this.src">
-    <img src="D6.jpg" onclick="current.src=this.src">
-    <img src="D7.jpg" onclick="current.src=this.src">
-    <img src="D8.jpg" onclick="current.src=this.src">
-    <img src="D9.jpg" onclick="current.src=this.src">
-    <img src="D10.jpg" onclick="current.src=this.src">
-    <img src="D11.jpg" onclick="current.src=this.src">
-    <img src="D12.jpg" onclick="current.src=this.src">
-    <img src="D13.jpg" onclick="current.src=this.src">
-    <img src="D14.jpg" onclick="current.src=this.src">
-    <img src="D15.jpg" onclick="current.src=this.src">
-    <img src="D16.jpg" onclick="current.src=this.src">
-    <img src="D17.jpg" onclick="current.src=this.src">
-    <img src="D18.jpg" onclick="current.src=this.src">
-    <img src="D19.jpg" onclick="current.src=this.src">
-    <img src="D20.jpg" onclick="current.src=this.src">
-    <img src="D21.jpg" onclick="current.src=this.src">
-    <img src="D22.jpg" onclick="current.src=this.src">
-    <img src="D23.jpg" onclick="current.src=this.src">
-    <img src="D24.jpg" onclick="current.src=this.src">
-    <img src="D25.jpeg" onclick="current.src=this.src">
-    <img src="D26.jpeg" onclick="current.src=this.src">
-    <img src="D27.jpeg" onclick="current.src=this.src">
-    <img src="D28.jpeg" onclick="current.src=this.src">
-    <img src="D29.jpeg" onclick="current.src=this.src">
-    <img src="D30.jpeg" onclick="current.src=this.src">
-    <img src="D31.jpeg" onclick="current.src=this.src">
-    <img src="D32.jpeg" onclick="current.src=this.src">
-    <img src="D33.jpeg" onclick="current.src=this.src">
-    <img src="D34.jpeg" onclick="current.src=this.src">
-    <img src="D35.jpeg" onclick="current.src=this.src">
+    <img src="D1.jpg" onclick="setImg(0)">
+    <img src="D2.jpg" onclick="setImg(1)">
+    <img src="D3.jpg" onclick="setImg(2)">
+    <img src="D4.jpg" onclick="setImg(3)">
+    <img src="D5.jpg" onclick="setImg(4)">
+    <img src="D6.jpg" onclick="setImg(5)">
+    <img src="D7.jpg" onclick="setImg(6)">
+    <img src="D8.jpg" onclick="setImg(7)">
+    <img src="D9.jpg" onclick="setImg(8)">
+    <img src="D10.jpg" onclick="setImg(9)">
+    <img src="D11.jpg" onclick="setImg(10)">
+    <img src="D12.jpg" onclick="setImg(11)">
+    <img src="D13.jpg" onclick="setImg(12)">
+    <img src="D14.jpg" onclick="setImg(13)">
+    <img src="D15.jpg" onclick="setImg(14)">
+    <img src="D16.jpg" onclick="setImg(15)">
+    <img src="D17.jpg" onclick="setImg(16)">
+    <img src="D18.jpg" onclick="setImg(17)">
+    <img src="D19.jpg" onclick="setImg(18)">
+    <img src="D20.jpg" onclick="setImg(19)">
+    <img src="D21.jpg" onclick="setImg(20)">
+    <img src="D22.jpg" onclick="setImg(21)">
+    <img src="D23.jpg" onclick="setImg(22)">
+    <img src="D24.jpg" onclick="setImg(23)">
+    <img src="D25.jpeg" onclick="setImg(24)">
+    <img src="D26.jpeg" onclick="setImg(25)">
+    <img src="D27.jpeg" onclick="setImg(26)">
+    <img src="D28.jpeg" onclick="setImg(27)">
+    <img src="D29.jpeg" onclick="setImg(28)">
+    <img src="D30.jpeg" onclick="setImg(29)">
+    <img src="D31.jpeg" onclick="setImg(30)">
+    <img src="D32.jpeg" onclick="setImg(31)">
+    <img src="D33.jpeg" onclick="setImg(32)">
+    <img src="D34.jpeg" onclick="setImg(33)">
+    <img src="D35.jpeg" onclick="setImg(34)">
   </div>
 
 </div>
 
-<!-- ⭐ 4 Product Videos -->
 <div class="video-section">
-  <video controls><source src="dv1.mp4" type="video/mp4"></video>
-  <video controls><source src="dv2.mp4" type="video/mp4"></video>
-  <video controls><source src="dv2.mp4" type="video/mp4"></video>
-</div>
-
-<div class="other-products">
-  <a href="products.html" class="other-btn">View Other Products</a>
+  <video controls src="dv1.mp4"></video>
+  <video controls src="dv2.mp4"></video>
+  <video controls src="dv3.mp4"></video>
 </div>
 
 <footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+const images=[
+ "D1.jpg","D2.jpg","D3.jpg","D4.jpg","D5.jpg","D6.jpg","D7.jpg","D8.jpg",
+ "D9.jpg","D10.jpg","D11.jpg","D12.jpg","D13.jpg","D14.jpg","D15.jpg",
+ "D16.jpg","D17.jpg","D18.jpg","D19.jpg","D20.jpg","D21.jpg","D22.jpg",
+ "D23.jpg","D24.jpg","D25.jpeg","D26.jpeg","D27.jpeg","D28.jpeg",
+ "D29.jpeg","D30.jpeg","D31.jpeg","D32.jpeg","D33.jpeg","D34.jpeg","D35.jpeg"
+];
+
+let index=0;
+const current=document.getElementById("current");
+
+function setImg(i){
+  index=i;
+  current.src=images[index];
+}
+function nextImg(){
+  index=(index+1)%images.length;
+  current.src=images[index];
+}
+function prevImg(){
+  index=(index-1+images.length)%images.length;
+  current.src=images[index];
+}
+
+/* KEYBOARD CONTROL */
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight") nextImg();
+  if(e.key==="ArrowLeft") prevImg();
+});
+
+/* AUTO SLIDE */
+setInterval(nextImg,3500);
+
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>

@@ -6,70 +6,153 @@
 <title>HDPE Lachha – AMPOLE Rope</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI", Roboto, Arial, sans-serif;}
-body{background:linear-gradient(180deg,#fffdfa 0%,#fff4d6 100%);color:#222;}
-nav{background:linear-gradient(90deg,#FFFF00 0%,#FFEE33 50%,#FFFF00 100%);padding:16px 36px;display:flex;align-items:center;justify-content:space-between;border-radius:0 0 18px 18px;box-shadow:0 6px 30px rgba(0,0,0,0.18);position:sticky;top:0;z-index:1200;}
-nav .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#E70114;font-weight:800;font-size:20px;}
-nav img.logo{height:56px;width:auto;border-radius:8px;background:rgba(255,255,255,0.6);padding:6px;box-shadow:0 6px 18px rgba(0,0,0,0.2);}
-nav ul{list-style:none;display:flex;gap:18px;align-items:center;margin-left:18px;}
-nav ul li a{display:block;text-decoration:none;color:#E70114;padding:10px 18px;border-radius:12px;background: rgba(255,255,255,0.46);backdrop-filter: blur(6px);box-shadow: 0 6px 14px rgba(0,0,0,0.18);font-weight:700;transition:0.25s;border:1px solid rgba(231,1,20,0.06);}
-nav ul li a:hover{transform: translateY(-6px) scale(1.03);background:#E70114;color:#FFFF00;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Roboto,Arial,sans-serif}
+body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
 
-h2{font-size:36px;color:#B00000;text-align:center;margin:30px 0;text-shadow:0 4px 18px rgba(231,1,20,0.12);}
-
-.gallery{max-width:1200px;margin:auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
-
-.main-img{
-  flex:1 1 900px;
-  min-width:420px;
-  border-radius:22px;
-  overflow:hidden;
-  border:10px solid rgba(255,255,255,0.95);
-  box-shadow:0 26px 60px rgba(0,0,0,0.32);
+/* ===== NAVBAR ===== */
+nav{
+  background:linear-gradient(90deg,#FFFF00,#FFEE33,#FFFF00);
+  padding:16px 36px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,.18);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  font-size:20px;
+  color:#E70114;
+  text-decoration:none;
+}
+.logo{
+  height:56px;
+  padding:6px;
+  border-radius:8px;
+  background:#fff;
+}
+nav ul{list-style:none;display:flex;gap:18px}
+nav ul a{
+  padding:10px 18px;
+  background:rgba(255,255,255,.45);
+  border-radius:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:700;
+  transition:.3s;
+}
+nav ul a:hover{background:#E70114;color:#fff}
 
+h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
+
+/* ===== IMAGE SLIDER ===== */
+.gallery{max-width:1200px;margin:auto}
+.main-img{
+  position:relative;
+  border-radius:22px;
+  border:10px solid #fff;
+  box-shadow:0 26px 60px rgba(0,0,0,.3);
+  overflow:hidden;
+}
 .main-img img{
   width:100%;
-  height:100%;
-  max-height:820px;  /* 🔥 bigger height */
-  object-fit:contain; /* shows full image bigger without cutting */
-  display:block;
+  height:700px;
+  object-fit:contain;
 }
 
+/* IMAGE ARROWS */
+.img-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:rgba(255,255,255,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  user-select:none;
+}
+.img-arrow.left{left:14px}
+.img-arrow.right{right:14px}
+.img-arrow:hover{background:#E70114;color:#fff}
 
+/* thumbnails */
 .thumbs{
+  margin-top:20px;
   display:flex;
   flex-wrap:wrap;
-  gap:14px;
   justify-content:center;
-  margin-top:20px;
+  gap:14px;
 }
 .thumbs img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
+  width:120px;
+  height:120px;
   border-radius:14px;
   border:4px solid #E70114;
   cursor:pointer;
-  transition:transform .25s;
+  transition:.25s;
 }
-.thumbs img:hover{
-  transform:scale(1.12);
+.thumbs img:hover{transform:scale(1.12)}
+
+/* ===== VIDEO SLIDER ===== */
+.video-section{
+  max-width:900px;
+  margin:60px auto;
+  border-radius:22px;
+  overflow:hidden;
+  border:10px solid #fff;
+  box-shadow:0 26px 60px rgba(0,0,0,.3);
 }
+.video-section video{
+  width:100%;
+  height:500px;
+  object-fit:contain;
+  display:none;
+}
+.video-section video.active{display:block}
+
+/* video dots */
+.video-dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:14px;
+}
+.video-dots span{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#ccc;
+  cursor:pointer;
+}
+.video-dots span.active{background:#E70114}
 
 footer{
-  margin-top:40px;
-  padding:28px 18px;
+  margin-top:50px;
+  padding:28px;
   background:#E70114;
   color:#fff;
   text-align:center;
   font-weight:700;
-  letter-spacing:0.6px;
 }
 
-@media(max-width:980px){
-  .main-img{width:100%;flex:1 1 auto;}
-  .thumbs img{width:90px;height:90px;}
+/* MOBILE */
+@media(max-width:900px){
+  .main-img img{height:420px}
+  .video-section video{height:300px}
+  .thumbs img{width:90px;height:90px}
 }
 </style>
 </head>
@@ -77,7 +160,9 @@ footer{
 <body>
 
 <nav>
-  <a class="brand" href="index.html"><img class="logo" src="logo.png" alt="LOGO">AMPOLE Rope</a>
+  <a class="brand" href="index.html">
+    <img src="logo.png" class="logo"> AMPOLE Rope
+  </a>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
@@ -87,50 +172,84 @@ footer{
 
 <h2>HDPE Lachha</h2>
 
+<!-- IMAGE SLIDER -->
 <div class="gallery">
-
   <div class="main-img">
-    <img id="current" src="A1.jpg" alt="">
+    <div class="img-arrow left" onclick="prevImg()">◀</div>
+    <img id="currentImg" src="A1.jpg">
+    <div class="img-arrow right" onclick="nextImg()">▶</div>
   </div>
 
   <div class="thumbs">
-    <img src="A1.jpg" onclick="current.src=this.src">
-    <img src="A2.jpg" onclick="current.src=this.src">
-    <img src="A3.jpg" onclick="current.src=this.src">
-    <img src="A4.jpg" onclick="current.src=this.src">
-    <img src="A5.jpg" onclick="current.src=this.src">
-    <img src="A6.jpg" onclick="current.src=this.src">
-    <img src="A7.jpg" onclick="current.src=this.src">
-    <img src="A8.jpg" onclick="current.src=this.src">
-    <img src="A9.jpg" onclick="current.src=this.src">
-    <img src="A10.jpeg" onclick="current.src=this.src">
-    <img src="A11.jpeg" onclick="current.src=this.src">
-    <img src="A12.jpeg" onclick="current.src=this.src">
-    <img src="A13.jpeg" onclick="current.src=this.src">
-    <img src="A14.jpeg" onclick="current.src=this.src">
-    <img src="A15.jpeg" onclick="current.src=this.src">
-    <img src="A16.jpeg" onclick="current.src=this.src">
-    <img src="A17.jpeg" onclick="current.src=this.src">
+    <img src="A1.jpg" onclick="setImg(this.src)">
+    <img src="A2.jpg" onclick="setImg(this.src)">
+    <img src="A3.jpg" onclick="setImg(this.src)">
+    <img src="A4.jpg" onclick="setImg(this.src)">
+    <img src="A5.jpg" onclick="setImg(this.src)">
+    <img src="A6.jpg" onclick="setImg(this.src)">
+    <img src="A7.jpg" onclick="setImg(this.src)">
+    <img src="A8.jpg" onclick="setImg(this.src)">
+    <img src="A9.jpg" onclick="setImg(this.src)">
+    <img src="A10.jpeg" onclick="setImg(this.src)">
   </div>
-
 </div>
 
-<!-- ⭐ 4 Product Videos -->
+<!-- VIDEO SLIDER -->
 <div class="video-section">
-  <video controls><source src="av1.mp4" type="video/mp4"></video>
-  <video controls><source src="av2.mp4" type="video/mp4"></video>
-  <video controls><source src="av3.mp4" type="video/mp4"></video>
-  <video controls><source src="av4.mp4" type="video/mp4"></video>
+  <video class="active" controls><source src="av1.mp4"></video>
+  <video controls><source src="av2.mp4"></video>
+  <video controls><source src="av3.mp4"></video>
+  <video controls><source src="av4.mp4"></video>
 </div>
 
-<div class="other-products">
-  <a href="products.html" class="other-btn">View Other Products</a>
+<div class="video-dots">
+  <span class="active"></span>
+  <span></span>
+  <span></span>
+  <span></span>
 </div>
 
 <footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+/* IMAGE SLIDER */
+const images=[
+"A1.jpg","A2.jpg","A3.jpg","A4.jpg","A5.jpg",
+"A6.jpg","A7.jpg","A8.jpg","A9.jpg","A10.jpeg"
+];
+let imgIndex=0;
+const currentImg=document.getElementById("currentImg");
+
+function setImg(src){
+  imgIndex=images.indexOf(src);
+  currentImg.src=src;
+}
+function nextImg(){
+  imgIndex=(imgIndex+1)%images.length;
+  currentImg.src=images[imgIndex];
+}
+function prevImg(){
+  imgIndex=(imgIndex-1+images.length)%images.length;
+  currentImg.src=images[imgIndex];
+}
+setInterval(nextImg,3000);
+
+/* VIDEO SLIDER */
+const videos=document.querySelectorAll(".video-section video");
+const dots=document.querySelectorAll(".video-dots span");
+let vIndex=0;
+
+function showVideo(i){
+  videos.forEach(v=>{v.pause();v.classList.remove("active")});
+  dots.forEach(d=>d.classList.remove("active"));
+  videos[i].classList.add("active");
+  dots[i].classList.add("active");
+  videos[i].play();
+}
+dots.forEach((d,i)=>d.onclick=()=>{vIndex=i;showVideo(vIndex)});
+setInterval(()=>{vIndex=(vIndex+1)%videos.length;showVideo(vIndex)},6000);
+
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>
