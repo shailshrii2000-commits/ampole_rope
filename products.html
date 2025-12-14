@@ -6,101 +6,140 @@
 <title>Products – AMPOLE Rope</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif;}
-body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Roboto,Arial,sans-serif;
+}
 
-/* ===== NAVBAR ===== */
-nav{
-  background:linear-gradient(90deg,#FFFF00,#FFEE33,#FFFF00);
-  padding:16px 36px;
+body{
+  background:#FFF9C4;
+}
+
+/* ========================= */
+/* 🔥 SAME NAVBAR AS ABOUT 🔥 */
+/* ========================= */
+nav {
+  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+  padding: 16px 36px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   border-radius:0 0 18px 18px;
-  box-shadow:0 6px 30px rgba(0,0,0,.18);
-  position:sticky;top:0;z-index:1000;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+  position:sticky;
+  top:0;
+  z-index:1200;
 }
-nav .brand{
-  display:flex;align-items:center;gap:12px;
-  text-decoration:none;color:#E70114;
-  font-weight:800;font-size:20px;
+nav .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:800;
+  font-size:20px;
 }
-nav img{height:56px;background:#fff;padding:6px;border-radius:8px}
-nav ul{list-style:none;display:flex;gap:18px}
-nav ul li a{
+nav img.logo {
+  height:56px;
+  background:rgba(255,255,255,0.6);
+  padding:6px;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:18px;
+}
+nav ul li a {
+  display:block;
   text-decoration:none;
   color:#E70114;
   padding:10px 18px;
-  background:rgba(255,255,255,.5);
   border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
   font-weight:700;
+  transition:.25s;
 }
-nav ul li a:hover{background:#E70114;color:#FFFF00}
+nav ul li a:hover {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+}
 
 /* ===== TITLE ===== */
 h1{
   text-align:center;
-  margin:32px 0;
-  font-size:38px;
-  color:#B00000;
+  margin:40px 0 20px;
+  font-size:42px;
+  color:#C70000;
+  text-shadow:0 0 10px yellow;
 }
 
-/* ===== PRODUCTS GRID ===== */
+/* ===== PRODUCT GRID ===== */
 .products{
   max-width:1200px;
   margin:auto;
+  padding:30px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-  padding:20px;
+  gap:30px;
 }
 
 /* ===== PRODUCT CARD ===== */
 .card{
-  background:#fff;
+  background:#fffceb;
   border-radius:22px;
   box-shadow:0 20px 50px rgba(0,0,0,.25);
   overflow:hidden;
   transition:.3s;
 }
-.card:hover{transform:translateY(-10px)}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px rgba(255,217,0,0.8);
+}
 
+/* REEL STYLE VIDEO */
 .card video{
   width:100%;
-  height:360px;
+  height:380px;
   object-fit:cover;
   display:block;
 }
 
+/* CONTENT */
 .card .content{
-  padding:20px;
+  padding:22px;
   text-align:center;
 }
-
 .card h3{
+  font-size:24px;
   color:#E70114;
   margin-bottom:10px;
-  font-size:22px;
 }
-
 .card p{
-  font-size:14px;
+  font-size:15px;
+  margin-bottom:16px;
   opacity:.85;
-  margin-bottom:14px;
 }
-
 .card a{
   display:inline-block;
-  padding:12px 26px;
+  padding:12px 30px;
   background:#E70114;
   color:#FFFF00;
-  text-decoration:none;
   border-radius:30px;
   font-weight:700;
+  text-decoration:none;
 }
-.card a:hover{opacity:.9}
+.card a:hover{
+  opacity:.9;
+}
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:600px){
   .card video{height:300px}
 }
@@ -109,20 +148,22 @@ h1{
 
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <nav>
   <a class="brand" href="index.html">
-    <img src="logo.png" alt="logo">
+    <img class="logo" src="logo.png" alt="LOGO">
     AMPOLE Rope
   </a>
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="products.html">Products</a></li>
   </ul>
 </nav>
 
 <h1>Our Products</h1>
 
+<!-- ===== PRODUCTS ===== -->
 <section class="products">
 
   <!-- HDPE LACHHA -->
@@ -130,7 +171,7 @@ h1{
     <video src="av1.mp4" autoplay muted loop playsinline></video>
     <div class="content">
       <h3>HDPE Lachha</h3>
-      <p>Strong and durable HDPE Lachha for multiple applications.</p>
+      <p>Strong HDPE lachha ropes suitable for agriculture and industrial use.</p>
       <a href="hdpe-lachha.html">View Product</a>
     </div>
   </div>
@@ -140,7 +181,7 @@ h1{
     <video src="bv1.mp4" autoplay muted loop playsinline></video>
     <div class="content">
       <h3>HDPE Lachhi</h3>
-      <p>Premium quality HDPE Lachhi with long life and strength.</p>
+      <p>Durable HDPE lachhi ropes with excellent tensile strength.</p>
       <a href="hdpe-lachhi.html">View Product</a>
     </div>
   </div>
@@ -150,7 +191,7 @@ h1{
     <video src="cv1.mp4" autoplay muted loop playsinline></video>
     <div class="content">
       <h3>HDPE Rope</h3>
-      <p>High strength HDPE ropes for industrial & commercial use.</p>
+      <p>High-quality HDPE ropes for commercial and heavy-duty applications.</p>
       <a href="hdpe-rope.html">View Product</a>
     </div>
   </div>
@@ -160,7 +201,7 @@ h1{
     <video src="dv1.mp4" autoplay muted loop playsinline></video>
     <div class="content">
       <h3>PP Rope</h3>
-      <p>Premium polypropylene ropes with flexibility and durability.</p>
+      <p>Premium polypropylene ropes known for flexibility and long life.</p>
       <a href="pp-rope.html">View Product</a>
     </div>
   </div>

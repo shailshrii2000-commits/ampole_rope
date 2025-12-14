@@ -6,130 +6,108 @@
 <title>HDPE Rope – AMPOLE Rope</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI", Roboto, Arial, sans-serif;}
-body{background:linear-gradient(180deg,#fffdfa 0%,#fff4d6 100%);color:#222;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Roboto,Arial,sans-serif}
+body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
 
 /* ===== NAVBAR ===== */
-nav{
-  background:linear-gradient(90deg,#FFFF00 0%,#FFEE33 50%,#FFFF00 100%);
-  padding:16px 36px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-radius:0 0 18px 18px;
-  box-shadow:0 6px 30px rgba(0,0,0,0.18);
-  position:sticky;
-  top:0;
-  z-index:1200;
-}
-nav .brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:#E70114;
-  font-weight:800;
-  font-size:20px;
-}
-nav img.logo{
-  height:56px;
-  border-radius:8px;
-  background:#fff;
-  padding:6px;
-}
-nav ul{list-style:none;display:flex;gap:18px;}
-nav ul li a{
-  text-decoration:none;
-  color:#E70114;
-  padding:10px 18px;
-  border-radius:12px;
-  background:rgba(255,255,255,.46);
-  font-weight:700;
-  transition:.3s;
-}
-nav ul li a:hover{
-  background:#E70114;
-  color:#FFFF00;
-  transform:translateY(-4px);
-}
+nav {
+    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+    padding: 16px 36px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-radius:0 0 18px 18px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.18);
+    position:sticky; top:0; z-index:1200;
+  }
+  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
+  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
+  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
+  nav ul li a {
+    display:block;
+    text-decoration:none;
+    color:#E70114;
+    padding:10px 18px;
+    border-radius:12px;
+    background: rgba(255,255,255,0.46);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    font-weight:700;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    border:1px solid rgba(231,1,20,0.06);
+  }
+  nav ul li a:hover, nav ul li a:focus {
+    transform: translateY(-6px) scale(1.03);
+    background:#E70114;
+    color:#FFFF00;
+    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+  }
+/* ===== HEADING ===== */
+h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
 
-h2{
-  font-size:36px;
-  color:#B00000;
-  text-align:center;
-  margin:30px 0;
-}
-
-/* ===== GALLERY ===== */
-.gallery{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-/* MAIN IMAGE */
+/* ===== IMAGE SLIDER ===== */
+.gallery{max-width:1200px;margin:auto}
 .main-img{
   position:relative;
-  flex:1 1 900px;
-  min-width:420px;
   border-radius:22px;
-  overflow:hidden;
   border:10px solid #fff;
   box-shadow:0 26px 60px rgba(0,0,0,.32);
+  overflow:hidden;
 }
 .main-img img{
   width:100%;
-  max-height:820px;
+  height:720px;
   object-fit:contain;
 }
 
-/* IMAGE ARROWS */
-.arrow{
+/* ARROWS */
+.img-arrow{
   position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:50px;
-  height:50px;
+  top:50%;transform:translateY(-50%);
+  width:52px;height:52px;
   border-radius:50%;
   background:rgba(255,255,255,.9);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  font-weight:900;
-  cursor:pointer;
-  user-select:none;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:22px;font-weight:900;
   box-shadow:0 8px 20px rgba(0,0,0,.3);
 }
-.arrow.left{left:10px;}
-.arrow.right{right:10px;}
-.arrow:hover{background:#E70114;color:#fff;}
+.img-arrow.left{left:14px}
+.img-arrow.right{right:14px}
+.img-arrow:hover{background:#E70114;color:#fff}
 
 /* THUMBNAILS */
 .thumbs{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  justify-content:center;
   margin-top:20px;
+  display:flex;flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
 }
 .thumbs img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
+  width:120px;height:120px;
   border-radius:14px;
   border:4px solid #E70114;
-  cursor:pointer;
-  transition:.25s;
+  cursor:pointer;transition:.25s;
 }
-.thumbs img:hover{transform:scale(1.12);}
+.thumbs img:hover{transform:scale(1.12)}
+
+/* ===== VIDEO SECTION ===== */
+.video-section{
+  max-width:900px;
+  margin:60px auto;
+  border-radius:22px;
+  overflow:hidden;
+  border:10px solid #fff;
+  box-shadow:0 26px 60px rgba(0,0,0,.3);
+}
+.video-section video{
+  width:100%;
+  height:500px;
+  object-fit:contain;
+}
 
 /* FOOTER */
 footer{
-  margin-top:40px;
+  margin-top:50px;
   padding:28px;
   background:#E70114;
   color:#fff;
@@ -138,9 +116,10 @@ footer{
 }
 
 /* MOBILE */
-@media(max-width:980px){
-  .main-img{min-width:100%;}
-  .thumbs img{width:90px;height:90px;}
+@media(max-width:900px){
+  .main-img img{height:420px}
+  .video-section video{height:300px}
+  .thumbs img{width:90px;height:90px}
 }
 </style>
 </head>
@@ -149,7 +128,7 @@ footer{
 
 <nav>
   <a class="brand" href="index.html">
-    <img class="logo" src="logo.png"> AMPOLE Rope
+    <img src="logo.png" class="logo"> AMPOLE Rope
   </a>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -160,77 +139,52 @@ footer{
 
 <h2>HDPE Rope</h2>
 
+<!-- IMAGE SLIDER -->
 <div class="gallery">
-
   <div class="main-img">
-    <div class="arrow left" onclick="prevImg()">◀</div>
-    <img id="current" src="C1.jpg">
-    <div class="arrow right" onclick="nextImg()">▶</div>
+    <div class="img-arrow left" onclick="prevImg()">◀</div>
+    <img id="currentImg" src="C1.jpg">
+    <div class="img-arrow right" onclick="nextImg()">▶</div>
   </div>
 
+  <!-- ✅ DUPLICATES REMOVED -->
   <div class="thumbs">
-    <img src="C1.jpg" onclick="setImg(0)">
-    <img src="C2.jpg" onclick="setImg(1)">
-    <img src="C3.jpg" onclick="setImg(2)">
-    <img src="C4.jpg" onclick="setImg(3)">
-    <img src="C5.jpg" onclick="setImg(4)">
-    <img src="C6.jpg" onclick="setImg(5)">
-    <img src="C7.jpg" onclick="setImg(6)">
-    <img src="C8.jpg" onclick="setImg(7)">
-    <img src="C9.jpg" onclick="setImg(8)">
-    <img src="C10.jpg" onclick="setImg(9)">
-    <img src="C11.jpg" onclick="setImg(10)">
-    <img src="C12.jpg" onclick="setImg(11)">
-    <img src="C13.jpg" onclick="setImg(12)">
-    <img src="C14.jpg" onclick="setImg(13)">
-    <img src="C15.jpg" onclick="setImg(14)">
-    <img src="C16.jpg" onclick="setImg(15)">
-    <img src="C17.jpg" onclick="setImg(16)">
-    <img src="C18.jpg" onclick="setImg(17)">
-    <img src="C19.jpg" onclick="setImg(18)">
-    <img src="C20.jpg" onclick="setImg(19)">
-    <img src="C21.jpg" onclick="setImg(20)">
-    <img src="C22.jpg" onclick="setImg(21)">
-    <img src="C23.jpg" onclick="setImg(22)">
-    <img src="C24.jpeg" onclick="setImg(23)">
-    <img src="C25.jpeg" onclick="setImg(24)">
-    <img src="C26.jpeg" onclick="setImg(25)">
+    <img src="C1.jpg" onclick="setImg(this.src)">
+    <img src="C2.jpg" onclick="setImg(this.src)">
+    <img src="C3.jpg" onclick="setImg(this.src)">
+    <img src="C4.jpg" onclick="setImg(this.src)">
+    <img src="C5.jpg" onclick="setImg(this.src)">
+    <img src="C6.jpg" onclick="setImg(this.src)">
+    <img src="C7.jpg" onclick="setImg(this.src)">
   </div>
+</div>
+
+<!-- VIDEO (FIXED & WORKING) -->
+<div class="video-section">
+  <video src="cv1.mp4" controls autoplay muted loop playsinline></video>
 </div>
 
 <footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
 
 <script>
-const images=[
- "C1.jpg","C2.jpg","C3.jpg","C4.jpg","C5.jpg","C6.jpg","C7.jpg","C8.jpg",
- "C9.jpg","C10.jpg","C11.jpg","C12.jpg","C13.jpg","C14.jpg","C15.jpg",
- "C16.jpg","C17.jpg","C18.jpg","C19.jpg","C20.jpg","C21.jpg","C22.jpg",
- "C23.jpg","C24.jpeg","C25.jpeg","C26.jpeg"
-];
-let index=0;
-const current=document.getElementById("current");
+/* IMAGE SLIDER */
+const images=["C1.jpg","C2.jpg","C3.jpg","C4.jpg","C5.jpg","C6.jpg","C7.jpg"];
+let imgIndex=0;
+const currentImg=document.getElementById("currentImg");
 
-function setImg(i){
-  index=i;
-  current.src=images[index];
+function setImg(src){
+  imgIndex=images.indexOf(src);
+  currentImg.src=src;
 }
 function nextImg(){
-  index=(index+1)%images.length;
-  current.src=images[index];
+  imgIndex=(imgIndex+1)%images.length;
+  currentImg.src=images[imgIndex];
 }
 function prevImg(){
-  index=(index-1+images.length)%images.length;
-  current.src=images[index];
+  imgIndex=(imgIndex-1+images.length)%images.length;
+  currentImg.src=images[imgIndex];
 }
-
-/* KEYBOARD ARROWS */
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight") nextImg();
-  if(e.key==="ArrowLeft") prevImg();
-});
-
-/* AUTO SLIDE */
-setInterval(nextImg,3500);
+setInterval(nextImg,3000);
 
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
