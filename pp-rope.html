@@ -6,135 +6,155 @@
 <title>PP Rope – AMPOLE Rope</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI", Roboto, Arial, sans-serif;}
-body{background:linear-gradient(180deg,#fffdfa 0%,#fff4d6 100%);color:#222;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif}
+body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav {
-    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-    padding: 16px 36px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-radius:0 0 18px 18px;
-    box-shadow:0 6px 30px rgba(0,0,0,0.18);
-    position:sticky; top:0; z-index:1200;
-  }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
-
-h2{
-  font-size:36px;
-  color:#B00000;
-  text-align:center;
-  margin:30px 0;
+  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+  padding: 16px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+  position:sticky;
+  top:0;
+  z-index:1200;
 }
 
-/* ===== GALLERY ===== */
-.gallery{
+nav .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:800;
+  font-size:20px;
+}
+
+nav img.logo {
+  height:56px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.6);
+  padding:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+nav ul li a {
+  display:block;
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-weight:700;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+nav ul li a:hover {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+}
+
+h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
+
+/* PRODUCT LAYOUT */
+.product-wrapper{
   max-width:1200px;
   margin:auto;
   display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-  justify-content:center;
+  gap:40px;
+  padding:20px;
+  align-items:flex-start;
 }
 
-/* MAIN IMAGE */
+/* LEFT IMAGE */
+.gallery{flex:1}
 .main-img{
   position:relative;
-  flex:1 1 900px;
-  min-width:420px;
-  border-radius:22px;
+  border-radius:18px;
+  border:8px solid #fff;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
   overflow:hidden;
-  border:10px solid #fff;
-  box-shadow:0 26px 60px rgba(0,0,0,.32);
 }
 .main-img img{
   width:100%;
-  max-height:820px;
+  height:420px;
   object-fit:contain;
 }
-
-/* ARROWS */
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:50px;
-  height:50px;
+.img-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;
   border-radius:50%;
-  background:rgba(255,255,255,.9);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  font-weight:900;
-  cursor:pointer;
-  user-select:none;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-weight:900;
 }
-.arrow.left{left:10px;}
-.arrow.right{right:10px;}
-.arrow:hover{background:#E70114;color:#fff;}
+.img-arrow.left{left:10px}
+.img-arrow.right{right:10px}
+.img-arrow:hover{background:#E70114;color:#fff}
 
-/* THUMBS */
 .thumbs{
+  margin-top:14px;
   display:flex;
   flex-wrap:wrap;
-  gap:14px;
-  justify-content:center;
-  margin-top:20px;
+  gap:10px;
 }
 .thumbs img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  border-radius:14px;
-  border:4px solid #E70114;
+  width:80px;height:80px;
+  border-radius:10px;
+  border:3px solid #E70114;
   cursor:pointer;
-  transition:.25s;
 }
-.thumbs img:hover{transform:scale(1.12);}
 
-/* VIDEOS */
-.video-section{
-  max-width:1200px;
-  margin:40px auto;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
+/* RIGHT CONTENT */
+.product-info{
+  flex:1.2;
+  background:#fff;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
-.video-section video{
-  width:320px;
-  border-radius:14px;
-  box-shadow:0 12px 30px rgba(0,0,0,.25);
+.product-info h3{
+  color:#E70114;
+  font-size:26px;
+  margin-bottom:12px;
+}
+.product-info p{
+  line-height:1.7;
+  margin-bottom:18px;
+}
+.product-info ul{
+  margin-left:18px;
+  margin-bottom:18px;
+}
+.product-info li{margin-bottom:8px}
+
+/* FAQ */
+.faq h4{
+  color:#B00000;
+  margin-top:14px;
+}
+.faq p{
+  margin-left:10px;
+  font-size:15px;
 }
 
 /* FOOTER */
 footer{
-  margin-top:40px;
+  margin-top:50px;
   padding:28px;
   background:#E70114;
   color:#fff;
@@ -143,9 +163,9 @@ footer{
 }
 
 /* MOBILE */
-@media(max-width:980px){
-  .main-img{min-width:100%;}
-  .thumbs img{width:90px;height:90px;}
+@media(max-width:900px){
+  .product-wrapper{flex-direction:column}
+  .main-img img{height:300px}
 }
 </style>
 </head>
@@ -154,7 +174,7 @@ footer{
 
 <nav>
   <a class="brand" href="index.html">
-    <img class="logo" src="logo.png"> AMPOLE Rope
+    <img src="logo.png" class="logo"> AMPOLE Rope
   </a>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -163,97 +183,86 @@ footer{
   </ul>
 </nav>
 
-<h2>PP Rope</h2>
+<h2>AMPOLE Polypropylene Rope (PP Rope)</h2>
 
-<div class="gallery">
+<div class="product-wrapper">
 
-  <div class="main-img">
-    <div class="arrow left" onclick="prevImg()">◀</div>
-    <img id="current" src="D1.jpg">
-    <div class="arrow right" onclick="nextImg()">▶</div>
+  <!-- LEFT IMAGES -->
+  <div class="gallery">
+    <div class="main-img">
+      <div class="img-arrow left" onclick="prevImg()">◀</div>
+      <img id="currentImg" src="D1.jpg">
+      <div class="img-arrow right" onclick="nextImg()">▶</div>
+    </div>
+
+    <div class="thumbs">
+      <img src="D1.jpg" onclick="setImg(0)">
+      <img src="D2.jpg" onclick="setImg(1)">
+      <img src="D3.jpg" onclick="setImg(2)">
+      <img src="D4.jpg" onclick="setImg(3)">
+      <img src="D5.jpg" onclick="setImg(4)">
+      <img src="D6.jpg" onclick="setImg(5)">
+      <img src="D7.jpg" onclick="setImg(6)">
+      <img src="D8.jpg" onclick="setImg(7)">
+    </div>
   </div>
 
-  <div class="thumbs">
-    <img src="D1.jpg" onclick="setImg(0)">
-    <img src="D2.jpg" onclick="setImg(1)">
-    <img src="D3.jpg" onclick="setImg(2)">
-    <img src="D4.jpg" onclick="setImg(3)">
-    <img src="D5.jpg" onclick="setImg(4)">
-    <img src="D6.jpg" onclick="setImg(5)">
-    <img src="D7.jpg" onclick="setImg(6)">
-    <img src="D8.jpg" onclick="setImg(7)">
-    <img src="D9.jpg" onclick="setImg(8)">
-    <img src="D10.jpg" onclick="setImg(9)">
-    <img src="D11.jpg" onclick="setImg(10)">
-    <img src="D12.jpg" onclick="setImg(11)">
-    <img src="D13.jpg" onclick="setImg(12)">
-    <img src="D14.jpg" onclick="setImg(13)">
-    <img src="D15.jpg" onclick="setImg(14)">
-    <img src="D16.jpg" onclick="setImg(15)">
-    <img src="D17.jpg" onclick="setImg(16)">
-    <img src="D18.jpg" onclick="setImg(17)">
-    <img src="D19.jpg" onclick="setImg(18)">
-    <img src="D20.jpg" onclick="setImg(19)">
-    <img src="D21.jpg" onclick="setImg(20)">
-    <img src="D22.jpg" onclick="setImg(21)">
-    <img src="D23.jpg" onclick="setImg(22)">
-    <img src="D24.jpg" onclick="setImg(23)">
-    <img src="D25.jpeg" onclick="setImg(24)">
-    <img src="D26.jpeg" onclick="setImg(25)">
-    <img src="D27.jpeg" onclick="setImg(26)">
-    <img src="D28.jpeg" onclick="setImg(27)">
-    <img src="D29.jpeg" onclick="setImg(28)">
-    <img src="D30.jpeg" onclick="setImg(29)">
-    <img src="D31.jpeg" onclick="setImg(30)">
-    <img src="D32.jpeg" onclick="setImg(31)">
-    <img src="D33.jpeg" onclick="setImg(32)">
-    <img src="D34.jpeg" onclick="setImg(33)">
-    <img src="D35.jpeg" onclick="setImg(34)">
+  <!-- RIGHT DETAILS -->
+  <div class="product-info">
+    <h3>About This Product</h3>
+    <p>
+      AMPOLE Polypropylene Rope (PP Rope) is manufactured using high-strength
+      polypropylene material, offering excellent durability, moisture resistance,
+      and long service life for demanding industrial environments.
+    </p>
+
+    <ul>
+      <li><strong>Material:</strong> Polypropylene (PP)</li>
+      <li><strong>Style:</strong> Twisted Rope</li>
+      <li><strong>Standard Length:</strong> 300 meters</li>
+      <li><strong>Color:</strong> Yellow</li>
+      <li><strong>Usage:</strong> Industrial, Marine, Construction & Transport</li>
+    </ul>
+
+    <p>
+      Lightweight yet strong, PP Rope is resistant to abrasion, UV rays,
+      and moisture, making it ideal for heavy-duty applications in harsh
+      working conditions.
+    </p>
+
+    <div class="faq">
+      <h4>FAQs</h4>
+
+      <h4>Q: What material is used?</h4>
+      <p>A: High-strength polypropylene.</p>
+
+      <h4>Q: What is the standard length?</h4>
+      <p>A: 300 meters.</p>
+
+      <h4>Q: Is this rope suitable for industrial use?</h4>
+      <p>A: Yes, it is designed for heavy-duty industrial applications.</p>
+
+      <h4>Q: Is it resistant to moisture and UV?</h4>
+      <p>A: Yes, it offers excellent resistance to moisture and UV exposure.</p>
+
+      <h4>Q: Where can this rope be used?</h4>
+      <p>A: Construction, marine, transportation, fishing, and packaging industries.</p>
+    </div>
   </div>
 
-</div>
-
-<div class="video-section">
-  <video controls src="dv1.mp4"></video>
-  <video controls src="dv2.mp4"></video>
-  <video controls src="dv3.mp4"></video>
 </div>
 
 <footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
 
 <script>
-const images=[
- "D1.jpg","D2.jpg","D3.jpg","D4.jpg","D5.jpg","D6.jpg","D7.jpg","D8.jpg",
- "D9.jpg","D10.jpg","D11.jpg","D12.jpg","D13.jpg","D14.jpg","D15.jpg",
- "D16.jpg","D17.jpg","D18.jpg","D19.jpg","D20.jpg","D21.jpg","D22.jpg",
- "D23.jpg","D24.jpg","D25.jpeg","D26.jpeg","D27.jpeg","D28.jpeg",
- "D29.jpeg","D30.jpeg","D31.jpeg","D32.jpeg","D33.jpeg","D34.jpeg","D35.jpeg"
-];
+const images=["D1.jpg","D2.jpg","D3.jpg","D4.jpg","D5.jpg","D6.jpg","D7.jpg","D8.jpg"];
+let imgIndex=0;
+const currentImg=document.getElementById("currentImg");
 
-let index=0;
-const current=document.getElementById("current");
-
-function setImg(i){
-  index=i;
-  current.src=images[index];
-}
-function nextImg(){
-  index=(index+1)%images.length;
-  current.src=images[index];
-}
-function prevImg(){
-  index=(index-1+images.length)%images.length;
-  current.src=images[index];
-}
-
-/* KEYBOARD CONTROL */
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight") nextImg();
-  if(e.key==="ArrowLeft") prevImg();
-});
-
-/* AUTO SLIDE */
-setInterval(nextImg,3500);
+function setImg(i){imgIndex=i;currentImg.src=images[i];}
+function nextImg(){imgIndex=(imgIndex+1)%images.length;currentImg.src=images[imgIndex];}
+function prevImg(){imgIndex=(imgIndex-1+images.length)%images.length;currentImg.src=images[imgIndex];}
+setInterval(nextImg,3000);
 
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>

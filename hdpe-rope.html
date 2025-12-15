@@ -3,107 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HDPE Rope – AMPOLE Rope</title>
+<title>HDPE Five Colour Rope – AMPOLE Rope</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Roboto,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif}
 body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav {
-    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-    padding: 16px 36px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-radius:0 0 18px 18px;
-    box-shadow:0 6px 30px rgba(0,0,0,0.18);
-    position:sticky; top:0; z-index:1200;
-  }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
-/* ===== HEADING ===== */
+  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+  padding: 16px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+  position:sticky;
+  top:0;
+  z-index:1200;
+}
+
+nav .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:800;
+  font-size:20px;
+}
+
+nav img.logo {
+  height:56px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.6);
+  padding:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+nav ul li a {
+  display:block;
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-weight:700;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+nav ul li a:hover {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+}
+
+
 h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
 
-/* ===== IMAGE SLIDER ===== */
-.gallery{max-width:1200px;margin:auto}
+/* PRODUCT LAYOUT */
+.product-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:40px;
+  padding:20px;
+  align-items:flex-start;
+}
+
+/* LEFT IMAGE */
+.gallery{flex:1}
 .main-img{
   position:relative;
-  border-radius:22px;
-  border:10px solid #fff;
-  box-shadow:0 26px 60px rgba(0,0,0,.32);
+  border-radius:18px;
+  border:8px solid #fff;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
   overflow:hidden;
 }
 .main-img img{
   width:100%;
-  height:720px;
+  height:420px;
   object-fit:contain;
 }
-
-/* ARROWS */
 .img-arrow{
-  position:absolute;
-  top:50%;transform:translateY(-50%);
-  width:52px;height:52px;
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;
   border-radius:50%;
-  background:rgba(255,255,255,.9);
+  background:#fff;
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:22px;font-weight:900;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  cursor:pointer;font-weight:900;
 }
-.img-arrow.left{left:14px}
-.img-arrow.right{right:14px}
+.img-arrow.left{left:10px}
+.img-arrow.right{right:10px}
 .img-arrow:hover{background:#E70114;color:#fff}
 
-/* THUMBNAILS */
 .thumbs{
-  margin-top:20px;
-  display:flex;flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 .thumbs img{
-  width:120px;height:120px;
-  border-radius:14px;
-  border:4px solid #E70114;
-  cursor:pointer;transition:.25s;
+  width:80px;height:80px;
+  border-radius:10px;
+  border:3px solid #E70114;
+  cursor:pointer;
 }
-.thumbs img:hover{transform:scale(1.12)}
 
-/* ===== VIDEO SECTION ===== */
-.video-section{
-  max-width:900px;
-  margin:60px auto;
+/* RIGHT CONTENT */
+.product-info{
+  flex:1.3;
+  background:#fff;
+  padding:30px;
   border-radius:22px;
-  overflow:hidden;
-  border:10px solid #fff;
-  box-shadow:0 26px 60px rgba(0,0,0,.3);
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
-.video-section video{
-  width:100%;
-  height:500px;
-  object-fit:contain;
+.product-info h3{
+  color:#E70114;
+  font-size:26px;
+  margin-bottom:12px;
 }
+.product-info p{
+  line-height:1.7;
+  margin-bottom:16px;
+}
+.product-info ul{
+  margin-left:18px;
+  margin-bottom:18px;
+}
+.product-info li{margin-bottom:8px}
 
 /* FOOTER */
 footer{
@@ -117,9 +155,8 @@ footer{
 
 /* MOBILE */
 @media(max-width:900px){
-  .main-img img{height:420px}
-  .video-section video{height:300px}
-  .thumbs img{width:90px;height:90px}
+  .product-wrapper{flex-direction:column}
+  .main-img img{height:300px}
 }
 </style>
 </head>
@@ -137,53 +174,79 @@ footer{
   </ul>
 </nav>
 
-<h2>HDPE Rope</h2>
+<h2>HDPE Five Colour Rope</h2>
 
-<!-- IMAGE SLIDER -->
-<div class="gallery">
-  <div class="main-img">
-    <div class="img-arrow left" onclick="prevImg()">◀</div>
-    <img id="currentImg" src="C1.jpg">
-    <div class="img-arrow right" onclick="nextImg()">▶</div>
+<div class="product-wrapper">
+
+  <!-- LEFT IMAGES -->
+  <div class="gallery">
+    <div class="main-img">
+      <div class="img-arrow left" onclick="prevImg()">◀</div>
+      <img id="currentImg" src="C1.jpg">
+      <div class="img-arrow right" onclick="nextImg()">▶</div>
+    </div>
+
+    <div class="thumbs">
+      <img src="C1.jpg" onclick="setImg(0)">
+      <img src="C2.jpg" onclick="setImg(1)">
+      <img src="C3.jpg" onclick="setImg(2)">
+      <img src="C4.jpg" onclick="setImg(3)">
+      <img src="C5.jpg" onclick="setImg(4)">
+      <img src="C6.jpg" onclick="setImg(5)">
+      <img src="C7.jpg" onclick="setImg(6)">
+    </div>
   </div>
 
-  <!-- ✅ DUPLICATES REMOVED -->
-  <div class="thumbs">
-    <img src="C1.jpg" onclick="setImg(this.src)">
-    <img src="C2.jpg" onclick="setImg(this.src)">
-    <img src="C3.jpg" onclick="setImg(this.src)">
-    <img src="C4.jpg" onclick="setImg(this.src)">
-    <img src="C5.jpg" onclick="setImg(this.src)">
-    <img src="C6.jpg" onclick="setImg(this.src)">
-    <img src="C7.jpg" onclick="setImg(this.src)">
-  </div>
-</div>
+  <!-- RIGHT DETAILS -->
+  <div class="product-info">
+    <h3>About This Product</h3>
+    <p>
+      HDPE Five Colour Rope by AMPOLE is manufactured from premium high-density
+      polyethylene, offering excellent durability, chemical resistance, and strength.
+      These ropes are lightweight, weatherproof, and float on water, making them ideal
+      for a wide range of applications.
+    </p>
 
-<!-- VIDEO (FIXED & WORKING) -->
-<div class="video-section">
-  <video src="cv1.mp4" controls autoplay muted loop playsinline></video>
+    <ul>
+      <li><strong>Material:</strong> High-Density Polyethylene (HDPE)</li>
+      <li><strong>Type:</strong> 3-strand twisted rope</li>
+      <li><strong>Diameter:</strong> 2 mm to 24 mm</li>
+      <li><strong>Length:</strong> 100 m, 200 m, 300 m (customizable)</li>
+      <li><strong>Color:</strong> Multiple colours / custom colours available</li>
+      <li><strong>Filament:</strong> Monofilament</li>
+    </ul>
+
+    <h3>Physical & Chemical Properties</h3>
+    <ul>
+      <li>High strength and durability</li>
+      <li>Minimal water absorption & floats on water</li>
+      <li>Weatherproof & chemical resistant</li>
+      <li>Controlled elongation under load</li>
+      <li>Lightweight & easy to handle</li>
+    </ul>
+
+    <h3>Common Applications</h3>
+    <ul>
+      <li>Industrial lifting & rigging</li>
+      <li>Marine & fishing applications</li>
+      <li>Construction material securing</li>
+      <li>Transportation load tying</li>
+      <li>Domestic & general-purpose use</li>
+    </ul>
+  </div>
+
 </div>
 
 <footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
 
 <script>
-/* IMAGE SLIDER */
 const images=["C1.jpg","C2.jpg","C3.jpg","C4.jpg","C5.jpg","C6.jpg","C7.jpg"];
 let imgIndex=0;
 const currentImg=document.getElementById("currentImg");
 
-function setImg(src){
-  imgIndex=images.indexOf(src);
-  currentImg.src=src;
-}
-function nextImg(){
-  imgIndex=(imgIndex+1)%images.length;
-  currentImg.src=images[imgIndex];
-}
-function prevImg(){
-  imgIndex=(imgIndex-1+images.length)%images.length;
-  currentImg.src=images[imgIndex];
-}
+function setImg(i){imgIndex=i;currentImg.src=images[i];}
+function nextImg(){imgIndex=(imgIndex+1)%images.length;currentImg.src=images[imgIndex];}
+function prevImg(){imgIndex=(imgIndex-1+images.length)%images.length;currentImg.src=images[imgIndex];}
 setInterval(nextImg,3000);
 
 document.getElementById("year").textContent=new Date().getFullYear();

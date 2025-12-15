@@ -6,132 +6,152 @@
 <title>HDPE Lachhi – AMPOLE Rope</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Roboto,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif}
 body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav {
-    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-    padding: 16px 36px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-radius:0 0 18px 18px;
-    box-shadow:0 6px 30px rgba(0,0,0,0.18);
-    position:sticky; top:0; z-index:1200;
-  }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
+  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+  padding: 16px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+  position:sticky;
+  top:0;
+  z-index:1200;
+}
 
-/* ===== HEADING ===== */
+nav .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:800;
+  font-size:20px;
+}
+
+nav img.logo {
+  height:56px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.6);
+  padding:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+nav ul li a {
+  display:block;
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-weight:700;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+nav ul li a:hover {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+}
+
+
 h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
 
-/* ===== IMAGE SLIDER ===== */
-.gallery{max-width:1200px;margin:auto}
+/* PRODUCT LAYOUT */
+.product-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:40px;
+  padding:20px;
+  align-items:flex-start;
+}
+
+/* LEFT IMAGE */
+.gallery{flex:1}
 .main-img{
   position:relative;
-  border-radius:22px;
-  border:10px solid #fff;
-  box-shadow:0 26px 60px rgba(0,0,0,.32);
+  border-radius:18px;
+  border:8px solid #fff;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
   overflow:hidden;
 }
 .main-img img{
   width:100%;
-  height:720px;
+  height:420px;
   object-fit:contain;
 }
-
-/* ARROWS */
 .img-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:52px;
-  height:52px;
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;
   border-radius:50%;
-  background:rgba(255,255,255,.9);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:22px;
-  font-weight:900;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-weight:900;
 }
-.img-arrow.left{left:14px}
-.img-arrow.right{right:14px}
+.img-arrow.left{left:10px}
+.img-arrow.right{right:10px}
 .img-arrow:hover{background:#E70114;color:#fff}
 
-/* THUMBNAILS */
 .thumbs{
-  margin-top:20px;
+  margin-top:14px;
   display:flex;
   flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
+  gap:10px;
 }
 .thumbs img{
-  width:120px;
-  height:120px;
-  border-radius:14px;
-  border:4px solid #E70114;
+  width:80px;height:80px;
+  border-radius:10px;
+  border:3px solid #E70114;
   cursor:pointer;
-  transition:.25s;
 }
-.thumbs img:hover{transform:scale(1.12)}
 
-/* ===== VIDEO ===== */
-.video-section{
-  max-width:900px;
-  margin:60px auto;
+/* RIGHT CONTENT */
+.product-info{
+  flex:1.2;
+  background:#fff;
+  padding:30px;
   border-radius:22px;
-  overflow:hidden;
-  border:10px solid #fff;
-  box-shadow:0 26px 60px rgba(0,0,0,.3);
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
-.video-section video{
-  width:100%;
-  height:500px;
-  object-fit:contain;
-  display:none;
+.product-info h3{
+  color:#E70114;
+  font-size:26px;
+  margin-bottom:12px;
 }
-.video-section video.active{display:block}
+.product-info p{
+  line-height:1.7;
+  margin-bottom:18px;
+}
+.product-info ul{
+  margin-left:18px;
+  margin-bottom:18px;
+}
+.product-info li{margin-bottom:8px}
 
-/* VIDEO DOTS */
-.video-dots{
-  display:flex;
-  justify-content:center;
-  gap:10px;
+/* FAQ */
+.faq h4{
+  color:#B00000;
   margin-top:14px;
 }
-.video-dots span{
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:#ccc;
-  cursor:pointer;
+.faq p{
+  margin-left:10px;
+  font-size:15px;
 }
-.video-dots span.active{background:#E70114}
 
 /* FOOTER */
 footer{
@@ -145,9 +165,8 @@ footer{
 
 /* MOBILE */
 @media(max-width:900px){
-  .main-img img{height:420px}
-  .video-section video{height:300px}
-  .thumbs img{width:90px;height:90px}
+  .product-wrapper{flex-direction:column}
+  .main-img img{height:300px}
 }
 </style>
 </head>
@@ -165,82 +184,84 @@ footer{
   </ul>
 </nav>
 
-<h2>HDPE Lachhi</h2>
+<h2>AMPOLE HDPE Rope – Lachhi</h2>
 
-<div class="gallery">
-  <div class="main-img">
-    <div class="img-arrow left" onclick="prevImg()">◀</div>
-    <img id="currentImg" src="B1.jpg">
-    <div class="img-arrow right" onclick="nextImg()">▶</div>
+<div class="product-wrapper">
+
+  <!-- LEFT IMAGES -->
+  <div class="gallery">
+    <div class="main-img">
+      <div class="img-arrow left" onclick="prevImg()">◀</div>
+      <img id="currentImg" src="B1.jpg">
+      <div class="img-arrow right" onclick="nextImg()">▶</div>
+    </div>
+
+    <div class="thumbs">
+      <img src="B1.jpg" onclick="setImg(0)">
+      <img src="B2.jpg" onclick="setImg(1)">
+      <img src="B3.jpg" onclick="setImg(2)">
+      <img src="B4.jpg" onclick="setImg(3)">
+      <img src="B5.jpg" onclick="setImg(4)">
+      <img src="B6.jpg" onclick="setImg(5)">
+      <img src="B7.jpeg" onclick="setImg(6)">
+    </div>
   </div>
 
-  <div class="thumbs">
-    <img src="B1.jpg" onclick="setImg(0)">
-    <img src="B2.jpg" onclick="setImg(1)">
-    <img src="B3.jpg" onclick="setImg(2)">
-    <img src="B4.jpg" onclick="setImg(3)">
-    <img src="B5.jpg" onclick="setImg(4)">
-    <img src="B6.jpg" onclick="setImg(5)">
-    <img src="B7.jpeg" onclick="setImg(6)">
+  <!-- RIGHT DETAILS -->
+  <div class="product-info">
+    <h3>About This Product</h3>
+    <p>
+      AMPOLE HDPE Rope – Lachhi is manufactured using high-quality HDPE material,
+      ensuring durability, strength, and long-lasting performance across demanding
+      industrial environments.
+    </p>
+
+    <ul>
+      <li><strong>Material:</strong> High-Density Polyethylene (HDPE)</li>
+      <li><strong>Size:</strong> 5 mm</li>
+      <li><strong>Style:</strong> Twisted</li>
+      <li><strong>Color:</strong> Multicolor</li>
+      <li><strong>Usage:</strong> Construction, shipping & industrial binding</li>
+    </ul>
+
+    <p>
+      Lightweight yet robust, this rope offers excellent grip and reliability,
+      making it a dependable solution for secure binding and heavy-duty applications.
+    </p>
+
+    <div class="faq">
+      <h4>FAQs</h4>
+
+      <h4>Q: What material is used?</h4>
+      <p>A: High-density polyethylene (HDPE).</p>
+
+      <h4>Q: What is the rope size?</h4>
+      <p>A: 5 mm.</p>
+
+      <h4>Q: Is it suitable for industrial use?</h4>
+      <p>A: Yes, it is designed for various industrial applications.</p>
+
+      <h4>Q: What style does the rope have?</h4>
+      <p>A: Twisted style for better grip and durability.</p>
+
+      <h4>Q: Is it multicolor?</h4>
+      <p>A: Yes, multicolor design for easy identification.</p>
+    </div>
   </div>
-</div>
 
-<div class="video-section">
-  <video class="active" controls><source src="bv1.mp4"></video>
-  <video controls><source src="bv2.mp4"></video>
-</div>
-
-<div class="video-dots">
-  <span class="active"></span>
-  <span></span>
 </div>
 
 <footer>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</footer>
 
 <script>
-/* IMAGE SLIDER */
 const images=["B1.jpg","B2.jpg","B3.jpg","B4.jpg","B5.jpg","B6.jpg","B7.jpeg"];
 let imgIndex=0;
-let autoSlide=setInterval(nextImg,3000);
 const currentImg=document.getElementById("currentImg");
 
-function setImg(i){
-  imgIndex=i;
-  currentImg.src=images[imgIndex];
-  resetAuto();
-}
-function nextImg(){
-  imgIndex=(imgIndex+1)%images.length;
-  currentImg.src=images[imgIndex];
-}
-function prevImg(){
-  imgIndex=(imgIndex-1+images.length)%images.length;
-  currentImg.src=images[imgIndex];
-}
-function resetAuto(){
-  clearInterval(autoSlide);
-  autoSlide=setInterval(nextImg,3000);
-}
-
-/* KEYBOARD ARROWS */
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight") nextImg();
-  if(e.key==="ArrowLeft") prevImg();
-});
-
-/* VIDEO */
-const videos=document.querySelectorAll(".video-section video");
-const dots=document.querySelectorAll(".video-dots span");
-let vIndex=0;
-
-function showVideo(i){
-  videos.forEach(v=>{v.pause();v.classList.remove("active")});
-  dots.forEach(d=>d.classList.remove("active"));
-  videos[i].classList.add("active");
-  dots[i].classList.add("active");
-  videos[i].play();
-}
-dots.forEach((d,i)=>d.onclick=()=>showVideo(i));
+function setImg(i){imgIndex=i;currentImg.src=images[i];}
+function nextImg(){imgIndex=(imgIndex+1)%images.length;currentImg.src=images[imgIndex];}
+function prevImg(){imgIndex=(imgIndex-1+images.length)%images.length;currentImg.src=images[imgIndex];}
+setInterval(nextImg,3000);
 
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
