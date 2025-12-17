@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMPOLE Rope – Strength You Can Trust</title>
 
-<!-- ================= HEADER STYLE (SAME AS ABOUT US) ================= -->
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Roboto,Arial,sans-serif;
+}
 
 /* BODY */
 body{
@@ -18,146 +22,170 @@ body{
   color:#222;
 }
 
-
 /* ================= NAVBAR ================= */
 nav {
-  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-  padding: 16px 36px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-radius:0 0 18px 18px;
-  box-shadow:0 6px 30px rgba(0,0,0,0.18);
-  position:sticky;
-  top:0;
-  z-index:1200;
-}
+    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+    padding: 16px 36px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-radius:0 0 18px 18px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.18);
+    position:sticky; top:0; z-index:1200;
+  }
+  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
+  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
+  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
+  nav ul li a {
+    display:block;
+    text-decoration:none;
+    color:#E70114;
+    padding:10px 18px;
+    border-radius:12px;
+    background: rgba(255,255,255,0.46);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    font-weight:700;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    border:1px solid rgba(231,1,20,0.06);
+  }
+  nav ul li a:hover, nav ul li a:focus {
+    transform: translateY(-6px) scale(1.03);
+    background:#E70114;
+    color:#FFFF00;
+    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+  }
 
-nav .brand {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:#E70114;
-  font-weight:800;
-  font-size:20px;
-}
-
-nav img.logo {
-  height:56px;
-  border-radius:8px;
-  background:rgba(255,255,255,0.6);
-  padding:6px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
-}
-
-nav ul {
-  list-style:none;
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-
-nav ul li a {
-  display:block;
-  text-decoration:none;
-  color:#E70114;
-  padding:10px 18px;
-  border-radius:12px;
-  background: rgba(255,255,255,0.46);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-  font-weight:700;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-}
-
-nav ul li a:hover {
-  transform: translateY(-6px) scale(1.03);
-  background:#E70114;
-  color:#FFFF00;
-  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-}
-
-/* ================= HERO VIDEO ================= */
+/* ================= HERO ================= */
 .hero{
   width:100%;
   height:100vh;
-  background:#000;
   position:relative;
 }
 
 .hero video{
   width:100%;
   height:100%;
-  object-fit:contain;
-  background:url(bg1.jpg);
+  object-fit:cover;
 }
 
-.hero-text{
+/* CENTER TITLE */
+.center-title{
   position:absolute;
-  bottom:12%;
-  width:100%;
-  text-align:center;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  font-size:68px;
+  font-weight:900;
+  letter-spacing:2px;
   color:#fff;
-  text-shadow:0 6px 30px rgba(0,0,0,.7);
+  text-shadow:0 10px 40px rgba(0,0,0,.85);
+  z-index:5;
 }
 
-.hero-text h1{
-  font-size:52px;
+/* LEFT ROTATING TEXT */
+.left-rotating{
+  position:absolute;
+  top:62%;
+  left:60px;
+  transform:translateY(-50%);
+  color:#fff;
+  z-index:5;
+  text-shadow:0 6px 25px rgba(0,0,0,.7);
 }
 
-.hero-text p{
-  font-size:22px;
-  margin-top:10px;
+.left-rotating h3{
+  font-size:28px;
+  margin-bottom:12px;
 }
 
-/* ================= QUICK PRODUCTS ================= */
-.quick-products{
+.rotating-box{
+  height:36px;
+  overflow:hidden;
+}
+
+#rotateLine{
+  font-size:24px;
+  font-weight:700;
+  display:block;
+  animation:slideFade 3s infinite;
+}
+
+@keyframes slideFade{
+  0%{opacity:0; transform:translateY(15px);}
+  20%{opacity:1; transform:translateY(0);}
+  70%{opacity:1;}
+  100%{opacity:0; transform:translateY(-15px);}
+}
+
+/* ================= CATEGORY SECTION ================= */
+.categories{
   display:flex;
   justify-content:center;
   gap:20px;
-  padding:30px;
-  background:#fff4d6;
+  padding:60px 20px;
+  background:#0b5ea8;
   flex-wrap:wrap;
 }
 
-.quick-products a{
-  padding:14px 30px;
-  background:#E70114;
-  color:#FFFF00;
-  border-radius:14px;
-  font-weight:700;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.quick-products a:hover{
-  background:#000;
-}
-
-/* ================= INFO ================= */
-.info{
-  max-width:1100px;
-  margin:60px auto;
-  padding:0 20px;
+/* CARD */
+.category-card{
+  width:190px;
+  height:180px;
+  background:#0a66b2;
+  border-radius:16px;
   text-align:center;
+  padding:22px;
+  color:#fff;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+  opacity:0;
+  transform:translateY(50px) scale(.95);
+  animation:cardIn .9s ease forwards;
 }
 
-.info h2{
-  font-size:36px;
-  color:#B00000;
-  margin-bottom:16px;
-  text-shadow:0 0 10px yellow;
+.category-card:nth-child(1){animation-delay:.1s}
+.category-card:nth-child(2){animation-delay:.2s}
+.category-card:nth-child(3){animation-delay:.3s}
+.category-card:nth-child(4){animation-delay:.4s}
+.category-card:nth-child(5){animation-delay:.5s}
+.category-card:nth-child(6){animation-delay:.6s}
+
+/* ICON */
+.category-card img{
+  width:52px;
+  margin-bottom:14px;
+  background:transparent;
+  mix-blend-mode:screen;
+  filter:brightness(0) invert(1);
 }
 
-.info p{
-  font-size:18px;
-  line-height:1.6;
+/* TEXT */
+.category-card p{
+  font-size:14px;
+  font-weight:700;
+  line-height:1.3;
+}
+
+/* HOVER */
+.category-card:hover{
+  transform:translateY(-10px) scale(1.08);
+  box-shadow:0 20px 45px rgba(0,0,0,.35);
+  background:#084a88;
+  transition:.35s ease;
+}
+
+/* ENTRY */
+@keyframes cardIn{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
 /* ================= FOOTER ================= */
 footer{
-  background:#E70114;
+  background:#000;
   color:#fff;
   text-align:center;
   padding:24px;
@@ -168,55 +196,89 @@ footer{
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <nav>
-  <a class="brand" href="index.html">
-    <img class="logo" src="logo.png" alt="LOGO">
+  <a class="brand" href="#">
+    <img class="logo" src="logo.png">
     AMPOLE Rope
   </a>
-  <ul>
+   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="products.html">Products</a></li>
   </ul>
 </nav>
 
-<!-- ================= HERO VIDEO ================= -->
+<!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline>
     <source src="video1.mp4" type="video/mp4">
   </video>
 
-  <div class="hero-text">
-    <h1>AMPOLE Rope</h1>
-    <p>Premium Quality • Industrial Strength</p>
+  <!-- LEFT ROTATING TEXT -->
+  <div class="left-rotating">
+    <h3>Your First Choice For</h3>
+    <div class="rotating-box">
+      <span id="rotateLine">▶ Monofilament Rope</span>
+    </div>
+  </div>
+
+  <!-- CENTER TITLE -->
+  <div class="center-title">
+    AMPOLE Rope
   </div>
 </section>
 
-<!-- ================= QUICK PRODUCTS ================= -->
-<section class="quick-products">
-  <a href="hdpe-lachha.html">HDPE Lachha</a>
-  <a href="hdpe-lachhi.html">HDPE Lachhi</a>
-  <a href="hdpe-rope.html">HDPE Rope</a>
-  <a href="pp-rope.html">PP Rope</a>
+<!-- CATEGORY CARDS -->
+<section class="categories">
+  <div class="category-card">
+    <img src="icons/shipping.png">
+    <p>SHIPPING AND MARINE</p>
+  </div>
+  <div class="category-card">
+    <img src="icons/safety.png">
+    <p>SAFETY & MOUNTAINEERING</p>
+  </div>
+  <div class="category-card">
+    <img src="icons/sports.png">
+    <p>SPORTS NETS</p>
+  </div>
+  <div class="category-card">
+    <img src="icons/industrial.png">
+    <p>INDUSTRIAL MARINE</p>
+  </div>
+  <div class="category-card">
+    <img src="icons/fishing.png">
+    <p>FISHING & AQUACULTURE NETS</p>
+  </div>
+  <div class="category-card">
+    <img src="icons/yacht.png">
+    <p>YACHTS & LEISURE MARINE</p>
+  </div>
 </section>
 
-<!-- ================= INFO ================= -->
-<section class="info">
-  <h2>Why Choose AMPOLE Rope?</h2>
-  <p>
-    We manufacture high-strength plastic ropes using advanced technology.
-    Trusted by industries for durability, safety, and long service life.
-  </p>
-</section>
-
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer>
   © <span id="year"></span> AMPOLE Rope — All Rights Reserved
 </footer>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
+
+const ropeLines = [
+  "▶ Monofilament Rope",
+  "▶ HDPE Rope",
+  "▶ Polypropylene Rope",
+  "▶ PP Dan Line Rope"
+];
+
+let rIndex = 0;
+const rotateEl = document.getElementById("rotateLine");
+
+setInterval(() => {
+  rIndex = (rIndex + 1) % ropeLines.length;
+  rotateEl.textContent = ropeLines[rIndex];
+}, 3000);
 </script>
 
 </body>
