@@ -225,6 +225,42 @@ footer{
     margin-top:40px;
   }
 }
+
+/* ================= IMAGE CHAIN ================= */
+.image-chain{
+  width:100%;
+  overflow:hidden;
+  background:#fff4d6;
+  padding:20px 0;
+}
+
+.chain-track{
+  display:flex;
+  gap:40px;
+  animation:scrollChain 25s linear infinite;
+}
+
+.chain-track img{
+  height:120px;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.25));
+  transition:transform .3s ease;
+}
+
+.chain-track img:hover{
+  transform:scale(1.1);
+}
+
+/* SCROLL ANIMATION */
+@keyframes scrollChain{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+.image-chain:hover .chain-track{
+  animation-play-state:paused;
+}
+
+
 </style>
 </head>
 
@@ -279,6 +315,24 @@ footer{
     </div>
 
     <div></div>
+  </div>
+</section>
+<!-- IMAGE CHAIN -->
+<section class="image-chain">
+  <div class="chain-track">
+    <img src="i1.png" alt="">
+    <img src="i2.png" alt="">
+    <img src="i3.png" alt="">
+    <img src="i4.png" alt="">
+    <img src="i5.png" alt="">
+    <img src="i6.png" alt="">
+    <!-- duplicate for smooth loop -->
+    <img src="i1.png" alt="">
+    <img src="i2.png" alt="">
+    <img src="i3.png" alt="">
+    <img src="i4.png" alt="">
+    <img src="i5.png" alt="">
+    <img src="i6.png" alt="">
   </div>
 </section>
 
