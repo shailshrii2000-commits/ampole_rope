@@ -168,6 +168,141 @@ footer{
   .product-wrapper{flex-direction:column}
   .main-img img{height:300px}
 }
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ========================= */
+
+/* ---------- NAVBAR ---------- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  nav .brand {
+    font-size: 18px;
+  }
+
+  nav img.logo {
+    height: 46px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- PAGE TITLE ---------- */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 28px;
+    margin: 22px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+}
+
+/* ---------- PRODUCT LAYOUT ---------- */
+@media (max-width: 900px) {
+  .product-wrapper {
+    flex-direction: column;
+    gap: 28px;
+    padding: 16px;
+  }
+}
+
+/* ---------- IMAGE SLIDER ---------- */
+@media (max-width: 768px) {
+  .main-img img {
+    height: 280px;
+  }
+
+  .thumbs {
+    justify-content: center;
+  }
+
+  .thumbs img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-img img {
+    height: 230px;
+  }
+
+  .img-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- PRODUCT INFO ---------- */
+@media (max-width: 768px) {
+  .product-info {
+    padding: 22px;
+  }
+
+  .product-info h3 {
+    font-size: 22px;
+  }
+
+  .product-info p,
+  .product-info li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-info {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .product-info h3 {
+    font-size: 20px;
+  }
+}
+
+/* ---------- FAQ ---------- */
+@media (max-width: 480px) {
+  .faq h4 {
+    font-size: 16px;
+  }
+
+  .faq p {
+    font-size: 14px;
+  }
+}
+
+/* ---------- FOOTER ---------- */
+@media (max-width: 768px) {
+  footer {
+    padding: 22px 14px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  footer div {
+    margin-top: 8px;
+  }
+}
+
 </style>
 </head>
 
@@ -254,7 +389,7 @@ footer{
 <footer>
   © <span id="year"></span> AMPOLE Rope — All Rights Reserved 
                               
-<i style="padding-left: 500px;"><b>developed by</b> -:{ shailshri }  <b>Gmail -:</b>{ shailshrii909@gmail.com }</i>
+<div><i><b>developed by</b> -:{ shailshri }  <b>Gmail -:</b>{ shailshrii909@gmail.com }</i></div>
 </footer>
 <script>
 const images=["B1.jpg","B2.jpg","B3.jpg","B4.jpg","B5.jpg","B6.jpg","B7.jpeg"];

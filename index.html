@@ -215,17 +215,6 @@ footer{
   font-weight:700;
 }
 
-/* RESPONSIVE */
-@media(max-width:1000px){
-  .hero-overlay{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .hero-left{
-    margin-top:40px;
-  }
-}
-
 /* ================= IMAGE CHAIN ================= */
 .image-chain{
   width:100%;
@@ -260,6 +249,153 @@ footer{
   animation-play-state:paused;
 }
 
+/* ===================== RESPONSIVE PATCH ===================== */
+
+/* ---------- LARGE TABLETS ---------- */
+@media (max-width: 1200px){
+  .hero-text h1{
+    font-size:46px;
+  }
+  .hero-text p{
+    font-size:20px;
+  }
+  .hero-left li{
+    font-size:22px;
+  }
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 992px){
+
+  nav{
+    padding:14px 22px;
+    flex-wrap:wrap;
+  }
+
+  nav ul{
+    gap:10px;
+  }
+
+  nav ul li a{
+    padding:8px 14px;
+    font-size:15px;
+  }
+
+  .hero{
+    height:75vh;
+  }
+
+  .hero-overlay{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:0 4%;
+  }
+
+  .hero-left{
+    order:2;
+    margin-top:30px;
+  }
+
+  .hero-left li{
+    font-size:20px;
+  }
+
+  .hero-text h1{
+    font-size:40px;
+  }
+
+  .hero-text p{
+    font-size:18px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px){
+
+  nav{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav img.logo{
+    height:48px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero{
+    height:70vh;
+  }
+
+  .hero-left li{
+    font-size:18px;
+    margin:12px 0;
+  }
+
+  .hero-text h1{
+    font-size:32px;
+  }
+
+  .hero-text p{
+    font-size:16px;
+  }
+
+  .quick-products{
+    padding:20px 10px;
+    gap:12px;
+  }
+
+  .quick-products a{
+    padding:12px 22px;
+    font-size:14px;
+  }
+
+  .info h2{
+    font-size:28px;
+  }
+
+  .info p{
+    font-size:16px;
+  }
+
+  footer{
+    font-size:14px;
+  }
+
+  footer i{
+    display:block;
+    padding-left:0 !important;
+    margin-top:10px;
+    font-style:normal;
+  }
+}
+
+/* ---------- SMALL MOBILE ---------- */
+@media (max-width: 480px){
+
+  .hero{
+    height:65vh;
+  }
+
+  .hero-text h1{
+    font-size:26px;
+  }
+
+  .hero-text p{
+    font-size:14px;
+  }
+
+  .hero-left li{
+    font-size:16px;
+  }
+
+  .chain-track img{
+    height:90px;
+  }
+}
 
 </style>
 </head>
@@ -299,10 +435,10 @@ footer{
     <!-- LEFT -->
     <div class="hero-left">
       <ul id="ropeList">
-        <li>▶ Monofilament Rope</li>
+        <li>▶ HDPE Lachha</li>
+        <li>▶ HDPE Lachhi</li>
         <li>▶ HDPE Rope</li>
-        <li>▶ Polypropylene Rope</li>
-        <li>▶ PP Dan Line Rope</li>
+        <li>▶ PP Rope</li>
       </ul>
     </div>
 
@@ -384,7 +520,6 @@ setInterval(() => {
 }, 3000);
 
 /* LEFT PUNCHLINE LOOP */
-/* LEFT PUNCHLINES – APPEAR ONE BY ONE, STAY, THEN RESTART */
 const ropeItems = document.querySelectorAll("#ropeList li");
 let rIndex = 0;
 
@@ -393,7 +528,6 @@ function showRopesSequentially(){
     ropeItems[rIndex].classList.add("show");
     rIndex++;
   }else{
-    // when all shown, wait then restart
     setTimeout(() => {
       ropeItems.forEach(li => li.classList.remove("show"));
       rIndex = 0;
@@ -402,7 +536,6 @@ function showRopesSequentially(){
 }
 
 setInterval(showRopesSequentially, 2000);
-
 
 /* BACKGROUND VIDEO LOOP */
 const videos = document.querySelectorAll(".bg-video");

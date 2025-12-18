@@ -158,6 +158,135 @@ footer{
   .product-wrapper{flex-direction:column}
   .main-img img{height:300px}
 }
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ========================= */
+
+/* ---------- NAVBAR ---------- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  nav .brand {
+    font-size: 18px;
+  }
+
+  nav img.logo {
+    height: 46px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- PAGE TITLE ---------- */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 28px;
+    margin: 22px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+}
+
+/* ---------- PRODUCT LAYOUT ---------- */
+@media (max-width: 900px) {
+  .product-wrapper {
+    flex-direction: column;
+    gap: 28px;
+    padding: 16px;
+  }
+}
+
+/* ---------- IMAGE SLIDER ---------- */
+@media (max-width: 768px) {
+  .main-img img {
+    height: 280px;
+  }
+
+  .thumbs {
+    justify-content: center;
+  }
+
+  .thumbs img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-img img {
+    height: 230px;
+  }
+
+  .img-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- PRODUCT INFO ---------- */
+@media (max-width: 768px) {
+  .product-info {
+    padding: 22px;
+  }
+
+  .product-info h3 {
+    font-size: 22px;
+  }
+
+  .product-info p,
+  .product-info li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-info {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .product-info h3 {
+    font-size: 20px;
+  }
+}
+
+/* ---------- FOOTER ---------- */
+@media (max-width: 1024px) {
+  footer i {
+    display: block;
+    padding-left: 0;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 20px 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
 </style>
 </head>
 

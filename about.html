@@ -97,6 +97,123 @@ footer{
   font-weight:700;
 }
 
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN 📱 */
+/* ========================= */
+
+/* GENERAL TEXT SCALING */
+@media (max-width: 1024px) {
+  .header-title {
+    font-size: 2.8rem;
+  }
+}
+
+/* ---------- NAVBAR ---------- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-left: 0;
+  }
+
+  nav ul li a {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  nav img.logo {
+    height: 48px;
+  }
+}
+
+/* ---------- HEADER ---------- */
+@media (max-width: 768px) {
+  section.text-center.py-16 {
+    padding: 48px 16px;
+  }
+
+  .header-title {
+    font-size: 2.4rem;
+  }
+
+  section p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 2rem;
+  }
+}
+
+/* ---------- CONTENT ---------- */
+@media (max-width: 768px) {
+  .max-w-5xl {
+    padding: 16px;
+  }
+
+  .theme-card {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .theme-card p,
+  .theme-card li {
+    font-size: 15px;
+  }
+}
+
+/* ---------- BUTTON ---------- */
+@media (max-width: 480px) {
+  a.bg-red-600 {
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    padding: 14px;
+  }
+}
+
+/* ---------- FOOTER ---------- */
+@media (max-width: 1024px) {
+  footer i {
+    padding-left: 0;
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    font-size: 14px;
+    padding: 20px 12px;
+    line-height: 1.6;
+  }
+}
+
+
 </style>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
@@ -210,8 +327,7 @@ footer{
 
 </body>
 <footer>
-  © <span id="year"></span> AMPOLE Rope — All Rights Reserved 
-                              
-<i style="padding-left: 500px;"><b>developed by</b> -:{ shailshri }  <b>Gmail -:</b>{ shailshrii909@gmail.com }</i>
+  © <span id="year"></span> AMPOLE Rope — All Rights Reserved                               
+<div> <i><b>developed by</b> -:{ shailshri }  <b>Gmail -:</b>{ shailshrii909@gmail.com }</i></div>
 </footer>
 </html>

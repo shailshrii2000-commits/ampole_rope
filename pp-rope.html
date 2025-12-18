@@ -6,13 +6,22 @@
 <title>PP Rope – AMPOLE Rope</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif}
-body{background:linear-gradient(180deg,#fffdfa,#fff4d6);color:#222}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Roboto,Arial,sans-serif
+}
 
-/* NAVBAR */
-nav {
-  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-  padding: 16px 36px;
+body{
+  background:linear-gradient(180deg,#fffdfa,#fff4d6);
+  color:#222
+}
+
+/* ================= NAVBAR ================= */
+nav{
+  background:linear-gradient(90deg,#FFFF00 0%,#FFEE33 50%,#FFFF00 100%);
+  padding:16px 36px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -23,7 +32,7 @@ nav {
   z-index:1200;
 }
 
-nav .brand {
+nav .brand{
   display:flex;
   align-items:center;
   gap:12px;
@@ -33,55 +42,57 @@ nav .brand {
   font-size:20px;
 }
 
-nav img.logo {
+nav img.logo{
   height:56px;
   border-radius:8px;
-  background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,.6);
   padding:6px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+  box-shadow:0 6px 18px rgba(0,0,0,.2);
 }
 
-nav ul {
+nav ul{
   list-style:none;
   display:flex;
   gap:18px;
-  align-items:center;
 }
 
-nav ul li a {
-  display:block;
+nav ul li a{
   text-decoration:none;
   color:#E70114;
   padding:10px 18px;
   border-radius:12px;
-  background: rgba(255,255,255,0.46);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  background:rgba(255,255,255,.45);
+  box-shadow:0 6px 14px rgba(0,0,0,.18);
   font-weight:700;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  transition:.25s;
 }
 
-nav ul li a:hover {
-  transform: translateY(-6px) scale(1.03);
+nav ul li a:hover{
   background:#E70114;
   color:#FFFF00;
-  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+  transform:translateY(-4px);
 }
 
-h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
+/* ================= HEADING ================= */
+h2{
+  text-align:center;
+  margin:30px 0;
+  font-size:36px;
+  color:#B00000;
+}
 
-/* PRODUCT LAYOUT */
+/* ================= PRODUCT ================= */
 .product-wrapper{
   max-width:1200px;
   margin:auto;
   display:flex;
   gap:40px;
   padding:20px;
-  align-items:flex-start;
 }
 
-/* LEFT IMAGE */
+/* ===== LEFT IMAGE ===== */
 .gallery{flex:1}
+
 .main-img{
   position:relative;
   border-radius:18px;
@@ -89,37 +100,63 @@ h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
   box-shadow:0 20px 50px rgba(0,0,0,.3);
   overflow:hidden;
 }
+
 .main-img img{
   width:100%;
   height:420px;
   object-fit:contain;
+  background:#fff;
 }
+
 .img-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:42px;height:42px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
   border-radius:50%;
   background:#fff;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-weight:900;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
 }
+
 .img-arrow.left{left:10px}
 .img-arrow.right{right:10px}
-.img-arrow:hover{background:#E70114;color:#fff}
 
+.img-arrow:hover{
+  background:#E70114;
+  color:#fff;
+}
+
+/* Thumbnails */
 .thumbs{
   margin-top:14px;
   display:flex;
   flex-wrap:wrap;
   gap:10px;
 }
+
 .thumbs img{
-  width:80px;height:80px;
+  width:80px;
+  height:80px;
   border-radius:10px;
   border:3px solid #E70114;
   cursor:pointer;
+  background:#fff;
+  object-fit:contain;
 }
 
-/* RIGHT CONTENT */
+.thumbs img.active{
+  border-color:#000;
+  box-shadow:0 0 0 3px #E70114 inset;
+  transform:scale(1.05);
+}
+
+/* ===== RIGHT CONTENT ===== */
 .product-info{
   flex:1.2;
   background:#fff;
@@ -127,51 +164,88 @@ h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
   border-radius:22px;
   box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
+
 .product-info h3{
   color:#E70114;
   font-size:26px;
   margin-bottom:12px;
 }
+
 .product-info p{
   line-height:1.7;
   margin-bottom:18px;
 }
+
 .product-info ul{
   margin-left:18px;
   margin-bottom:18px;
 }
-.product-info li{margin-bottom:8px}
+
+.product-info li{
+  margin-bottom:8px;
+}
 
 /* FAQ */
 .faq h4{
   color:#B00000;
   margin-top:14px;
 }
+
 .faq p{
   margin-left:10px;
   font-size:15px;
 }
 
-/* FOOTER */
-footer{
+/* ================= FOOTER ================= */
+.footer{
   margin-top:50px;
-  padding:28px;
-  background:#000000;
+  background:#000;
   color:#fff;
-  text-align:center;
-  font-weight:700;
+  padding:22px 16px;
+  font-weight:600;
 }
 
-/* MOBILE */
+.footer-content{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  text-align:center;
+}
+
+.footer .dev{
+  font-size:14px;
+  opacity:.9;
+}
+
+/* ================= MOBILE ================= */
 @media(max-width:900px){
-  .product-wrapper{flex-direction:column}
-  .main-img img{height:300px}
+  .product-wrapper{
+    flex-direction:column;
+  }
+  .main-img img{
+    height:300px;
+  }
+}
+
+@media(max-width:600px){
+  nav{
+    flex-direction:column;
+    gap:14px;
+  }
+  .footer-content{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <a class="brand" href="index.html">
     <img src="logo.png" class="logo"> AMPOLE Rope
@@ -187,7 +261,7 @@ footer{
 
 <div class="product-wrapper">
 
-  <!-- LEFT IMAGES -->
+  <!-- LEFT IMAGE -->
   <div class="gallery">
     <div class="main-img">
       <div class="img-arrow left" onclick="prevImg()">◀</div>
@@ -207,13 +281,12 @@ footer{
     </div>
   </div>
 
-  <!-- RIGHT DETAILS -->
+  <!-- RIGHT CONTENT -->
   <div class="product-info">
     <h3>About This Product</h3>
     <p>
       AMPOLE Polypropylene Rope (PP Rope) is manufactured using high-strength
-      polypropylene material, offering excellent durability, moisture resistance,
-      and long service life for demanding industrial environments.
+      polypropylene material, offering excellent durability and long service life.
     </p>
 
     <ul>
@@ -221,52 +294,70 @@ footer{
       <li><strong>Style:</strong> Twisted Rope</li>
       <li><strong>Standard Length:</strong> 300 meters</li>
       <li><strong>Color:</strong> Yellow</li>
-      <li><strong>Usage:</strong> Industrial, Marine, Construction & Transport</li>
+      <li><strong>Usage:</strong> Industrial, Marine, Construction</li>
     </ul>
 
     <p>
-      Lightweight yet strong, PP Rope is resistant to abrasion, UV rays,
-      and moisture, making it ideal for heavy-duty applications in harsh
-      working conditions.
+      Lightweight yet strong, PP Rope is resistant to abrasion, UV rays, and moisture,
+      making it ideal for harsh working conditions.
     </p>
 
     <div class="faq">
       <h4>FAQs</h4>
-
       <h4>Q: What material is used?</h4>
       <p>A: High-strength polypropylene.</p>
 
-      <h4>Q: What is the standard length?</h4>
+      <h4>Q: Standard length?</h4>
       <p>A: 300 meters.</p>
 
-      <h4>Q: Is this rope suitable for industrial use?</h4>
-      <p>A: Yes, it is designed for heavy-duty industrial applications.</p>
-
-      <h4>Q: Is it resistant to moisture and UV?</h4>
-      <p>A: Yes, it offers excellent resistance to moisture and UV exposure.</p>
-
-      <h4>Q: Where can this rope be used?</h4>
-      <p>A: Construction, marine, transportation, fishing, and packaging industries.</p>
+      <h4>Q: Industrial use?</h4>
+      <p>A: Yes, heavy-duty industrial applications.</p>
     </div>
   </div>
-
 </div>
-<footer>
-  © <span id="year"></span> AMPOLE Rope — All Rights Reserved 
-                              
-<i style="padding-left: 500px;"><b>developed by</b> -:{ shailshri }  <b>Gmail -:</b>{ shailshrii909@gmail.com }</i>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <span>© <span id="year"></span> AMPOLE Rope — All Rights Reserved</span>
+    <span class="dev"><b>Developed by:</b> shailshri | <b>Email:</b> shailshrii909@gmail.com</span>
+  </div>
 </footer>
 
 <script>
 const images=["D1.jpg","D2.jpg","D3.jpg","D4.jpg","D5.jpg","D6.jpg","D7.jpg","D8.jpg"];
 let imgIndex=0;
 const currentImg=document.getElementById("currentImg");
+const thumbs=document.querySelectorAll(".thumbs img");
 
-function setImg(i){imgIndex=i;currentImg.src=images[i];}
-function nextImg(){imgIndex=(imgIndex+1)%images.length;currentImg.src=images[imgIndex];}
-function prevImg(){imgIndex=(imgIndex-1+images.length)%images.length;currentImg.src=images[imgIndex];}
-setInterval(nextImg,3000);
+function updateImg(){
+  currentImg.src=images[imgIndex];
+  thumbs.forEach((t,i)=>t.classList.toggle("active",i===imgIndex));
+}
 
+function setImg(i){
+  imgIndex=i;
+  updateImg();
+  resetAuto();
+}
+
+function nextImg(){
+  imgIndex=(imgIndex+1)%images.length;
+  updateImg();
+}
+
+function prevImg(){
+  imgIndex=(imgIndex-1+images.length)%images.length;
+  updateImg();
+}
+
+let autoSlide=setInterval(nextImg,3000);
+function resetAuto(){
+  clearInterval(autoSlide);
+  autoSlide=setInterval(nextImg,3000);
+}
+
+updateImg();
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
