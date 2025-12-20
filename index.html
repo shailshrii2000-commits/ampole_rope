@@ -24,37 +24,58 @@ body{
 
 /* ================= NAVBAR ================= */
 nav {
-    background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
-    padding: 16px 36px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-radius:0 0 18px 18px;
-    box-shadow:0 6px 30px rgba(0,0,0,0.18);
-    position:sticky; top:0; z-index:1200;
-  }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
+  background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
+  padding: 16px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+  position:sticky; top:0; z-index:1200;
+}
+nav .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#E70114;
+  font-weight:800;
+  font-size:20px;
+}
+nav img.logo {
+  height:56px;
+  width:auto;
+  border-radius:8px;
+  background:rgba(255,255,255,0.6);
+  padding:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-left:18px;
+}
+nav ul li a {
+  display:block;
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-weight:700;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  border:1px solid rgba(231,1,20,0.06);
+}
+nav ul li a:hover {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+}
 
 /* ================= HERO ================= */
 .hero{
@@ -65,13 +86,13 @@ nav {
   background:#000;
 }
 
-/* MULTI VIDEO */
-.video-wrapper{
+/* IMAGE SLIDER */
+.image-slider{
   position:absolute;
   inset:0;
+  overflow:hidden;
 }
-
-.bg-video{
+.image-slider .slide{
   position:absolute;
   inset:0;
   width:100%;
@@ -80,8 +101,7 @@ nav {
   opacity:0;
   transition:opacity 1.5s ease;
 }
-
-.bg-video.active{
+.image-slider .slide.active{
   opacity:1;
 }
 
@@ -98,10 +118,7 @@ nav {
 }
 
 /* LEFT PUNCHLINES */
-.hero-left ul{
-  list-style:none;
-}
-
+.hero-left ul{ list-style:none; }
 .hero-left li{
   font-size:26px;
   font-weight:700;
@@ -112,23 +129,18 @@ nav {
   transition:all .6s ease;
   text-shadow:0 4px 18px rgba(0,0,0,.7);
 }
-
 .hero-left li.show{
   opacity:1;
   transform:translateY(0);
 }
 
 /* CENTER */
-.hero-text{
-  text-align:center;
-}
-
+.hero-text{ text-align:center; }
 .hero-text h1{
   font-size:56px;
   margin-bottom:10px;
   text-shadow:0 6px 30px rgba(0,0,0,.7);
 }
-
 .hero-text p{
   font-size:24px;
   font-weight:600;
@@ -138,7 +150,6 @@ nav {
 #heroPunchline{
   transition:opacity .8s ease, transform .8s ease;
 }
-
 .fade-out{
   opacity:0;
   transform:translateY(10px);
@@ -153,7 +164,6 @@ nav {
   background:#fff4d6;
   flex-wrap:wrap;
 }
-
 .quick-products a{
   padding:14px 30px;
   background:#E70114;
@@ -163,10 +173,7 @@ nav {
   text-decoration:none;
   transition:.3s;
 }
-
-.quick-products a:hover{
-  background:#000;
-}
+.quick-products a:hover{ background:#000; }
 
 /* ================= INFO ================= */
 .info{
@@ -175,14 +182,12 @@ nav {
   padding:0 20px;
   text-align:center;
 }
-
 .info h2{
   font-size:36px;
   color:#B00000;
   margin-bottom:16px;
   text-shadow:0 0 10px yellow;
 }
-
 .info p{
   font-size:18px;
   line-height:1.6;
@@ -204,25 +209,16 @@ footer{
   background:#fff4d6;
   padding:20px 0;
 }
-
 .chain-track{
   display:flex;
   gap:40px;
   animation:scrollChain 25s linear infinite;
 }
-
 .chain-track img{
   height:120px;
   object-fit:contain;
   filter:drop-shadow(0 8px 20px rgba(0,0,0,.25));
-  transition:transform .3s ease;
 }
-
-.chain-track img:hover{
-  transform:scale(1.1);
-}
-
-/* SCROLL ANIMATION */
 @keyframes scrollChain{
   0%{ transform:translateX(0); }
   100%{ transform:translateX(-50%); }
@@ -230,155 +226,6 @@ footer{
 .image-chain:hover .chain-track{
   animation-play-state:paused;
 }
-
-/* ===================== RESPONSIVE PATCH ===================== */
-
-/* ---------- LARGE TABLETS ---------- */
-@media (max-width: 1200px){
-  .hero-text h1{
-    font-size:46px;
-  }
-  .hero-text p{
-    font-size:20px;
-  }
-  .hero-left li{
-    font-size:22px;
-  }
-}
-
-/* ---------- TABLET ---------- */
-@media (max-width: 992px){
-
-  nav{
-    padding:14px 22px;
-    flex-wrap:wrap;
-  }
-
-  nav ul{
-    gap:10px;
-  }
-
-  nav ul li a{
-    padding:8px 14px;
-    font-size:15px;
-  }
-
-  .hero{
-    height:75vh;
-  }
-
-  .hero-overlay{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding:0 4%;
-  }
-
-  .hero-left{
-    order:2;
-    margin-top:30px;
-  }
-
-  .hero-left li{
-    font-size:20px;
-  }
-
-  .hero-text h1{
-    font-size:40px;
-  }
-
-  .hero-text p{
-    font-size:18px;
-  }
-}
-
-/* ---------- MOBILE ---------- */
-@media (max-width: 768px){
-
-  nav{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  nav img.logo{
-    height:48px;
-  }
-
-  nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .hero{
-    height:70vh;
-  }
-
-  .hero-left li{
-    font-size:18px;
-    margin:12px 0;
-  }
-
-  .hero-text h1{
-    font-size:32px;
-  }
-
-  .hero-text p{
-    font-size:16px;
-  }
-
-  .quick-products{
-    padding:20px 10px;
-    gap:12px;
-  }
-
-  .quick-products a{
-    padding:12px 22px;
-    font-size:14px;
-  }
-
-  .info h2{
-    font-size:28px;
-  }
-
-  .info p{
-    font-size:16px;
-  }
-
-  footer{
-    font-size:14px;
-  }
-
-  footer i{
-    display:block;
-    padding-left:0 !important;
-    margin-top:10px;
-    font-style:normal;
-  }
-}
-
-/* ---------- SMALL MOBILE ---------- */
-@media (max-width: 480px){
-
-  .hero{
-    height:65vh;
-  }
-
-  .hero-text h1{
-    font-size:26px;
-  }
-
-  .hero-text p{
-    font-size:14px;
-  }
-
-  .hero-left li{
-    font-size:16px;
-  }
-
-  .chain-track img{
-    height:90px;
-  }
-}
-
 </style>
 </head>
 
@@ -394,28 +241,19 @@ footer{
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="products.html">Products</a></li>
-    <li><a href="contact.html">contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-
-  <div class="video-wrapper">
-    <video class="bg-video active" autoplay muted loop playsinline>
-      <source src="vedo1.mp4" type="video/mp4">
-    </video>
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="vedo2.mp4" type="video/mp4">
-    </video>
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="vedo3.mp4" type="video/mp4">
-    </video>
+  <div class="image-slider">
+    <img src="im1.jpeg" class="slide active">
+    <img src="im2.jpeg" class="slide">
+    <img src="im3.jpeg" class="slide">
   </div>
 
   <div class="hero-overlay">
-
-    <!-- LEFT -->
     <div class="hero-left">
       <ul id="ropeList">
         <li>▶ HDPE Lachha</li>
@@ -425,25 +263,25 @@ footer{
       </ul>
     </div>
 
-    <!-- CENTER -->
     <div class="hero-text">
       <h1>AMPOLE Rope</h1>
       <p id="heroPunchline">
         Strength you can trust, flexibility you can count on!
       </p>
     </div>
-
     <div></div>
   </div>
 </section>
+
 <!-- IMAGE CHAIN -->
 <section class="image-chain">
   <div class="chain-track">
-    <img src="i1.png" alt="">
-
-    <!-- duplicate for smooth loop -->
-    <img src="i1.png" alt="">
-
+    <img src="i1.png">
+    <img src="i2.png">
+    <img src="i3.png">
+    <img src="i4.png">
+    <img src="i5.png">
+    <img src="i6.png">
   </div>
 </section>
 
@@ -458,17 +296,12 @@ footer{
 <!-- INFO -->
 <section class="info">
   <h2>Why Choose AMPOLE Rope?</h2>
-  <p>
-    We manufacture high-strength plastic ropes using advanced technology.
-    Trusted by industries for durability, safety, and long service life.
-  </p>
+  <p>We manufacture high-strength plastic ropes using advanced technology.</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  © <span id="year"></span> AMPOLE Rope — All Rights Reserved 
-                              
-<i style="padding-left: 500px;"><b>developed by</b> -:{ shailshri }  <b>Gmail -:</b>{ shailshrii909@gmail.com }</i>
+  © <span id="year"></span> AMPOLE Rope — All Rights Reserved
 </footer>
 
 <script>
@@ -481,10 +314,8 @@ const punchlines = [
   "Tie it all together with our plastic ropes!",
   "Rope in the possibilities — durable, versatile, essential!"
 ];
-
 let pIndex = 0;
 const punchlineEl = document.getElementById("heroPunchline");
-
 setInterval(() => {
   punchlineEl.classList.add("fade-out");
   setTimeout(() => {
@@ -494,10 +325,9 @@ setInterval(() => {
   }, 800);
 }, 3000);
 
-/* LEFT PUNCHLINE LOOP */
+/* LEFT TEXT LOOP */
 const ropeItems = document.querySelectorAll("#ropeList li");
 let rIndex = 0;
-
 function showRopesSequentially(){
   if(rIndex < ropeItems.length){
     ropeItems[rIndex].classList.add("show");
@@ -509,18 +339,16 @@ function showRopesSequentially(){
     }, 2000);
   }
 }
-
 setInterval(showRopesSequentially, 2000);
 
-/* BACKGROUND VIDEO LOOP */
-const videos = document.querySelectorAll(".bg-video");
-let vIndex = 0;
-
+/* IMAGE SLIDER LOOP */
+const slides = document.querySelectorAll(".image-slider .slide");
+let sIndex = 0;
 setInterval(() => {
-  videos[vIndex].classList.remove("active");
-  vIndex = (vIndex + 1) % videos.length;
-  videos[vIndex].classList.add("active");
-}, 7000);
+  slides[sIndex].classList.remove("active");
+  sIndex = (sIndex + 1) % slides.length;
+  slides[sIndex].classList.add("active");
+}, 5000);
 </script>
 
 </body>
