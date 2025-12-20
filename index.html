@@ -183,6 +183,8 @@ nav {
   line-height:1.6;
 }
 
+
+
 /* ================= FOOTER ================= */
 footer{
   background:#E70114;
@@ -197,28 +199,242 @@ footer{
   grid-template-columns:repeat(4, 1fr);
   grid-auto-rows:220px;
   gap:20px;
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
 }
 
-/* Common */
-.img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+/* Image container */
+.img-box{
+  position:relative;
+  overflow:hidden;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
-/* Large image = 2 columns */
-.large{
-  grid-column:span 2;
+/* Image */
+.img-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s ease;
 }
 
-/* Small image = 1 column */
-.small{
-  grid-column:span 1;
+/* Text overlay */
+.img-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.45);
+  color:#fff;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:1px;
+  opacity:0;
+  transition:.4s;
+  text-shadow:0 6px 20px rgba(0,0,0,0.7);
 }
+
+/* Hover effect */
+.img-box:hover img{
+  transform:scale(1.1);
+}
+.img-box:hover .img-text{
+  opacity:1;
+}
+
+/* Sizes */
+.large{ grid-column:span 2; }
+.small{ grid-column:span 1; }
+
+.full-slider{
+  position:relative;
+  width:100%;
+  height:420px;          /* width focus, not full height */
+  overflow:hidden;
+  margin:40px 0;
+}
+
+.slider-track{
+  display:flex;
+  width:100%;
+  height:100%;
+  transition:transform 0.8s ease-in-out;
+}
+
+.slide{
+  min-width:100%;
+  height:100%;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Arrows */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  border:none;
+  font-size:32px;
+  padding:10px 16px;
+  cursor:pointer;
+  border-radius:50%;
+  z-index:10;
+  transition:.3s;
+}
+
+.arrow:hover{
+  background:#E70114;
+}
+
+.arrow.left{ left:20px; }
+.arrow.right{ right:20px; }
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 1024px){
+
+  /* Navbar */
+  nav{
+    padding:14px 20px;
+  }
+  nav ul{
+    gap:12px;
+  }
+
+  /* Hero text */
+  .hero-text h1{
+    font-size:42px;
+  }
+  .hero-text p{
+    font-size:20px;
+  }
+
+  /* Image chain */
+  .chain-track img{
+    height:140px;
+  }
+
+  /* Image layout */
+  .image-layout{
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .large{
+    grid-column:span 2;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  /* Navbar stack */
+  nav{
+    flex-direction:column;
+    gap:14px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  /* Hero */
+  .hero{
+    height:65vh;
+  }
+
+  .hero-overlay{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero-left{
+    display:none; /* hide left list on mobile */
+  }
+
+  .hero-text h1{
+    font-size:34px;
+  }
+  .hero-text p{
+    font-size:18px;
+  }
+
+  /* Image chain */
+  .chain-track{
+    gap:30px;
+  }
+  .chain-track img{
+    height:120px;
+  }
+
+  /* Image layout */
+  .image-layout{
+    grid-template-columns:1fr;
+  }
+
+  .large,
+  .small{
+    grid-column:span 1;
+  }
+
+  /* Slider */
+  .full-slider{
+    height:260px;
+  }
+
+  .arrow{
+    font-size:24px;
+    padding:8px 12px;
+  }
+
+  /* Buttons */
+  .quick-products a{
+    font-size:18px;
+    padding:14px 30px;
+  }
+
+}
+
+/* Small Mobile */
+@media (max-width: 480px){
+
+  nav img.logo{
+    height:46px;
+  }
+
+  nav .brand{
+    font-size:18px;
+  }
+
+  .hero-text h1{
+    font-size:28px;
+  }
+
+  .hero-text p{
+    font-size:16px;
+  }
+
+  .info h2{
+    font-size:26px;
+  }
+
+  .info p{
+    font-size:16px;
+  }
+
+  .full-slider{
+    height:220px;
+  }
+}
+
 </style>
 </head>
 
@@ -289,20 +505,86 @@ footer{
 <section class="quick-products">
   <a href="about.html">Know More</a>
 </section>
+
 <div class="image-layout">
+
   <!-- Row 1 -->
-  <img src="fishing.jpg" class="img large">
-  <img src="industrial.jpg" class="img small">
-  <img src="MOUNT.jpg" class="img small">
+  <div class="img-box large">
+    <img src="fishing.jpg">
+    <div class="img-text">Fishing Ropes</div>
+  </div>
+
+  <div class="img-box small">
+    <img src="industrial.jpg">
+    <div class="img-text">Industrial Use</div>
+  </div>
+
+  <div class="img-box small">
+    <img src="MOUNT.jpg">
+    <div class="img-text">Mountaineering</div>
+  </div>
 
   <!-- Row 2 -->
-  <img src="yachting.jpg" class="img small">
-  <img src="sports-nets.jpg" class="img small">
-  <img src="shipping.jpg" class="img large">
+  <div class="img-box small">
+    <img src="yachting.jpg">
+    <div class="img-text">Yachting</div>
+  </div>
+
+  <div class="img-box small">
+    <img src="sports-nets.jpg">
+    <div class="img-text">Sports Nets</div>
+  </div>
+
+  <div class="img-box large">
+    <img src="shipping.jpg">
+    <div class="img-text">Shipping & Cargo</div>
+  </div>
+
 </div>
 
-<div style="height: 20px;">
+
+<div style="height: 20px; text-align: center; margin-top: 30px; margin-bottom: 30px;">
+  <strong style="text-align: center; font-size:x-large">Find the Best Solution specializing in Aquaculture & Fishing Nets, Sports Nets, Ropes, Cordages & more</strong>
 </div >
+
+<section class="full-slider" style="margin-bottom: 40px;">
+  <div class="slider-track">
+
+    <div class="slide active">
+      <img src="main1.jpg">
+    </div>
+
+    <div class="slide">
+      <img src="industrial.jpg">
+    </div>
+
+    <div class="slide">
+      <img src="main2.jpg">
+    </div>
+
+    <div class="slide">
+      <img src="MOUNT.jpg">
+    </div>
+
+    <div class="slide">
+      <img src="main4.jpg">
+    </div>
+
+     <div class="slide">
+      <img src="yachting.jpg">
+    </div>
+    
+    <div class="slide">
+      <img src="main4.jpg">
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="arrow left">&#10094;</button>
+  <button class="arrow right">&#10095;</button>
+</section>
+
+
 <footer>
   © <span id="year"></span> AMPOLE Rope — All Rights Reserved
 </footer>
@@ -338,14 +620,46 @@ setInterval(()=>{
   }
 },1800);
 
-/* IMAGE SLIDER */
-const slides=document.querySelectorAll(".slide");
-let s=0;
-setInterval(()=>{
-  slides[s].classList.remove("active");
-  s=(s+1)%slides.length;
-  slides[s].classList.add("active");
-},4500);
+
+const track = document.querySelector(".slider-track");
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".arrow.right");
+const prevBtn = document.querySelector(".arrow.left");
+
+let index = 0;
+const total = slides.length;
+
+/* Update Slide */
+function updateSlider(){
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+/* Next */
+function nextSlide(){
+  index = (index + 1) % total;
+  updateSlider();
+}
+
+/* Prev */
+function prevSlide(){
+  index = (index - 1 + total) % total;
+  updateSlider();
+}
+
+nextBtn.onclick = nextSlide;
+prevBtn.onclick = prevSlide;
+
+/* Auto Run */
+let autoSlide = setInterval(nextSlide, 4000);
+
+/* Pause on Hover */
+document.querySelector(".full-slider").addEventListener("mouseenter",()=>{
+  clearInterval(autoSlide);
+});
+document.querySelector(".full-slider").addEventListener("mouseleave",()=>{
+  autoSlide = setInterval(nextSlide, 4000);
+});
+
 </script>
 
 </body>
