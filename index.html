@@ -44,37 +44,27 @@ nav .brand {
 }
 nav img.logo {
   height:56px;
-  width:auto;
   border-radius:8px;
   background:rgba(255,255,255,0.6);
   padding:6px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
 }
 nav ul {
   list-style:none;
   display:flex;
   gap:18px;
-  align-items:center;
-  margin-left:18px;
 }
 nav ul li a {
-  display:block;
   text-decoration:none;
   color:#E70114;
   padding:10px 18px;
   border-radius:12px;
   background: rgba(255,255,255,0.46);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
   font-weight:700;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-  border:1px solid rgba(231,1,20,0.06);
+  transition:.3s;
 }
 nav ul li a:hover {
-  transform: translateY(-6px) scale(1.03);
   background:#E70114;
   color:#FFFF00;
-  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
 }
 
 /* ================= HERO ================= */
@@ -90,7 +80,6 @@ nav ul li a:hover {
 .image-slider{
   position:absolute;
   inset:0;
-  overflow:hidden;
 }
 .image-slider .slide{
   position:absolute;
@@ -99,13 +88,15 @@ nav ul li a:hover {
   height:100%;
   object-fit:cover;
   opacity:0;
-  transition:opacity 1.5s ease;
+  filter:blur(10px);
+  transition:opacity 1.5s ease, filter 1.5s ease;
 }
 .image-slider .slide.active{
   opacity:1;
+  filter:blur(0);
 }
 
-/* OVERLAY GRID */
+/* OVERLAY */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -117,17 +108,15 @@ nav ul li a:hover {
   z-index:2;
 }
 
-/* LEFT PUNCHLINES */
+/* LEFT */
 .hero-left ul{ list-style:none; }
 .hero-left li{
   font-size:26px;
   font-weight:700;
   margin:18px 0;
-  color:#ffffff;
   opacity:0;
   transform:translateY(18px);
-  transition:all .6s ease;
-  text-shadow:0 4px 18px rgba(0,0,0,.7);
+  transition:.6s;
 }
 .hero-left li.show{
   opacity:1;
@@ -135,45 +124,58 @@ nav ul li a:hover {
 }
 
 /* CENTER */
-.hero-text{ text-align:center; }
+.hero-text{
+  text-align:center;
+}
 .hero-text h1{
   font-size:56px;
-  margin-bottom:10px;
-  text-shadow:0 6px 30px rgba(0,0,0,.7);
 }
 .hero-text p{
   font-size:24px;
   font-weight:600;
-}
-
-/* CENTER PUNCHLINE ANIMATION */
-#heroPunchline{
-  transition:opacity .8s ease, transform .8s ease;
 }
 .fade-out{
   opacity:0;
   transform:translateY(10px);
 }
 
-/* ================= QUICK PRODUCTS ================= */
+/* ================= IMAGE CHAIN (FIXED & BIG) ================= */
+.image-chain{
+  background:#fff4d6;
+  padding:40px 0;
+}
+.chain-track{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+.chain-track img{
+  height:180px;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 25px rgba(0,0,0,.25));
+}
+
+/* ================= KNOW MORE ================= */
 .quick-products{
   display:flex;
   justify-content:center;
-  gap:20px;
-  padding:30px;
+  padding:50px;
   background:#fff4d6;
-  flex-wrap:wrap;
 }
 .quick-products a{
-  padding:14px 30px;
+  padding:18px 44px;
   background:#E70114;
   color:#FFFF00;
-  border-radius:14px;
-  font-weight:700;
+  border-radius:18px;
+  font-weight:800;
+  font-size:20px;
   text-decoration:none;
   transition:.3s;
 }
-.quick-products a:hover{ background:#000; }
+.quick-products a:hover{
+  background:#000;
+}
 
 /* ================= INFO ================= */
 .info{
@@ -186,7 +188,6 @@ nav ul li a:hover {
   font-size:36px;
   color:#B00000;
   margin-bottom:16px;
-  text-shadow:0 0 10px yellow;
 }
 .info p{
   font-size:18px;
@@ -196,35 +197,10 @@ nav ul li a:hover {
 /* ================= FOOTER ================= */
 footer{
   background:#E70114;
-  color:#ffffff;
+  color:#fff;
   text-align:center;
   padding:24px;
   font-weight:700;
-}
-
-/* ================= IMAGE CHAIN ================= */
-.image-chain{
-  width:100%;
-  overflow:hidden;
-  background:#fff4d6;
-  padding:20px 0;
-}
-.chain-track{
-  display:flex;
-  gap:40px;
-  animation:scrollChain 25s linear infinite;
-}
-.chain-track img{
-  height:120px;
-  object-fit:contain;
-  filter:drop-shadow(0 8px 20px rgba(0,0,0,.25));
-}
-@keyframes scrollChain{
-  0%{ transform:translateX(0); }
-  100%{ transform:translateX(-50%); }
-}
-.image-chain:hover .chain-track{
-  animation-play-state:paused;
 }
 </style>
 </head>
@@ -234,7 +210,7 @@ footer{
 <!-- NAVBAR -->
 <nav>
   <a class="brand" href="index.html">
-    <img class="logo" src="logo.png" alt="LOGO">
+    <img class="logo" src="logo.png">
     AMPOLE Rope
   </a>
   <ul>
@@ -251,6 +227,11 @@ footer{
     <img src="im1.jpeg" class="slide active">
     <img src="im2.jpeg" class="slide">
     <img src="im3.jpeg" class="slide">
+    <img src="im4.jpg" class="slide">
+    <img src="im5.jpg" class="slide">
+    <img src="im6.jpg" class="slide">
+    <img src="im7.jpg" class="slide">
+    <img src="im8.jpg" class="slide">
   </div>
 
   <div class="hero-overlay">
@@ -265,11 +246,8 @@ footer{
 
     <div class="hero-text">
       <h1>AMPOLE Rope</h1>
-      <p id="heroPunchline">
-        Strength you can trust, flexibility you can count on!
-      </p>
+      <p id="heroPunchline">Strength you can trust, flexibility you can count on!</p>
     </div>
-    <div></div>
   </div>
 </section>
 
@@ -285,70 +263,59 @@ footer{
   </div>
 </section>
 
-<!-- QUICK PRODUCTS -->
-<section class="quick-products">
-  <a href="hdpe-lachha.html">HDPE Lachha</a>
-  <a href="hdpe-lachhi.html">HDPE Lachhi</a>
-  <a href="hdpe-rope.html">HDPE Rope</a>
-  <a href="pp-rope.html">PP Rope</a>
-</section>
-
-<!-- INFO -->
 <section class="info">
   <h2>Why Choose AMPOLE Rope?</h2>
   <p>We manufacture high-strength plastic ropes using advanced technology.</p>
 </section>
 
-<!-- FOOTER -->
+<!-- KNOW MORE -->
+<section class="quick-products">
+  <a href="about.html">Know More</a>
+</section>
+
 <footer>
   © <span id="year"></span> AMPOLE Rope — All Rights Reserved
 </footer>
 
 <script>
-/* YEAR */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* CENTER PUNCHLINE ROTATION */
-const punchlines = [
-  "Strength you can trust, flexibility you can count on!",
-  "Tie it all together with our plastic ropes!",
-  "Rope in the possibilities — durable, versatile, essential!"
+/* PUNCHLINES */
+const punchlines=[
+ "Strength you can trust, flexibility you can count on!",
+ "Tie it all together with our plastic ropes!",
+ "Rope in the possibilities — durable & reliable!"
 ];
-let pIndex = 0;
-const punchlineEl = document.getElementById("heroPunchline");
-setInterval(() => {
-  punchlineEl.classList.add("fade-out");
-  setTimeout(() => {
-    pIndex = (pIndex + 1) % punchlines.length;
-    punchlineEl.textContent = punchlines[pIndex];
-    punchlineEl.classList.remove("fade-out");
-  }, 800);
-}, 3000);
+let p=0,pl=document.getElementById("heroPunchline");
+setInterval(()=>{
+  pl.classList.add("fade-out");
+  setTimeout(()=>{
+    p=(p+1)%punchlines.length;
+    pl.textContent=punchlines[p];
+    pl.classList.remove("fade-out");
+  },800);
+},3000);
 
-/* LEFT TEXT LOOP */
-const ropeItems = document.querySelectorAll("#ropeList li");
-let rIndex = 0;
-function showRopesSequentially(){
-  if(rIndex < ropeItems.length){
-    ropeItems[rIndex].classList.add("show");
-    rIndex++;
+/* LEFT TEXT */
+const items=document.querySelectorAll("#ropeList li");
+let r=0;
+setInterval(()=>{
+  if(r<items.length){
+    items[r++].classList.add("show");
   }else{
-    setTimeout(() => {
-      ropeItems.forEach(li => li.classList.remove("show"));
-      rIndex = 0;
-    }, 2000);
+    items.forEach(i=>i.classList.remove("show"));
+    r=0;
   }
-}
-setInterval(showRopesSequentially, 2000);
+},1800);
 
-/* IMAGE SLIDER LOOP */
-const slides = document.querySelectorAll(".image-slider .slide");
-let sIndex = 0;
-setInterval(() => {
-  slides[sIndex].classList.remove("active");
-  sIndex = (sIndex + 1) % slides.length;
-  slides[sIndex].classList.add("active");
-}, 5000);
+/* IMAGE SLIDER */
+const slides=document.querySelectorAll(".slide");
+let s=0;
+setInterval(()=>{
+  slides[s].classList.remove("active");
+  s=(s+1)%slides.length;
+  slides[s].classList.add("active");
+},4500);
 </script>
 
 </body>
