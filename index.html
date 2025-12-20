@@ -202,6 +202,34 @@ footer{
   padding:24px;
   font-weight:700;
 }
+
+.image-layout{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-auto-rows:220px;
+  gap:20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+/* Common */
+.img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Large image = 2 columns */
+.large{
+  grid-column:span 2;
+}
+
+/* Small image = 1 column */
+.small{
+  grid-column:span 1;
+}
 </style>
 </head>
 
@@ -272,7 +300,19 @@ footer{
 <section class="quick-products">
   <a href="about.html">Know More</a>
 </section>
+<div class="image-layout">
+  <!-- Row 1 -->
+  <img src="fishing.jpg" class="img large">
+  <img src="industrial.jpg" class="img small">
+  <img src="MOUNT.jpg" class="img small">
 
+  <!-- Row 2 -->
+  <img src="yachting.jpg" class="img small">
+  <img src="sports-nets.jpg" class="img small">
+  <img src="shipping.jpg" class="img large">
+</div>
+
+<div style="height: 20px;">
 <footer>
   © <span id="year"></span> AMPOLE Rope — All Rights Reserved
 </footer>
