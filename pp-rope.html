@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PP Rope – AMPOLE Rope</title>
-
+<title>AMPOLE Rope – Strength You Can Trust</title>
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:"Segoe UI",Roboto,Arial,sans-serif
+  font-family:"Segoe UI",Roboto,Arial,sans-serif;
 }
 
+/* BODY */
 body{
-  background:linear-gradient(180deg,#fffdfa,#fff4d6);
-  color:#222
+  background: linear-gradient(rgba(255,249,196,0.92), rgba(255,249,196,0.92)), url("bg1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color:#222;
+  padding-bottom:60px;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 nav {
     background: linear-gradient(90deg,#FFFF00 0%, #FFEE33 50%, #FFFF00 100%);
     padding: 16px 36px;
@@ -28,339 +30,239 @@ nav {
     border-radius:0 0 18px 18px;
     box-shadow:0 6px 30px rgba(0,0,0,0.18);
     position:sticky; top:0; z-index:1200;
-  }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
-
-/* ================= HEADING ================= */
-h2{
-  text-align:center;
-  margin:30px 0;
-  font-size:36px;
-  color:#B00000;
+}
+nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
+nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
+nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
+nav ul li a {
+  display:block;
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-weight:700;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  border:1px solid rgba(231,1,20,0.06);
+}
+nav ul li a:hover, nav ul li a:focus {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
 }
 
-/* ================= PRODUCT ================= */
-.product-wrapper{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  gap:40px;
-  padding:20px;
-}
-
-/* ===== LEFT IMAGE ===== */
-.gallery{flex:1}
-
-.main-img{
+/* HERO SLIDER */
+.hero{
+  width:100%;
+  height:80vh;
   position:relative;
-  border-radius:18px;
-  border:8px solid #fff;
-  box-shadow:0 20px 50px rgba(0,0,0,.3);
   overflow:hidden;
 }
-
-.main-img img{
-  width:100%;
-  height:420px;
-  object-fit:contain;
-  background:#fff;
-}
-
-.img-arrow{
+.hero-slider{
   position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-weight:900;
-  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  inset:0;
 }
-
-.img-arrow.left{left:10px}
-.img-arrow.right{right:10px}
-
-.img-arrow:hover{
-  background:#E70114;
-  color:#fff;
+.hero-slider .hero-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  filter:blur(10px);
+  transition:opacity 1.5s ease, filter 1.5s ease;
 }
-
-/* Thumbnails */
-.thumbs{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+.hero-slider .hero-slide.active{
+  opacity:1;
+  filter:blur(0);
 }
-
-.thumbs img{
-  width:80px;
-  height:80px;
-  border-radius:10px;
-  border:3px solid #E70114;
-  cursor:pointer;
-  background:#fff;
-  object-fit:contain;
-}
-
-.thumbs img.active{
-  border-color:#000;
-  box-shadow:0 0 0 3px #E70114 inset;
-  transform:scale(1.05);
-}
-
-/* ===== RIGHT CONTENT ===== */
-.product-info{
-  flex:1.2;
-  background:#fff;
-  padding:30px;
-  border-radius:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.2);
-}
-
-.product-info h3{
-  color:#E70114;
-  font-size:26px;
-  margin-bottom:12px;
-}
-
-.product-info p{
-  line-height:1.7;
-  margin-bottom:18px;
-}
-
-.product-info ul{
-  margin-left:18px;
-  margin-bottom:18px;
-}
-
-.product-info li{
-  margin-bottom:8px;
-}
-
-/* FAQ */
-.faq h4{
-  color:#B00000;
-  margin-top:14px;
-}
-
-.faq p{
-  margin-left:10px;
-  font-size:15px;
-}
-
-/* ================= FOOTER ================= */
-.contact-footer{
-  background:#E70114;
-  color:#fff;
-  padding:50px 20px 20px;
-  margin-top:60px;
-}
-
-.footer-container{
-  max-width:1200px;
-  margin:auto;
+.hero-overlay{
+  position:absolute;
+  inset:0;
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:30px;
-}
-
-.footer-box h3{
-  margin-bottom:14px;
-  color:#FFFF00;
-}
-
-.footer-box p{
-  line-height:1.6;
-  font-size:15px;
-}
-
-.footer-box ul{
-  list-style:none;
-}
-.footer-box ul li{
-  margin-bottom:8px;
-}
-.footer-box ul li a{
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:0 6%;
   color:#fff;
-  text-decoration:none;
-  transition:.3s;
+  z-index:2;
 }
-.footer-box ul li a:hover{
-  color:#FFFF00;
-}
-
-.footer-box form input,
-.footer-box form textarea{
-  width:100%;
-  padding:8px 10px;
-  margin-bottom:10px;
-  border:none;
-  border-radius:6px;
-  font-size:14px;
-}
-
-.footer-box form button{
-  width:100%;
-  padding:10px;
-  background:#FFFF00;
-  color:#E70114;
-  border:none;
+.hero-left ul{ list-style:none; }
+.hero-left li{
+  font-size:26px;
   font-weight:700;
-  border-radius:6px;
-  cursor:pointer;
-  transition:.3s;
+  margin:18px 0;
+  opacity:0;
+  transform:translateY(18px);
+  transition:.6s;
 }
-.footer-box form button:hover{
-  background:#000;
-  color:#FFFF00;
+.hero-left li.show{
+  opacity:1;
+  transform:translateY(0);
 }
+.hero-text{
+  text-align:center;
+}
+.hero-text h1{ font-size:56px; }
+.hero-text p{ font-size:24px; font-weight:600; }
+.fade-out{ opacity:0; transform:translateY(10px); }
 
-.footer-bottom{
-  text-align:center
-}
+/* IMAGE CHAIN */
+.image-chain{ background:#fff4d6; padding:40px 0; }
+.chain-track{ display:flex; justify-content:center; gap:60px; flex-wrap:wrap; }
+.chain-track img{ height:180px; object-fit:contain; filter:drop-shadow(0 10px 25px rgba(0,0,0,.25)); }
 
-/* ================= MOBILE ================= */
-@media(max-width:900px){
-  .product-wrapper{
-    flex-direction:column;
-  }
-  .main-img img{
-    height:300px;
-  }
-}
+/* INFO */
+.info{ max-width:1100px; margin:60px auto; padding:0 20px; text-align:center; }
+.info h2{ font-size:36px; color:#B00000; margin-bottom:16px; }
+.info p{ font-size:18px; line-height:1.6; }
 
-@media(max-width:600px){
-  nav{
-    flex-direction:column;
-    gap:14px;
-  }
-  .footer-content{
-    flex-direction:column;
-  }
-}
+/* QUICK PRODUCTS */
+.quick-products{ display:flex; justify-content:center; padding:50px; background:#fff4d6; }
+.quick-products a{ padding:18px 44px; background:#E70114; color:#FFFF00; border-radius:18px; font-weight:800; font-size:20px; text-decoration:none; transition:.3s; }
+.quick-products a:hover{ background:#000; }
+
+/* IMAGE LAYOUT */
+.image-layout{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:220px; gap:20px; max-width:1100px; margin:auto; }
+.img-box{ position:relative; overflow:hidden; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
+.img-box img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.img-text{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.45); color:#fff; font-size:22px; font-weight:700; letter-spacing:1px; opacity:0; transition:.4s; text-shadow:0 6px 20px rgba(0,0,0,0.7); }
+.img-box:hover img{ transform:scale(1.1); }
+.img-box:hover .img-text{ opacity:1; }
+.large{ grid-column:span 2; }
+.small{ grid-column:span 1; }
+
+/* FULL SLIDER */
+.full-slider{ position:relative; width:90%; height:420px; overflow:hidden; margin:40px auto; }
+.slider-track{ display:flex; width:100%; height:100%; transition:transform 0.8s ease-in-out; }
+.full-slide{ min-width:100%; height:100%; }
+.full-slide img{ width:100%; height:100%; object-fit:cover; }
+.arrow{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; font-size:32px; padding:10px 16px; cursor:pointer; border-radius:50%; z-index:10; transition:.3s; }
+.arrow:hover{ background:#E70114; }
+.arrow.left{ left:20px; }
+.arrow.right{ right:20px; }
+
+/* FOOTER */
+.contact-footer{ background:#E70114; color:#fff; padding:50px 20px 20px; margin-top:60px; }
+.footer-container{ max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+.footer-box h3{ margin-bottom:14px; color:#FFFF00; }
+.footer-box p{ line-height:1.6; font-size:15px; }
+.footer-box ul{ list-style:none; }
+.footer-box ul li{ margin-bottom:8px; }
+.footer-box ul li a{ color:#fff; text-decoration:none; transition:.3s; }
+.footer-box ul li a:hover{ color:#FFFF00; }
+.footer-box form input, .footer-box form textarea{ width:100%; padding:8px 10px; margin-bottom:10px; border:none; border-radius:6px; font-size:14px; }
+.footer-box form button{ width:100%; padding:10px; background:#FFFF00; color:#E70114; border:none; font-weight:700; border-radius:6px; cursor:pointer; transition:.3s; }
+.footer-box form button:hover{ background:#000; color:#FFFF00; }
+.footer-bottom{ text-align:center; margin-top:20px; font-weight:700; }
+
+/* RESPONSIVE */
+@media(max-width:1024px){ .image-layout{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:768px){ nav{ flex-direction:column; gap:14px; } nav ul{ flex-wrap:wrap; justify-content:center; } .hero{ height:65vh; } .hero-left{ display:none; } .hero-text h1{ font-size:34px; } .hero-text p{ font-size:18px; } .image-layout{ grid-template-columns:1fr; } .large,.small{ grid-column:span 1; } .full-slider{ height:260px; } .arrow{ font-size:24px; padding:8px 12px; } .quick-products a{ font-size:18px; padding:14px 30px; } }
+@media(max-width:480px){ nav img.logo{ height:46px; } nav .brand{ font-size:18px; } .hero-text h1{ font-size:28px; } .hero-text p{ font-size:16px; } .info h2{ font-size:26px; } .info p{ font-size:16px; } .full-slider{ height:220px; } }
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
 <nav>
   <a class="brand" href="index.html">
-    <img src="logo.png" class="logo"> AMPOLE Rope
+    <img class="logo" src="logo.png">
+    AMPOLE Rope
   </a>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="products.html">Products</a></li>
-    <li><a href="contact.html">contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
-<h2>AMPOLE Polypropylene Rope (PP Rope)</h2>
-
-<div class="product-wrapper">
-
-  <!-- LEFT IMAGE -->
-  <div class="gallery">
-    <div class="main-img">
-      <div class="img-arrow left" onclick="prevImg()">◀</div>
-      <img id="currentImg" src="D1.jpg">
-      <div class="img-arrow right" onclick="nextImg()">▶</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slider">
+    <img src="im1.jpeg" class="hero-slide active">
+    <img src="im2.jpeg" class="hero-slide">
+    <img src="im3.jpeg" class="hero-slide">
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-left">
+      <ul id="ropeList">
+        <li>▶ HDPE Lachha</li>
+        <li>▶ HDPE Lachhi</li>
+        <li>▶ HDPE Rope</li>
+        <li>▶ PP Rope</li>
+      </ul>
     </div>
-
-    <div class="thumbs">
-      <img src="D1.jpg" onclick="setImg(0)">
-      <img src="D2.jpg" onclick="setImg(1)">
-      <img src="D3.jpg" onclick="setImg(2)">
-      <img src="D4.jpg" onclick="setImg(3)">
-      <img src="D5.jpg" onclick="setImg(4)">
-      <img src="D6.jpg" onclick="setImg(5)">
-      <img src="D7.jpg" onclick="setImg(6)">
-      <img src="D8.jpg" onclick="setImg(7)">
+    <div class="hero-text">
+      <h1>AMPOLE Rope</h1>
+      <p id="heroPunchline">Strength you can trust, flexibility you can count on!</p>
     </div>
   </div>
+</section>
 
-  <!-- RIGHT CONTENT -->
-  <div class="product-info">
-    <h3>About This Product</h3>
-    <p>
-      AMPOLE Polypropylene Rope (PP Rope) is manufactured using high-strength
-      polypropylene material, offering excellent durability and long service life.
-    </p>
-
-    <ul>
-      <li><strong>Material:</strong> Polypropylene (PP)</li>
-      <li><strong>Style:</strong> Twisted Rope</li>
-      <li><strong>Standard Length:</strong> 300 meters</li>
-      <li><strong>Color:</strong> Yellow</li>
-      <li><strong>Usage:</strong> Industrial, Marine, Construction</li>
-    </ul>
-
-    <p>
-      Lightweight yet strong, PP Rope is resistant to abrasion, UV rays, and moisture,
-      making it ideal for harsh working conditions.
-    </p>
-
-    <div class="faq">
-      <h4>FAQs</h4>
-      <h4>Q: What material is used?</h4>
-      <p>A: High-strength polypropylene.</p>
-
-      <h4>Q: Standard length?</h4>
-      <p>A: 300 meters.</p>
-
-      <h4>Q: Industrial use?</h4>
-      <p>A: Yes, heavy-duty industrial applications.</p>
-    </div>
+<!-- IMAGE CHAIN -->
+<section class="image-chain">
+  <div class="chain-track">
+    <img src="i1.png">
+    <img src="i2.png">
+    <img src="i3.png">
+    <img src="i4.png">
+    <img src="i5.png">
+    <img src="i6.png">
   </div>
+</section>
+
+<!-- INFO -->
+<section class="info">
+  <h2>Why Choose AMPOLE Rope?</h2>
+  <p>We manufacture high-strength plastic ropes using advanced technology.</p>
+</section>
+
+<!-- QUICK PRODUCTS -->
+<section class="quick-products">
+  <a href="about.html">Know More</a>
+</section>
+
+<!-- IMAGE LAYOUT -->
+<div class="image-layout">
+  <div class="img-box large"><img src="fishing.jpg"><div class="img-text">Fishing Ropes</div></div>
+  <div class="img-box small"><img src="industrial.jpg"><div class="img-text">Industrial Use</div></div>
+  <div class="img-box small"><img src="MOUNT.jpg"><div class="img-text">Mountaineering</div></div>
+  <div class="img-box small"><img src="yachting.jpg"><div class="img-text">Yachting</div></div>
+  <div class="img-box small"><img src="sports-nets.jpg"><div class="img-text">Sports Nets</div></div>
+  <div class="img-box large"><img src="shipping.jpg"><div class="img-text">Shipping & Cargo</div></div>
 </div>
+
+<!-- FULL SLIDER -->
+<section class="full-slider">
+  <div class="slider-track">
+    <div class="full-slide"><img src="one.jpg"></div>
+    <div class="full-slide"><img src="two.jpg"></div>
+    <div class="full-slide"><img src="three.jpg"></div>
+    <div class="full-slide"><img src="four.jpg"></div>
+    <div class="full-slide"><img src="five.jpg"></div>
+    <div class="full-slide"><img src="six.jpg"></div>
+  </div>
+  <button class="arrow left">&#10094;</button>
+  <button class="arrow right">&#10095;</button>
+</section>
 
 <!-- FOOTER -->
 <footer class="contact-footer">
   <div class="footer-container">
-
-    <!-- Company Info -->
     <div class="footer-box">
       <h3>AMPOLE Rope</h3>
       <p>Strength you can trust, flexibility you can count on.</p>
     </div>
-
-    <!-- Contact Details -->
     <div class="footer-box">
       <h3>Contact Us</h3>
       <p>📍 Address: Your Factory Address, India</p>
       <p>📞 Phone: +91 98765 43210</p>
       <p>✉️ Email: info@ampolerope.com</p>
     </div>
-
-    <!-- Quick Links -->
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
@@ -370,49 +272,76 @@ h2{
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-
-    <!-- Contact Form -->
     <div class="footer-box">
       <h3>Send Enquiry</h3>
       <form>
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © <span id="year"></span> AMPOLE Rope — All Rights Reserved
+  </div>
+</footer>
 
 <script>
-const images=["D1.jpg","D2.jpg","D3.jpg","D4.jpg","D5.jpg","D6.jpg","D7.jpg","D8.jpg"];
-let imgIndex=0;
-const currentImg=document.getElementById("currentImg");
-const thumbs=document.querySelectorAll(".thumbs img");
+document.getElementById("year").textContent = new Date().getFullYear();
 
-function updateImg(){
-  currentImg.src=images[imgIndex];
-  thumbs.forEach((t,i)=>t.classList.toggle("active",i===imgIndex));
-}
+/* HERO PUNCHLINES */
+const punchlines=["Strength you can trust, flexibility you can count on!","Tie it all together with our plastic ropes!","Rope in the possibilities — durable & reliable!"];
+let p=0,pl=document.getElementById("heroPunchline");
+setInterval(()=>{
+  pl.classList.add("fade-out");
+  setTimeout(()=>{
+    p=(p+1)%punchlines.length;
+    pl.textContent=punchlines[p];
+    pl.classList.remove("fade-out");
+  },800);
+},3000);
 
-function setImg(i){
-  imgIndex=i;
-  updateImg();
-  resetAuto();
-}
+/* HERO LEFT TEXT */
+const items=document.querySelectorAll("#ropeList li");
+let r=0;
+setInterval(()=>{
+  if(r<items.length){
+    items[r++].classList.add("show");
+  }else{
+    items.forEach(i=>i.classList.remove("show"));
+    r=0;
+  }
+},1800);
 
-function nextImg(){
-  imgIndex=(imgIndex+1)%images.length;
-  updateImg();
-}
+/* HERO SLIDER */
+const heroSlides=document.querySelectorAll(".hero-slider .hero-slide");
+let heroIndex=0;
+setInterval(()=>{
+  heroSlides.forEach(s=>s.classList.remove("active"));
+  heroIndex=(heroIndex+1)%heroSlides.length;
+  heroSlides[heroIndex].classList.add("active");
+},4000);
 
-function prevImg(){
-  imgIndex=(imgIndex-1+images.length)%images.length;
-  updateImg();
-}
+/* FULL SLIDER */
+/* FULL SLIDER */
+const track = document.querySelector(".slider-track");
+const slides = document.querySelectorAll(".full-slide");
+const nextBtn = document.querySelector(".arrow.right");
+const prevBtn = document.querySelector(".arrow.left");
+let index = 0;
+const total = slides.length;
 
-let autoSlide=setInterval(nextImg,3000);
-function resetAuto(){
-  clearInterval(autoSlide);
-  autoSlide=setInterval(nextImg,3000);
-}
+function updateSlider() { track.style.transform = `translateX(-${index * 100}%)`; }
+function nextSlide() { index = (index + 1) % total; updateSlider(); }
+function prevSlide() { index = (index - 1 + total) % total; updateSlider(); }
 
-updateImg();
-document.getElementById("year").textContent=new Date().getFullYear();
+nextBtn.onclick = nextSlide;
+prevBtn.onclick = prevSlide;
+
+/* AUTO SLIDE – NEVER STOPS EVEN ON HOVER */
+setInterval(nextSlide, 4000);
+
 </script>
 
 </body>
