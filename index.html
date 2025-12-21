@@ -34,28 +34,28 @@ nav {
     box-shadow:0 6px 30px rgba(0,0,0,0.18);
     position:sticky; top:0; z-index:1200;
   }
-  nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
-  nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
-  nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
-  nav ul li a {
-    display:block;
-    text-decoration:none;
-    color:#E70114;
-    padding:10px 18px;
-    border-radius:12px;
-    background: rgba(255,255,255,0.46);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    font-weight:700;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    border:1px solid rgba(231,1,20,0.06);
-  }
-  nav ul li a:hover, nav ul li a:focus {
-    transform: translateY(-6px) scale(1.03);
-    background:#E70114;
-    color:#FFFF00;
-    box-shadow: 0 10px 28px rgba(231,1,20,0.35);
-  }
+nav .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#E70114; font-weight:800; font-size:20px; }
+nav img.logo { height:56px; width:auto; border-radius:8px; background:rgba(255,255,255,0.6); padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
+nav ul { list-style:none; display:flex; gap:18px; align-items:center; margin-left:18px; }
+nav ul li a {
+  display:block;
+  text-decoration:none;
+  color:#E70114;
+  padding:10px 18px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.46);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-weight:700;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  border:1px solid rgba(231,1,20,0.06);
+}
+nav ul li a:hover, nav ul li a:focus {
+  transform: translateY(-6px) scale(1.03);
+  background:#E70114;
+  color:#FFFF00;
+  box-shadow: 0 10px 28px rgba(231,1,20,0.35);
+}
 
 /* ================= HERO ================= */
 .hero{
@@ -86,7 +86,7 @@ nav {
   filter:blur(0);
 }
 
-/* OVERLAY */
+/* HERO OVERLAY */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -98,7 +98,7 @@ nav {
   z-index:2;
 }
 
-/* LEFT */
+/* HERO LEFT */
 .hero-left ul{ list-style:none; }
 .hero-left li{
   font-size:26px;
@@ -113,7 +113,7 @@ nav {
   transform:translateY(0);
 }
 
-/* CENTER */
+/* HERO TEXT */
 .hero-text{
   text-align:center;
 }
@@ -340,7 +340,9 @@ nav {
 }
 
 .footer-bottom{
-  text-align:center
+  text-align:center;
+  margin-top:20px;
+  font-weight:700;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -380,7 +382,6 @@ nav {
 }
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
@@ -439,6 +440,7 @@ nav {
   </div>
 </section>
 
+<!-- INFO -->
 <section class="info">
   <h2>Why Choose AMPOLE Rope?</h2>
   <p>We manufacture high-strength plastic ropes using advanced technology.</p>
@@ -477,16 +479,15 @@ nav {
   <button class="arrow right">&#10095;</button>
 </section>
 
+<!-- FOOTER -->
 <footer class="contact-footer">
   <div class="footer-container">
 
-    <!-- Company Info -->
     <div class="footer-box">
       <h3>AMPOLE Rope</h3>
       <p>Strength you can trust, flexibility you can count on.</p>
     </div>
 
-    <!-- Contact Details -->
     <div class="footer-box">
       <h3>Contact Us</h3>
       <p>📍 Address: Your Factory Address, India</p>
@@ -494,7 +495,6 @@ nav {
       <p>✉️ Email: info@ampolerope.com</p>
     </div>
 
-    <!-- Quick Links -->
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
@@ -505,22 +505,27 @@ nav {
       </ul>
     </div>
 
-    <!-- Contact Form -->
     <div class="footer-box">
       <h3>Send Enquiry</h3>
       <form>
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    © <span id="year"></span> AMPOLE Rope — All Rights Reserved
+  </div>
+</footer>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* ================= HERO PUNCHLINES ================= */
-const punchlines=[
- "Strength you can trust, flexibility you can count on!",
- "Tie it all together with our plastic ropes!",
- "Rope in the possibilities — durable & reliable!"
-];
+/* HERO PUNCHLINES */
+const punchlines=["Strength you can trust, flexibility you can count on!","Tie it all together with our plastic ropes!","Rope in the possibilities — durable & reliable!"];
 let p=0,pl=document.getElementById("heroPunchline");
 setInterval(()=>{
   pl.classList.add("fade-out");
@@ -531,7 +536,7 @@ setInterval(()=>{
   },800);
 },3000);
 
-/* ================= HERO LEFT TEXT ================= */
+/* HERO LEFT TEXT */
 const items=document.querySelectorAll("#ropeList li");
 let r=0;
 setInterval(()=>{
@@ -543,33 +548,33 @@ setInterval(()=>{
   }
 },1800);
 
-/* ================= HERO SLIDER ================= */
-const heroSlides = document.querySelectorAll(".hero-slider .hero-slide");
-let heroIndex = 0;
-setInterval(() => {
-  heroSlides.forEach(s => s.classList.remove("active"));
-  heroIndex = (heroIndex + 1) % heroSlides.length;
+/* HERO SLIDER */
+const heroSlides=document.querySelectorAll(".hero-slider .hero-slide");
+let heroIndex=0;
+setInterval(()=>{
+  heroSlides.forEach(s=>s.classList.remove("active"));
+  heroIndex=(heroIndex+1)%heroSlides.length;
   heroSlides[heroIndex].classList.add("active");
-}, 4000);
+},4000);
 
-/* ================= FULL SLIDER ================= */
-const track = document.querySelector(".slider-track");
-const slides = document.querySelectorAll(".full-slide");
-const nextBtn = document.querySelector(".arrow.right");
-const prevBtn = document.querySelector(".arrow.left");
-let index = 0;
-const total = slides.length;
+/* FULL SLIDER */
+const track=document.querySelector(".slider-track");
+const slides=document.querySelectorAll(".full-slide");
+const nextBtn=document.querySelector(".arrow.right");
+const prevBtn=document.querySelector(".arrow.left");
+let index=0;
+const total=slides.length;
 
-function updateSlider(){ track.style.transform = `translateX(-${index * 100}%)`; }
-function nextSlide(){ index = (index + 1) % total; updateSlider(); }
-function prevSlide(){ index = (index - 1 + total) % total; updateSlider(); }
+function updateSlider(){ track.style.transform=`translateX(-${index*100}%)`; }
+function nextSlide(){ index=(index+1)%total; updateSlider(); }
+function prevSlide(){ index=(index-1+total)%total; updateSlider(); }
 
-nextBtn.onclick = nextSlide;
-prevBtn.onclick = prevSlide;
+nextBtn.onclick=nextSlide;
+prevBtn.onclick=prevSlide;
 
-let autoSlide = setInterval(nextSlide, 4000);
+let autoSlide=setInterval(nextSlide,4000);
 document.querySelector(".full-slider").addEventListener("mouseenter",()=>{ clearInterval(autoSlide); });
-document.querySelector(".full-slider").addEventListener("mouseleave",()=>{ autoSlide = setInterval(nextSlide, 4000); });
+document.querySelector(".full-slider").addEventListener("mouseleave",()=>{ autoSlide=setInterval(nextSlide,4000); });
 </script>
 
 </body>
