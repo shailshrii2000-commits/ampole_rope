@@ -264,10 +264,16 @@ footer{
   transition:transform 0.8s ease-in-out;
 }
 
-.slide{
-  min-width:80%;
+.slider-track{
+  display:flex;
   height:100%;
 }
+
+.slide{
+  min-width:100%;
+  height:100%;
+}
+
 
 .slide img{
   width:100%;
@@ -548,36 +554,20 @@ footer{
   <strong style="text-align: center; font-size:x-large">Find the Best Solution specializing in Aquaculture & Fishing Nets, Sports Nets, Ropes, Cordages & more</strong>
 </div >
 
-<section class="full-slider" style="margin-bottom: 40px; padding-left:60px;">
+<section class="full-slider" style="margin-bottom:40px;padding-left:60px;">
+
   <div class="slider-track">
+    <div class="slide"><img src="one.jpg"></div>
+    <div class="slide"><img src="two.jpg"></div>
+    <div class="slide"><img src="three.jpg"></div>
+    <div class="slide"><img src="four.jpg"></div>
+    <div class="slide"><img src="five.jpg"></div>
+    <div class="slide"><img src="six.jpg"></div>
+  </div> <!-- ✅ CLOSE TRACK -->
 
-    <div class="slide active">
-      <img src="one.jpg">
-    </div>
-
-    <div class="slide">
-      <img src="two.jpg">
-    </div>
-
-    <div class="slide">
-      <img src="three.jpg">
-    </div>
-
-    <div class="slide">
-      <img src="four.jpg">
-    </div>
-
-    <div class="slide">
-      <img src="five.jpg">
-    </div>
-
-     <div class="slide">
-      <img src="six.jpg">
-    </div>
-
-  <!-- Controls -->
   <button class="arrow left">&#10094;</button>
   <button class="arrow right">&#10095;</button>
+
 </section>
 
 
@@ -586,77 +576,69 @@ footer{
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+const slider = document.querySelector(".full-slider");
+const track = slider.querySelector(".slider-track");
+const nextBtn = slider.querySelector(".arrow.right");
+const prevBtn = slider.querySelector(".arrow.left");
 
-/* PUNCHLINES */
-const punchlines=[
- "Strength you can trust, flexibility you can count on!",
- "Tie it all together with our plastic ropes!",
- "Rope in the possibilities — durable & reliable!"
-];
-let p=0,pl=document.getElementById("heroPunchline");
-setInterval(()=>{
-  pl.classList.add("fade-out");
-  setTimeout(()=>{
-    p=(p+1)%punchlines.length;
-    pl.textContent=punchlines[p];
-    pl.classList.remove("fade-out");
-  },800);
-},3000);
+let slides = Array.from(track.children);
 
-/* LEFT TEXT */
-const items=document.querySelectorAll("#ropeList li");
-let r=0;
-setInterval(()=>{
-  if(r<items.length){
-    items[r++].classList.add("show");
-  }else{
-    items.forEach(i=>i.classList.remove("show"));
-    r=0;
-  }
-},1800);
+/* CLONE */
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
 
+track.appendChild(firstClone);
+track.insertBefore(lastClone, slides[0]);
 
-const track = document.querySelector(".slider-track");
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector(".arrow.right");
-const prevBtn = document.querySelector(".arrow.left");
+slides = Array.from(track.children);
 
-let index = 0;
-const total = slides.length;
+let index = 1;
+const slideWidth = slider.clientWidth;
 
-/* Update Slide */
-function updateSlider(){
-  track.style.transform = `translateX(-${index * 100}%)`;
+track.style.transform = `translateX(-${slideWidth * index}px)`;
+
+/* MOVE */
+function move() {
+  track.style.transition = "transform 0.8s ease";
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
-/* Next */
-function nextSlide(){
-  index = (index + 1) % total;
-  updateSlider();
+/* NEXT / PREV */
+function nextSlide() {
+  if (index >= slides.length - 1) return;
+  index++;
+  move();
 }
 
-/* Prev */
-function prevSlide(){
-  index = (index - 1 + total) % total;
-  updateSlider();
+function prevSlide() {
+  if (index <= 0) return;
+  index--;
+  move();
 }
 
 nextBtn.onclick = nextSlide;
 prevBtn.onclick = prevSlide;
 
-/* Auto Run */
-let autoSlide = setInterval(nextSlide, 4000);
-
-/* Pause on Hover */
-document.querySelector(".full-slider").addEventListener("mouseenter",()=>{
-  clearInterval(autoSlide);
+/* LOOP FIX */
+track.addEventListener("transitionend", () => {
+  if (slides[index] === firstClone) {
+    track.style.transition = "none";
+    index = 1;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  }
+  if (slides[index] === lastClone) {
+    track.style.transition = "none";
+    index = slides.length - 2;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  }
 });
-document.querySelector(".full-slider").addEventListener("mouseleave",()=>{
-  autoSlide = setInterval(nextSlide, 4000);
-});
 
+/* AUTO */
+let auto = setInterval(nextSlide, 4000);
+slider.addEventListener("mouseenter", () => clearInterval(auto));
+slider.addEventListener("mouseleave", () => auto = setInterval(nextSlide, 4000));
 </script>
+
 
 </body>
 </html>
