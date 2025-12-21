@@ -20,6 +20,7 @@ body{
     url("bg1.jpg") no-repeat center center fixed;
   background-size: cover;
   color:#222;
+  padding-bottom:60px; /* space for footer */
 }
 
 /* ================= NAVBAR ================= */
@@ -65,12 +66,12 @@ nav {
   background:#000;
 }
 
-/* IMAGE SLIDER */
-.image-slider{
+/* HERO SLIDER */
+.hero-slider{
   position:absolute;
   inset:0;
 }
-.image-slider .slide{
+.hero-slider .hero-slide{
   position:absolute;
   inset:0;
   width:100%;
@@ -80,7 +81,7 @@ nav {
   filter:blur(10px);
   transition:opacity 1.5s ease, filter 1.5s ease;
 }
-.image-slider .slide.active{
+.hero-slider .hero-slide.active{
   opacity:1;
   filter:blur(0);
 }
@@ -128,7 +129,7 @@ nav {
   transform:translateY(10px);
 }
 
-/* ================= IMAGE CHAIN (FIXED & BIG) ================= */
+/* ================= IMAGE CHAIN ================= */
 .image-chain{
   background:#fff4d6;
   padding:40px 0;
@@ -183,17 +184,7 @@ nav {
   line-height:1.6;
 }
 
-
-
-/* ================= FOOTER ================= */
-footer{
-  background:#E70114;
-  color:#fff;
-  text-align:center;
-  padding:24px;
-  font-weight:700;
-}
-
+/* ================= IMAGE LAYOUT ================= */
 .image-layout{
   display:grid;
   grid-template-columns:repeat(4, 1fr);
@@ -202,24 +193,18 @@ footer{
   max-width:1100px;
   margin:auto;
 }
-
-/* Image container */
 .img-box{
   position:relative;
   overflow:hidden;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
-
-/* Image */
 .img-box img{
   width:100%;
   height:100%;
   object-fit:cover;
   transition:transform .5s ease;
 }
-
-/* Text overlay */
 .img-text{
   position:absolute;
   inset:0;
@@ -235,53 +220,38 @@ footer{
   transition:.4s;
   text-shadow:0 6px 20px rgba(0,0,0,0.7);
 }
-
-/* Hover effect */
 .img-box:hover img{
   transform:scale(1.1);
 }
 .img-box:hover .img-text{
   opacity:1;
 }
-
-/* Sizes */
 .large{ grid-column:span 2; }
 .small{ grid-column:span 1; }
 
+/* ================= FULL SLIDER ================= */
 .full-slider{
   position:relative;
   width:90%;
-  height:420px;          /* width focus, not full height */
+  height:420px;
   overflow:hidden;
-  margin:40px 0;
-  align-items: center;
+  margin:40px auto;
 }
-
 .slider-track{
   display:flex;
-  width:90%;
+  width:100%;
   height:100%;
   transition:transform 0.8s ease-in-out;
 }
-
-.slider-track{
-  display:flex;
-  height:100%;
-}
-
-.slide{
+.full-slide{
   min-width:100%;
   height:100%;
 }
-
-
-.slide img{
+.full-slide img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
-
-/* Arrows */
 .arrow{
   position:absolute;
   top:50%;
@@ -296,152 +266,56 @@ footer{
   z-index:10;
   transition:.3s;
 }
-
 .arrow:hover{
   background:#E70114;
 }
-
 .arrow.left{ left:20px; }
 .arrow.right{ right:20px; }
 
+/* ================= FOOTER ================= */
+footer{
+  background:#E70114;
+  color:#fff;
+  text-align:center;
+  padding:24px;
+  font-weight:700;
+}
+
 /* ================= RESPONSIVE ================= */
-
-/* Tablets */
 @media (max-width: 1024px){
-
-  /* Navbar */
-  nav{
-    padding:14px 20px;
-  }
-  nav ul{
-    gap:12px;
-  }
-
-  /* Hero text */
-  .hero-text h1{
-    font-size:42px;
-  }
-  .hero-text p{
-    font-size:20px;
-  }
-
-  /* Image chain */
-  .chain-track img{
-    height:140px;
-  }
-
-  /* Image layout */
-  .image-layout{
-    grid-template-columns:repeat(2, 1fr);
-  }
-  .large{
-    grid-column:span 2;
-  }
+  nav{ padding:14px 20px; }
+  nav ul{ gap:12px; }
+  .hero-text h1{ font-size:42px; }
+  .hero-text p{ font-size:20px; }
+  .chain-track img{ height:140px; }
+  .image-layout{ grid-template-columns:repeat(2, 1fr); }
+  .large{ grid-column:span 2; }
 }
-
-/* Mobile */
 @media (max-width: 768px){
-
-  /* Navbar stack */
-  nav{
-    flex-direction:column;
-    gap:14px;
-  }
-
-  nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  /* Hero */
-  .hero{
-    height:65vh;
-  }
-
-  .hero-overlay{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero-left{
-    display:none; /* hide left list on mobile */
-  }
-
-  .hero-text h1{
-    font-size:34px;
-  }
-  .hero-text p{
-    font-size:18px;
-  }
-
-  /* Image chain */
-  .chain-track{
-    gap:30px;
-  }
-  .chain-track img{
-    height:120px;
-  }
-
-  /* Image layout */
-  .image-layout{
-    grid-template-columns:1fr;
-  }
-
-  .large,
-  .small{
-    grid-column:span 1;
-  }
-
-  /* Slider */
-  .full-slider{
-    height:260px;
-  }
-
-  .arrow{
-    font-size:24px;
-    padding:8px 12px;
-  }
-
-  /* Buttons */
-  .quick-products a{
-    font-size:18px;
-    padding:14px 30px;
-  }
-
+  nav{ flex-direction:column; gap:14px; }
+  nav ul{ flex-wrap:wrap; justify-content:center; }
+  .hero{ height:65vh; }
+  .hero-overlay{ grid-template-columns:1fr; text-align:center; }
+  .hero-left{ display:none; }
+  .hero-text h1{ font-size:34px; }
+  .hero-text p{ font-size:18px; }
+  .chain-track{ gap:30px; }
+  .chain-track img{ height:120px; }
+  .image-layout{ grid-template-columns:1fr; }
+  .large,.small{ grid-column:span 1; }
+  .full-slider{ height:260px; }
+  .arrow{ font-size:24px; padding:8px 12px; }
+  .quick-products a{ font-size:18px; padding:14px 30px; }
 }
-
-/* Small Mobile */
 @media (max-width: 480px){
-
-  nav img.logo{
-    height:46px;
-  }
-
-  nav .brand{
-    font-size:18px;
-  }
-
-  .hero-text h1{
-    font-size:28px;
-  }
-
-  .hero-text p{
-    font-size:16px;
-  }
-
-  .info h2{
-    font-size:26px;
-  }
-
-  .info p{
-    font-size:16px;
-  }
-
-  .full-slider{
-    height:220px;
-  }
+  nav img.logo{ height:46px; }
+  nav .brand{ font-size:18px; }
+  .hero-text h1{ font-size:28px; }
+  .hero-text p{ font-size:16px; }
+  .info h2{ font-size:26px; }
+  .info p{ font-size:16px; }
+  .full-slider{ height:220px; }
 }
-
 </style>
 </head>
 
@@ -463,15 +337,15 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
-  <div class="image-slider">
-    <img src="im1.jpeg" class="slide active">
-    <img src="im2.jpeg" class="slide">
-    <img src="im3.jpeg" class="slide">
-    <img src="im4.jpg" class="slide">
-    <img src="im5.jpg" class="slide">
-    <img src="im6.jpg" class="slide">
-    <img src="im7.jpg" class="slide">
-    <img src="im8.jpg" class="slide">
+  <div class="hero-slider">
+    <img src="im1.jpeg" class="hero-slide active">
+    <img src="im2.jpeg" class="hero-slide">
+    <img src="im3.jpeg" class="hero-slide">
+    <img src="im4.jpg" class="hero-slide">
+    <img src="im5.jpg" class="hero-slide">
+    <img src="im6.jpg" class="hero-slide">
+    <img src="im7.jpg" class="hero-slide">
+    <img src="im8.jpg" class="hero-slide">
   </div>
 
   <div class="hero-overlay">
@@ -513,132 +387,97 @@ footer{
   <a href="about.html">Know More</a>
 </section>
 
+<!-- IMAGE LAYOUT -->
 <div class="image-layout">
-
-  <!-- Row 1 -->
-  <div class="img-box large">
-    <img src="fishing.jpg">
-    <div class="img-text">Fishing Ropes</div>
-  </div>
-
-  <div class="img-box small">
-    <img src="industrial.jpg">
-    <div class="img-text">Industrial Use</div>
-  </div>
-
-  <div class="img-box small">
-    <img src="MOUNT.jpg">
-    <div class="img-text">Mountaineering</div>
-  </div>
-
-  <!-- Row 2 -->
-  <div class="img-box small">
-    <img src="yachting.jpg">
-    <div class="img-text">Yachting</div>
-  </div>
-
-  <div class="img-box small">
-    <img src="sports-nets.jpg">
-    <div class="img-text">Sports Nets</div>
-  </div>
-
-  <div class="img-box large">
-    <img src="shipping.jpg">
-    <div class="img-text">Shipping & Cargo</div>
-  </div>
-
+  <div class="img-box large"><img src="fishing.jpg"><div class="img-text">Fishing Ropes</div></div>
+  <div class="img-box small"><img src="industrial.jpg"><div class="img-text">Industrial Use</div></div>
+  <div class="img-box small"><img src="MOUNT.jpg"><div class="img-text">Mountaineering</div></div>
+  <div class="img-box small"><img src="yachting.jpg"><div class="img-text">Yachting</div></div>
+  <div class="img-box small"><img src="sports-nets.jpg"><div class="img-text">Sports Nets</div></div>
+  <div class="img-box large"><img src="shipping.jpg"><div class="img-text">Shipping & Cargo</div></div>
 </div>
 
-
 <div style="height: 20px; text-align: center; margin-top: 30px; margin-bottom: 30px;">
-  <strong style="text-align: center; font-size:x-large">Find the Best Solution specializing in Aquaculture & Fishing Nets, Sports Nets, Ropes, Cordages & more</strong>
-</div >
+  <strong style="font-size:x-large">Find the Best Solution specializing in Aquaculture & Fishing Nets, Sports Nets, Ropes, Cordages & more</strong>
+</div>
 
-<section class="full-slider" style="margin-bottom:40px;padding-left:60px;">
-
+<!-- FULL SLIDER -->
+<section class="full-slider">
   <div class="slider-track">
-    <div class="slide"><img src="one.jpg"></div>
-    <div class="slide"><img src="two.jpg"></div>
-    <div class="slide"><img src="three.jpg"></div>
-    <div class="slide"><img src="four.jpg"></div>
-    <div class="slide"><img src="five.jpg"></div>
-    <div class="slide"><img src="six.jpg"></div>
-  </div> <!-- ✅ CLOSE TRACK -->
-
+    <div class="full-slide active"><img src="one.jpg"></div>
+    <div class="full-slide"><img src="two.jpg"></div>
+    <div class="full-slide"><img src="three.jpg"></div>
+    <div class="full-slide"><img src="four.jpg"></div>
+    <div class="full-slide"><img src="five.jpg"></div>
+    <div class="full-slide"><img src="six.jpg"></div>
+  </div>
   <button class="arrow left">&#10094;</button>
   <button class="arrow right">&#10095;</button>
-
 </section>
-
 
 <footer>
   © <span id="year"></span> AMPOLE Rope — All Rights Reserved
 </footer>
 
 <script>
-const slider = document.querySelector(".full-slider");
-const track = slider.querySelector(".slider-track");
-const nextBtn = slider.querySelector(".arrow.right");
-const prevBtn = slider.querySelector(".arrow.left");
+document.getElementById("year").textContent = new Date().getFullYear();
 
-let slides = Array.from(track.children);
+/* ================= HERO PUNCHLINES ================= */
+const punchlines=[
+ "Strength you can trust, flexibility you can count on!",
+ "Tie it all together with our plastic ropes!",
+ "Rope in the possibilities — durable & reliable!"
+];
+let p=0,pl=document.getElementById("heroPunchline");
+setInterval(()=>{
+  pl.classList.add("fade-out");
+  setTimeout(()=>{
+    p=(p+1)%punchlines.length;
+    pl.textContent=punchlines[p];
+    pl.classList.remove("fade-out");
+  },800);
+},3000);
 
-/* CLONE */
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
+/* ================= HERO LEFT TEXT ================= */
+const items=document.querySelectorAll("#ropeList li");
+let r=0;
+setInterval(()=>{
+  if(r<items.length){
+    items[r++].classList.add("show");
+  }else{
+    items.forEach(i=>i.classList.remove("show"));
+    r=0;
+  }
+},1800);
 
-track.appendChild(firstClone);
-track.insertBefore(lastClone, slides[0]);
+/* ================= HERO SLIDER ================= */
+const heroSlides = document.querySelectorAll(".hero-slider .hero-slide");
+let heroIndex = 0;
+setInterval(() => {
+  heroSlides.forEach(s => s.classList.remove("active"));
+  heroIndex = (heroIndex + 1) % heroSlides.length;
+  heroSlides[heroIndex].classList.add("active");
+}, 4000);
 
-slides = Array.from(track.children);
+/* ================= FULL SLIDER ================= */
+const track = document.querySelector(".slider-track");
+const slides = document.querySelectorAll(".full-slide");
+const nextBtn = document.querySelector(".arrow.right");
+const prevBtn = document.querySelector(".arrow.left");
+let index = 0;
+const total = slides.length;
 
-let index = 1;
-const slideWidth = slider.clientWidth;
-
-track.style.transform = `translateX(-${slideWidth * index}px)`;
-
-/* MOVE */
-function move() {
-  track.style.transition = "transform 0.8s ease";
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-
-/* NEXT / PREV */
-function nextSlide() {
-  if (index >= slides.length - 1) return;
-  index++;
-  move();
-}
-
-function prevSlide() {
-  if (index <= 0) return;
-  index--;
-  move();
-}
+function updateSlider(){ track.style.transform = `translateX(-${index * 100}%)`; }
+function nextSlide(){ index = (index + 1) % total; updateSlider(); }
+function prevSlide(){ index = (index - 1 + total) % total; updateSlider(); }
 
 nextBtn.onclick = nextSlide;
 prevBtn.onclick = prevSlide;
 
-/* LOOP FIX */
-track.addEventListener("transitionend", () => {
-  if (slides[index] === firstClone) {
-    track.style.transition = "none";
-    index = 1;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
-  if (slides[index] === lastClone) {
-    track.style.transition = "none";
-    index = slides.length - 2;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
-});
-
-/* AUTO */
-let auto = setInterval(nextSlide, 4000);
-slider.addEventListener("mouseenter", () => clearInterval(auto));
-slider.addEventListener("mouseleave", () => auto = setInterval(nextSlide, 4000));
+let autoSlide = setInterval(nextSlide, 4000);
+document.querySelector(".full-slider").addEventListener("mouseenter",()=>{ clearInterval(autoSlide); });
+document.querySelector(".full-slider").addEventListener("mouseleave",()=>{ autoSlide = setInterval(nextSlide, 4000); });
 </script>
-
 
 </body>
 </html>
