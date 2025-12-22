@@ -213,7 +213,9 @@ h1{
 }
 
 .footer-bottom{
-  text-align:center
+  text-align:center;
+  margin-top:20px;
+  font-weight:700;
 }
 /* ================= MOBILE ================= */
 @media(max-width:600px){
@@ -294,37 +296,36 @@ h1{
 <footer class="contact-footer">
   <div class="footer-container">
 
-    <!-- Company Info -->
     <div class="footer-box">
       <h3>AMPOLE Rope</h3>
       <p>Strength you can trust, flexibility you can count on.</p>
     </div>
 
-    <!-- Contact Details -->
-    <div class="footer-box">
-      <h3>Contact Us</h3>
-      <p>📍 Address: Your Factory Address, India</p>
-      <p>📞 Phone: +91 98765 43210</p>
-      <p>✉️ Email: info@ampolerope.com</p>
-    </div>
-
-    <!-- Quick Links -->
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
 
-    <!-- Contact Form -->
     <div class="footer-box">
       <h3>Send Enquiry</h3>
       <form>
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    © <span id="year"></span> AMPOLE Rope — All Rights Reserved
+  </div>
+</footer>
+  
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();

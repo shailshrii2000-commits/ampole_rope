@@ -265,13 +265,57 @@ nav ul li a:hover, nav ul li a:focus {
   min-width:100%;
   height:100%;
   flex-shrink:0;
+  position:relative;
 }
 
 .full-slide img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  filter:brightness(0.85);
+  z-index:1;   /* ✅ */
 }
+
+.slide-caption{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.55);
+  padding:18px 30px;
+  border-radius:14px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  animation: fadeUp .8s ease;
+  z-index:10;   
+
+}
+
+.slide-caption h2{
+  font-size:32px;
+  margin-bottom:6px;
+  color:#FFFF00;
+}
+
+.slide-caption p{
+  font-size:18px;
+  font-weight:600;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translate(-50%, 20px);
+  }
+  to{
+    opacity:1;
+    transform:translate(-50%, 0);
+  }
+}
+
 
 /* SPACE BETWEEN TEXT AND SLIDER */
 .info, .quick-products, .image-layout{
@@ -427,6 +471,12 @@ nav ul li a:hover, nav ul li a:focus {
   .info p{ font-size:16px; }
   .full-slider{ height:220px; }
 }
+@media (max-width:768px){
+  .slide-caption h2{ font-size:20px; }
+  .slide-caption p{ font-size:14px; }
+  .slide-caption{ padding:12px 18px; }
+}
+
 </style>
 </head>
 <body>
@@ -513,17 +563,67 @@ nav ul li a:hover, nav ul li a:focus {
 </div>
 
 <!-- FULL SLIDER -->
+<!-- FULL SLIDER -->
 <section class="full-slider">
+
   <div class="slider-track">
-    <div class="full-slide"><img src="one.jpg"></div>
-    <div class="full-slide"><img src="two.jpg"></div>
-    <div class="full-slide"><img src="three.jpg"></div>
-    <div class="full-slide"><img src="four.jpg"></div>
-    <div class="full-slide"><img src="five.jpg"></div>
-    <div class="full-slide"><img src="six.jpg"></div>
-  </div>
+
+    <div class="full-slide">
+      <img src="one.jpg">
+      <div class="slide-caption">
+        <h2>Predator & Nets</h2>
+        <p>High Strength Compact Braided Stiff Nets Excellent
+Abrasion resistance and cut resistance Prevents large
+scale algae growth.Uniform and Stable Knots Stiff Tight
+and compact Knots</p>
+      </div>
+    </div>
+
+    <div class="full-slide">
+      <img src="two.jpg">
+      <div class="slide-caption">
+        <h2>Aquaculture</h2>
+        <p>provide great breeding environment </p>
+      </div>
+    </div>
+
+    <div class="full-slide">
+      <img src="three.jpg">
+      <div class="slide-caption">
+        <h2>customise solutions</h2>
+        <p>We are committed towards perfection</p>
+      </div>
+    </div>
+
+    <div class="full-slide">
+      <img src="four.jpg">
+      <div class="slide-caption">
+        <h2>Sports net</h2>
+        <p>Thermo-Stabilized for excellent dimensional uniformity and mesh stability</p>
+      </div>
+    </div>
+
+    <div class="full-slide">
+      <img src="five.jpg">
+      <div class="slide-caption">
+        <h2>Strength and Quality</h2>
+        <p>As per your operation</p>
+      </div>
+    </div>
+
+    <div class="full-slide">
+      <img src="six.jpg">
+      <div class="slide-caption">
+        <h2>mooring</h2>
+        <p>providing great breeding environment</p>
+      </div>
+    </div>
+
+  </div> <!-- ✅ slider-track CLOSED -->
+
   <button class="arrow left">&#10094;</button>
   <button class="arrow right">&#10095;</button>
+
 </section>
 
 <!-- FOOTER -->
