@@ -176,73 +176,109 @@ h2{text-align:center;margin:30px 0;font-size:36px;color:#B00000}
 .contact-footer{
   background:#E70114;
   color:#fff;
-  padding:50px 20px 20px;
-  margin-top:60px;
+  padding:30px 20px;
 }
 
 .footer-container{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:30px;
+  grid-template-columns:1.2fr 1fr 1.8fr;
+  gap:20px;
 }
 
 .footer-box h3{
-  margin-bottom:14px;
+  margin-bottom:10px;
   color:#FFFF00;
 }
 
 .footer-box p{
-  line-height:1.6;
-  font-size:15px;
+  font-size:14px;
+  line-height:1.5;
 }
 
+.footer-copy{
+  margin-top:14px;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* LINKS */
 .footer-box ul{
   list-style:none;
 }
 .footer-box ul li{
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .footer-box ul li a{
   color:#fff;
   text-decoration:none;
-  transition:.3s;
+  font-size:14px;
 }
 .footer-box ul li a:hover{
   color:#FFFF00;
 }
 
-.footer-box form input,
-.footer-box form textarea{
+/* ENQUIRY FORM */
+.enquiry-form{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.enquiry-form .row{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:8px;
+}
+
+.enquiry-form input,
+.enquiry-form textarea{
   width:100%;
-  padding:8px 10px;
-  margin-bottom:10px;
+  padding:10px;
   border:none;
   border-radius:6px;
   font-size:14px;
 }
 
-.footer-box form button{
-  width:100%;
+.enquiry-form textarea{
+  height:44px;
+  resize:none;
+}
+
+.enquiry-form button{
   padding:10px;
   background:#FFFF00;
   color:#E70114;
   border:none;
-  font-weight:700;
   border-radius:6px;
+  font-weight:700;
   cursor:pointer;
-  transition:.3s;
 }
-.footer-box form button:hover{
-  background:#000;
+.enquiry-form button:hover{
+  background:#0bca31;
   color:#FFFF00;
 }
+/* DEVELOPER CREDIT */
+.dev{
+  display:block;
+  margin-top:6px;
+  font-size:12.5px;
+  opacity:.85;
+}
 
-.footer-bottom{
-  text-align:center;
-  margin-top:20px;
+.dev b{
+  color:#FFFF00;
   font-weight:700;
+}
+
+@media(max-width:768px){
+  .footer-container{
+    grid-template-columns:1fr;
+  }
+  .enquiry-form .row{
+    grid-template-columns:1fr;
+  }
 }
 
 /* MOBILE */
@@ -492,11 +528,22 @@ document.getElementById("year").textContent=new Date().getFullYear();
 <footer class="contact-footer">
   <div class="footer-container">
 
-    <div class="footer-box">
+    <!-- BRAND -->
+    <div class="footer-box brand-box">
       <h3>AMPOLE Rope</h3>
       <p>Strength you can trust, flexibility you can count on.</p>
+
+      <!-- COPYRIGHT LEFT UNDER BRAND -->
+      <div class="footer-copy">
+        © <span id="year"></span> AMPOLE Rope — All Rights Reserved
+      </div>
+      <span class="dev" style="margin-top:20px;">
+  <b>Developed by:</b> shailshri |
+  <b>Email:</b> shailshrii909@gmail.com
+</span>
     </div>
 
+    <!-- QUICK LINKS -->
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
@@ -506,22 +553,30 @@ document.getElementById("year").textContent=new Date().getFullYear();
       </ul>
     </div>
 
-    <div class="footer-box">
+    <!-- SEND ENQUIRY -->
+    <div class="footer-box enquiry-box">
       <h3>Send Enquiry</h3>
-      <form>
-        <input type="text" placeholder="Your Name" required>
+
+      <form class="enquiry-form">
+
+        <!-- NAME + MESSAGE (SAME LINE) -->
+        <div class="row">
+          <input type="text" placeholder="Your Name" required>
+          <textarea placeholder="Your Message" required></textarea>
+        </div>
+
+        <!-- EMAIL -->
         <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
+
+        <!-- MOBILE NUMBER -->
+        <input type="tel" placeholder="Mobile Number" required>
+
         <button type="submit">Send</button>
       </form>
     </div>
 
   </div>
-  <div class="footer-bottom">
-    © <span id="year"></span> AMPOLE Rope — All Rights Reserved
-  </div>
 </footer>
-
    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
