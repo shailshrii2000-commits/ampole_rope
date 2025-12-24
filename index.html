@@ -695,19 +695,20 @@ and compact Knots</p>
     <div class="footer-box enquiry-box">
       <h3>Send Enquiry</h3>
 
-      <form class="enquiry-form">
+    <form class="enquiry-form" action="send.php" method="POST">
+
 
         <!-- NAME + MESSAGE (SAME LINE) -->
         <div class="row">
-          <input type="text" placeholder="Your Name" required>
-          <textarea placeholder="Your Message" required></textarea>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
         </div>
 
         <!-- EMAIL -->
-        <input type="email" placeholder="Your Email" required>
+        <input type="email" name="email" placeholder="Your Email" required>
 
         <!-- MOBILE NUMBER -->
-        <input type="tel" placeholder="Mobile Number" required>
+        <input type="tel" name="mobile" placeholder="Mobile Number" required>
 
         <button type="submit">Send</button>
       </form>
