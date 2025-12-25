@@ -472,22 +472,19 @@ body {
     <div class="footer-box enquiry-box">
       <h3>Send Enquiry</h3>
 
-      <form class="enquiry-form">
+      <form class="enquiry-form" method="POST" action="send.php">
 
-        <!-- NAME + MESSAGE (SAME LINE) -->
-        <div class="row">
-          <input type="text" placeholder="Your Name" required>
-          <textarea placeholder="Your Message" required></textarea>
-        </div>
+  <div class="row">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+  </div>
 
-        <!-- EMAIL -->
-        <input type="email" placeholder="Your Email" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="tel" name="mobile" placeholder="Mobile Number" required>
 
-        <!-- MOBILE NUMBER -->
-        <input type="tel" placeholder="Mobile Number" required>
+  <button type="submit">Send</button>
+</form>
 
-        <button type="submit">Send</button>
-      </form>
     </div>
 
   </div>
