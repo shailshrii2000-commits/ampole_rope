@@ -9,7 +9,7 @@ $email   = trim($_POST['email'] ?? '');
 $mobile  = trim($_POST['mobile'] ?? '');
 $message = trim($_POST['message'] ?? '');
 
-$to = "virenbhatt@ampolerope.com";
+$to = "info@ampolerope.com";
 $subject = "New Enquiry - AMPOLE Rope";
 
 $body = "New Enquiry\n\n";
